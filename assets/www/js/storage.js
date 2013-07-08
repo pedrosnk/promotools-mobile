@@ -39,7 +39,7 @@ window.App.db = {
     var queryInsert = "INSERT INTO " + this.DATABASE_NAME + 
       " (email, first_time, nps, reason, sugestion, confirmed_sended, created_at) " + 
       "VALUES ('"+ data.email + "', "+  data.first_time + " , "+ data.nps +", '"+ 
-        data.reason +"', '"+ data.sugestion +"' , "+ data.confirmed_sended +", "+ new Date() +") ";
+        data.reason +"', '"+ data.sugestion +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
     db.transaction(_.bind(function(tx){
     
       console.log("SALVANDO:");
@@ -47,6 +47,24 @@ window.App.db = {
       tx.executeSql(queryInsert);
 
     },this), this.error, this.success);
-  } 
-  
+  },
+
+  surveysUnsent: function(callback) {
+    console.log(" >>> surveysUnsent");
+    var db = this.openDB();
+    var queryGetSurveysUnsent = "SELECT * FROM " + this.DATABASE_NAME + " WHERE confirmed_sended = 0"; 
+   
+    db.transaction(
+      function(tx){
+        tx.executeSql(queryGetSurveysUnsent);
+      }, 
+      [],
+      function(tx, result){
+        console.log(" >>> surveysUnsent.CALLBACK");
+        console.log(result);
+        callback(result);
+      },
+      this.error
+    );
+  }  
 };

@@ -44,29 +44,27 @@ $(".email-question-yes, .email-question-no").click(function(e){
     $("#leave-sugestion").show();
 });
 
-$("#leave-sugestion").children().click(_.bind(function(e){
-    e.preventDefault();
-    window.DATA_SURVEY.sugestion = e.currentTarget.innerText;
+$("#leave-sugestion").children().click(function(e){
+  console.log(" >> on leave-sugestion");
+  e.preventDefault();
+  window.DATA_SURVEY.sugestion = e.currentTarget.innerText;
 
-    if($(e.currentTarget).hasClass('yes')){
-        $("#leave-sugestion").hide();
-        $("#sugestion-box").show();
-    } else{
-    	$(".alert").show();
-        var form = $("#survey-form");
-        console.log("window.App");
-        window.App.network.submitSurvey(window.DATA_SURVEY);
-    }
-}, this));
+  if($(e.currentTarget).hasClass('yes')){
+      $("#leave-sugestion").hide();
+      $("#sugestion-box").show();
+  } else{
+  	$(".alert").show();
+    window.App.network.submitSurvey(window.DATA_SURVEY);
+  }
 
-$(".submit-sugestion").click(_.bind(function(e){
+});
+
+$(".submit-sugestion").click(function(e){
+  console.log(" >> on submit-sugestion");
 	$(".alert").show();
-
 	var el = $(e.toElement.parentNode);
-    var feedback = el.find('textarea[name=feedback]').val();
-    window.DATA_SURVEY.sugestion = feedback;
-
-    var form = $("#survey-form");
-    console.log("window.App");
-}, this));
+  var feedback = el.find('textarea[name=feedback]').val();
+  window.DATA_SURVEY.sugestion = feedback;
+  window.App.network.submitSurvey(window.DATA_SURVEY);
+});
 

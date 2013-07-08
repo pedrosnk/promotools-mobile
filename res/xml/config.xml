@@ -34,8 +34,9 @@
 
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
     <content src="index.html" />
-
+ 	<preference name="fullscreen" value="true" />
     <preference name="loglevel" value="DEBUG" />
+    
     <!--
       <preference name="splashscreen" value="resourceName" />
       <preference name="backgroundColor" value="0xFFF" />
