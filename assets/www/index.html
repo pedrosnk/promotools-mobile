@@ -18,7 +18,7 @@
     <link rel="icon" href="favicon-48.png" sizes="48x48">
     <link rel="icon" href="favicon-64.png" sizes="64x64">
     <link rel="icon" href="favicon-128.png" sizes="128x128">
-  
+
 
 </head>
 <body>
@@ -31,7 +31,7 @@
     <div class="navbar-inner">
         <div class="container">
             <a id="logo" href="#">
-                <img src="img/logo-promotools.png">
+                <img src="img/logo-promotools.png" alt='logo'>
             </a>
         </div>
     </div>
@@ -41,7 +41,7 @@
     <div class='notifications center'></div>
 
     <div id="nps-question" class="question first">
-        <label>Qual È a probabilidade de você recomendar este restaurante a um amigo?</label>
+        <label>Qual &eacute; a probabilidade de voc&ecirc; recomendar este restaurante a um amigo?</label>
         <div id="nps-question-itens">
             <button type="submit" class="btn">0</button>
             <button type="submit" class="btn">1</button>
@@ -54,7 +54,7 @@
             <button type="submit" class="btn">8</button>
             <button type="submit" class="btn">9</button>
             <button type="submit" class="btn">10</button>
-        </div>                                       
+        </div>
     </div>
 
     <div id="reason-question" class="question">
@@ -64,21 +64,21 @@
             <button type="submit" class="btn">Tempo de espera para receber o pedido</button>
             <button type="submit" class="btn">Ambiente</button>
             <button type="submit" class="btn">Atendimento</button>
-            <button type="submit" class="btn">Preço</button>
+            <button type="submit" class="btn">Pre&ccedil;o</button>
             <button type="submit" class="btn">Outro motivo</button>
         </div>
     </div>
 
     <div id="first-time-question" class="question">
-        <label>… a sua primeira visita este restaurante?</label> 
+        <label>&Eacute; a sua primeira visita este restaurante?</label>
         <div id="first-time-question-itens">
             <button type="submit" class="btn">Sim</button>
-            <button type="submit" class="btn">N„o</button>
+            <button type="submit" class="btn">N&atilde;o</button>
         </div>
     </div>
 
    <div id="email-question" class="question">
-        <label>Deixe seu email e concorra a prêmios e promoções especiais</label>
+        <label>Deixe seu email e concorra a pr&oacute;mios e promo&ccidil;&otilde;es especiais</label>
 
         <input type="email" name="user_contact">
         <button type="submit" class="btn email-question-yes">Ok</button>
@@ -86,27 +86,27 @@
     </div>
 
     <div id="claim-email-question" class="question">
-        <label>Deixe seu email, queremos te manter informado sobre o resultado da sua reclamaçÁ„o ou sugest„o</label>
+        <label>Deixe seu email, queremos te manter informado sobre o resultado da sua reclama&ccedil;&atilde;o ou sugest&atilde;o</label>
         <input type="text" name="user_contact">
         <button type="submit" class="btn email-question-yes" >Ok</button>
-        <button type="submit" class="btn email-question-no">N„o, obrigado</button>
+        <button type="submit" class="btn email-question-no">N&atilde;o, obrigado</button>
     </div>
 
     <div id="leave-sugestion" class="question">
-        <label>Gostaria de deixar uma sugest„o ou reclamaçÁ„o?</label>
+        <label>Gostaria de deixar uma sugest&atilde;o ou reclama&ccedil;&atilde;o?</label>
         <button type="submit" class="btn yes">Sim</button>
         <button type="submit" class="btn submit-sugestion">Encerrar a pesquisa</button>
     </div>
 
     <div id="sugestion-box" class="question">
-        <label>Sugest„o ou reclamaçÁ„o</label>
+        <label>Sugest&atilde;o ou reclama&ccedil;&atilde;o</label>
         <textarea name="feedback" rows="3"></textarea>
         <button type="submit" class="btn submit-sugestion">Enviar</button>
     </div>
 
     <div class="alert alert-success fade in" style="display:none;">
         <h4>Muito obrigado!</h4>
-        Sua opini„o muito importante para nÛs. Obrigado por ajudar a melhorar nossa qualidade.
+        Sua opini&atilde;o muito importante para n&oacute;s. Obrigado por ajudar a melhorar nossa qualidade.
     </div>
 </div> <!-- /container -->
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -126,12 +126,12 @@
 
     console.log(" >> in onDeviceReady");
       window.App.db.createDB();
-      jQuery.ajaxSetup({ 
-        'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")} 
+      jQuery.ajaxSetup({
+        'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
       });
     }
 
-</script>    
+</script>
 
 </body>
 
