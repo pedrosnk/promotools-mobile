@@ -9,7 +9,7 @@ $("#nps-question-itens").children().click(function(e){
 });
 
 $("#reason-question-itens").children().click(function(e){
-    e.preventDefault();    
+    e.preventDefault();
     window.DATA_SURVEY.reason = e.currentTarget.innerText;
 
     $("#reason-question").hide();
@@ -18,7 +18,7 @@ $("#reason-question-itens").children().click(function(e){
 
 $("#first-time-question").children().click(function(e){
     e.preventDefault();
-    
+
     if($(e.currentTarget).hasClass('yes')){
         window.DATA_SURVEY.first_time = 1;
     } else {
@@ -35,7 +35,7 @@ $("#first-time-question").children().click(function(e){
 });
 
 $(".email-question-yes, .email-question-no").click(function(e){
-    e.preventDefault();    
+    e.preventDefault();
     var el = $(e.toElement.parentNode);
     window.DATA_SURVEY.email = el.find('input[name=user_contact]').val();
 
@@ -53,6 +53,7 @@ $("#leave-sugestion").children().click(function(e){
       $("#leave-sugestion").hide();
       $("#sugestion-box").show();
   } else{
+    $("#leave-sugestion").hide();
   	$(".alert").show();
     window.App.network.submitSurvey(window.DATA_SURVEY);
   }
@@ -61,6 +62,7 @@ $("#leave-sugestion").children().click(function(e){
 
 $(".submit-sugestion").click(function(e){
   console.log(" >> on submit-sugestion");
+  $("#sugestion-box").hide();
 	$(".alert").show();
 	var el = $(e.toElement.parentNode);
   var feedback = el.find('textarea[name=feedback]').val();
