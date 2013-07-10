@@ -32,7 +32,11 @@ public class Promotools extends DroidGap
     {
         super.onCreate(savedInstanceState);
         super.loadUrl(Config.getStartUrl());
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);        
+        /**
+         * Uncoment the line bellow to run the tests spec
+         */
+//        super.loadUrl("file:///android_asset/www/spec.html"); // to run tests
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
     }
 }
 
