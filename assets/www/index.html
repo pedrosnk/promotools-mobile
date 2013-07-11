@@ -106,29 +106,31 @@
         <h4>Muito obrigado!</h4>
         Sua opini&atilde;o muito importante para n&oacute;s. Obrigado por ajudar a melhorar nossa qualidade.
     </div>
+    <div id="cron"></div>
 </div> <!-- /container -->
+
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
-<script src="js/underscore-min.js" type="text/javascript"></script>
+
+<script src="js/vendors/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="js/vendors/underscore-min.js" type="text/javascript"></script>
+<script src="js/vendors/later.min.js" type="text/javascript"></script>
+
 <script src="js/network.js" type="text/javascript"></script>
 <script src="js/storage.js" type="text/javascript"></script>
 <script src="js/pageController.js" type="text/javascript"></script>
 
-
-
 <script type="text/javascript" charset="utf-8">
-    document.addEventListener("deviceready", onDeviceReady, false);
+  document.addEventListener("deviceready", onDeviceReady, false);
 
-    function onDeviceReady() {
+  function onDeviceReady() {
+    window.App.db.createDB();
+    window.App.network.initSenderJob();
+    
+    jQuery.ajaxSetup({
+      'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+    });    
 
-    console.log(" >> in onDeviceReady");
-      window.App.db.createDB();
-      jQuery.ajaxSetup({
-        'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-      });
-    }
-
+  }
 </script>
 
 </body>

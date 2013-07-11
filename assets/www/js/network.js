@@ -6,6 +6,16 @@ window.App.network = {
   // BASE_URL: "http://promotools-survey.herokuapp.com",
   BASE_URL: "http://0.0.0.0:3000",
 
+  initSenderJob : function(){  
+    console.log("#### ------>>> INIT SENDER JOB");
+    var textSched = later.parse.text('every 1 min');
+    var timer = later.setInterval(this.sender, textSched);               
+  },
+
+  sender: function(){
+    console.log("#### ------->>> " + new Date());
+  },
+
   submitSurvey: function(survey){
     this.submitSurveys([survey]);
   },

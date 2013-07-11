@@ -15,14 +15,9 @@ window.App.db = {
     console.log(" --->> on createDB");
     var db = this.openDB();
     db.transaction(_.bind(function(tx){
-      tx.executeSql('DROP TABLE '+ this.DATABASE_NAME);
+      //tx.executeSql('DROP TABLE '+ this.DATABASE_NAME);
       tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.DATABASE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, email, first_time, nps, reason, sugestion, confirmed_sended, created_at)');
     },this), this.error, this.success);
-  },
-
-  createTable: function(tx) {
-    console.log(" >> on createTable");
-
   },
 
   error: function(err) {
