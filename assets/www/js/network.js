@@ -5,30 +5,35 @@ if(window.App === undefined){
 window.App.network = {
   // BASE_URL: "http://promotools-survey.herokuapp.com",
   BASE_URL: "http://0.0.0.0:3000",
+  STATUS: {
+    ERROR: 0,
+    SUCCESS: 1 
+  },
 
   initSenderJob : function(){  
     console.log("#### ------>>> INIT SENDER JOB");
-    var textSched = later.parse.text('every 1 min');
+    var cronFrequency = 'every 1 min';
+    var textSched = later.parse.text(cronFrequency);
     var timer = later.setInterval(this.sender, textSched);               
   },
 
   sender: function(){
-    console.log("#### ------->>> " + new Date());
+    console.log("[CRON] TRYING TO SUBMIT SURVEYS " + new Date());
+    App.db.surveysUnsent(_.bind(this.submitSurveysUnsent,this));
   },
 
   submitSurvey: function(survey){
     this.submitSurveys([survey]);
   },
 
-  reloadPage: function(){
-    setTimeout(function() {
-      $(".alert").hide();
-      $("#nps-question").show();
-    }, 500);
-  },
-
   submitSurveys: function(surveys){
-    console.log("on submitSurvey data = " + surveys);
+    surveys.forEach(function(survey) {
+      if(survey.id === undefined || survey.id === null){
+         App.db.save(survey);
+      }
+    });
+
+    //sending to our server
     $.ajax({
       contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
       type: 'POST',
@@ -37,34 +42,20 @@ window.App.network = {
       crossDomain : true,
       dataType: 'json',
       success : _.bind(function(form, action) {
-        console.log("submitSurveys.success");
-        console.log(surveys);
-        surveys.forEach(function(survey) {
-          survey.confirmed_sended = 1;
-          App.db.save(survey);
-        });
-        this.reloadPage();
+        this.updateSurveys(surveys, this.STATUS.SUCCESS)
       }, this),
       error: _.bind(function(jqXHR, textStatus, errorThrown){
-        console.log("!!!!!!!!!!!!!!!!!!! submitSurveys.ERROR");
-        console.log(surveys);
-        surveys.forEach(function(survey) {
-          survey.confirmed_sended = 0;
-          if(survey.id !== undefined || survey.id !== null){
-             App.db.save(survey);
-          }
-        });
-        this.saveLater();
-        this.reloadPage();
+        this.updateSurveys(surveys,this.STATUS.ERROR)
       }, this)
     });
   },
 
-  saveLater: function() {
-    console.log('[CRON] >>>> save later');
-    setTimeout(_.bind(function(){
-      App.db.surveysUnsent(_.bind(this.submitSurveysUnsent,this));
-    },this) ,300000);
+  updateSurveys: function(surveys, status) {
+    surveys.forEach(function(survey) {
+      survey.confirmed_sended = status;
+      App.db.update(survey);
+    });
+    this.reloadPage();
   },
 
   submitSurveysUnsent: function(result) {
@@ -77,5 +68,13 @@ window.App.network = {
       surveys.push(result.rows.item(i));
     }
     this.submitSurveys(surveys);
+  },
+
+  reloadPage: function(){
+    setTimeout(function() {
+      $(".alert").hide();
+      $("#nps-question").show();
+    }, 500);
   }
+
 };

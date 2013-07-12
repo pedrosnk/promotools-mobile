@@ -44,6 +44,21 @@ window.App.db = {
     },this), this.error, this.success);
   },
 
+  update: function(data) {
+    var db = this.openDB();
+    console.log(data);
+    var queryUpdate = "UPDATE " + this.DATABASE_NAME +
+      " SET confirmed_sended="+ data.confirmed_sended +
+      " WHERE id = " + data.id;
+    db.transaction(_.bind(function(tx){
+
+      console.log("UPDATANDO:");
+      console.log(queryUpdate);
+      tx.executeSql(queryUpdate);
+
+    },this), this.error, this.success);
+  },
+
   surveysUnsent: function(callback) {
     console.log(" >>> surveysUnsent");
     var db = this.openDB();
