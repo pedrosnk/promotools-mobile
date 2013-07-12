@@ -2,50 +2,46 @@ if(window.App === undefined){
   window.App = {};
 }
 
-window.App.network = {
-  // BASE_URL: "http://promotools-survey.herokuapp.com",
-  BASE_URL: "http://0.0.0.0:3000",
-  STATUS: {
+window.App.network = {  
+  
+  BASE_URL: App.config.ENDPOINT || "http://10.0.2.2:3000",
+
+  status: {
     ERROR: 0,
     SUCCESS: 1 
   },
 
   initSenderJob : function(){  
-    console.log("#### ------>>> INIT SENDER JOB");
+    console.log("[CRON] Init sender job");
     var cronFrequency = 'every 1 min';
     var textSched = later.parse.text(cronFrequency);
     var timer = later.setInterval(this.sender, textSched);               
   },
 
   sender: function(){
-    console.log("[CRON] TRYING TO SUBMIT SURVEYS " + new Date());
-    App.db.surveysUnsent(_.bind(this.submitSurveysUnsent,this));
+    console.log("[SENDER] TRYING TO SUBMIT SURVEYS " + new Date());
+    App.storage.surveysUnsent(_.bind(this.submitSurveysUnsent,this));
   },
 
-  submitSurvey: function(survey){
-    this.submitSurveys([survey]);
+  saveSurvey: function(survey){
+    App.storage.save(survey);
+    this.sender();
   },
 
   submitSurveys: function(surveys){
-    surveys.forEach(function(survey) {
-      if(survey.id === undefined || survey.id === null){
-         App.db.save(survey);
-      }
-    });
-
     //sending to our server
     $.ajax({
       contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
       type: 'POST',
       url : this.BASE_URL + '/surveys.json',
-      data : {surveys: surveys},
+      data : {surveys: surveys, client_id: App.config.CLIENT_KEY},
       crossDomain : true,
       dataType: 'json',
       success : _.bind(function(form, action) {
-        this.updateSurveys(surveys, this.STATUS.SUCCESS)
+        this.updateSurveys(surveys, this.status.SUCCESS)
       }, this),
       error: _.bind(function(jqXHR, textStatus, errorThrown){
-        this.updateSurveys(surveys,this.STATUS.ERROR)
+        this.reloadPage();
       }, this)
     });
   },
@@ -53,7 +49,7 @@ window.App.network = {
   updateSurveys: function(surveys, status) {
     surveys.forEach(function(survey) {
       survey.confirmed_sended = status;
-      App.db.update(survey);
+      App.storage.update(survey);
     });
     this.reloadPage();
   },
@@ -64,7 +60,6 @@ window.App.network = {
     surveys = [];
     for (var i=0; i<len; i++){
       console.log(JSON.stringify(result.rows.item(i)));
-      console.log("Row = " + i + " ID = " + result.rows.item(i).id + " Data =  " + result.rows.item(i).data);
       surveys.push(result.rows.item(i));
     }
     this.submitSurveys(surveys);

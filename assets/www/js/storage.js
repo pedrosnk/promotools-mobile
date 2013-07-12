@@ -1,9 +1,8 @@
 if(window.App === undefined){
-  console.log("App is undefined in storage.js");
   window.App = {};
 }
 
-window.App.db = {
+window.App.storage = {
 
   DATABASE_NAME: "SURVEY",
 
@@ -12,12 +11,13 @@ window.App.db = {
   },
 
   createDB: function() {
-    console.log(" --->> on createDB");
     var db = this.openDB();
     db.transaction(_.bind(function(tx){
-      //tx.executeSql('DROP TABLE '+ this.DATABASE_NAME);
+      tx.executeSql('DROP TABLE '+ this.DATABASE_NAME);
       tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.DATABASE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, email, first_time, nps, reason, sugestion, confirmed_sended, created_at)');
-    },this), this.error, this.success);
+    },this), this.error, function(){
+      console.log("[DB - SUCCESS] DB created successfully.");  
+    });
   },
 
   error: function(err) {
@@ -34,8 +34,8 @@ window.App.db = {
     var queryInsert = "INSERT INTO " + this.DATABASE_NAME +
       " (email, first_time, nps, reason, sugestion, confirmed_sended, created_at) " +
       "VALUES ('"+ data.email + "', "+  data.first_time + " , "+ data.nps +", '"+
-        data.reason +"', '"+ data.sugestion +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
-    db.transaction(_.bind(function(tx){
+      data.reason +"', '"+ data.sugestion +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
+      db.transaction(_.bind(function(tx){
 
       console.log("SALVANDO:");
       console.log(queryInsert);

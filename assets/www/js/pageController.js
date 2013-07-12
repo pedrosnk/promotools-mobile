@@ -2,7 +2,7 @@ window.DATA_SURVEY = null;
 
 $("#nps-question-itens").children().click(function(e){
     e.preventDefault();
-    window.DATA_SURVEY = { nps : e.currentTarget.innerText };
+    window.DATA_SURVEY = { nps : e.currentTarget.innerText, confirmed_sended: 0 };
 
     $("#nps-question").hide();
     $("#reason-question").show();
@@ -55,7 +55,7 @@ $("#leave-sugestion").children().click(function(e){
   } else{
     $("#leave-sugestion").hide();
   	$(".alert").show();
-    window.App.network.submitSurvey(window.DATA_SURVEY);
+    window.App.network.saveSurvey(window.DATA_SURVEY);
   }
 
 });
@@ -67,6 +67,6 @@ $(".submit-sugestion").click(function(e){
 	var el = $(e.toElement.parentNode);
   var feedback = el.find('textarea[name=feedback]').val();
   window.DATA_SURVEY.sugestion = feedback;
-  window.App.network.submitSurvey(window.DATA_SURVEY);
+  window.App.network.saveSurvey(window.DATA_SURVEY);
 });
 
