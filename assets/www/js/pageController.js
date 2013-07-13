@@ -55,7 +55,7 @@ $("#leave-sugestion").children().click(function(e){
     $("#leave-sugestion").hide();
     window.DATA_SURVEY.sugestion = null;
   	$(".alert").show();
-    window.App.network.sendSurvey(window.DATA_SURVEY);
+    window.App.utils.handleAnswer(window.DATA_SURVEY);
   }
 
 });
@@ -67,6 +67,6 @@ $(".submit-sugestion").click(function(e){
 	var el = $(e.toElement.parentNode);
   var feedback = el.find('textarea[name=feedback]').val();
   window.DATA_SURVEY.sugestion = feedback;
-  window.App.network.sendSurvey(window.DATA_SURVEY);
+  //window.App.utils.handleAnswer(window.DATA_SURVEY);
 });
 

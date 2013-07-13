@@ -2,7 +2,7 @@ window.App = window.App || {};
 
 window.App.storage = {
 
-  DATABASE_NAME: "SURVEY",
+  TABLE_NAME: "SURVEY",
 
   openDB: function(){
     return window.openDatabase("promotools-survey", "1.0", "Promotools DB", 1000000);
@@ -11,65 +11,78 @@ window.App.storage = {
   createDB: function() {
     var db = this.openDB();
     db.transaction(_.bind(function(tx){
-      tx.executeSql('DROP TABLE '+ this.DATABASE_NAME);
-      tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.DATABASE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, email, first_time, nps, reason, sugestion, confirmed_sended, created_at)');
+      //tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
+      tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, email, first_time, nps, reason, sugestion, confirmed_sended, created_at)');
     },this), this.error, function(){
       console.log("\n[DB - SUCCESS] DB created successfully.");  
     });
   },
 
   error: function(err) {
-    console.log("\n[DB - ERROR] Error processing SQL: " + err.code);
+    console.log("[DB - ERROR] Error processing SQL: " + err.code);
   },
 
   success: function() {
-    console.log("\n[DB - SUCCESS] Db operation was successfull.");
+    console.log("[DB - SUCCESS] Db operation was successfull.");
   },
 
   save: function(data){
-    var db = this.openDB();
-    console.log(data);
-    var queryInsert = "INSERT INTO " + this.DATABASE_NAME +
+    var queryInsert = "INSERT INTO " + this.TABLE_NAME +
       " (email, first_time, nps, reason, sugestion, confirmed_sended, created_at) " +
       "VALUES ('"+ data.email + "', "+  data.first_time + " , "+ data.nps +", '"+
       data.reason +"', '"+ data.sugestion +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
-      db.transaction(_.bind(function(tx){
 
-      console.log("\n[DB] SAVING survey");
+    console.log("!!!! App.storage.SAVE()");
+    console.log("QUERY = " + queryInsert);
+
+
+    this.openDB().transaction(function(tx){
+      console.log("[DB] SAVING survey");
       tx.executeSql(queryInsert);
-
-    },this), this.error, this.success);
+    }, this.error, this.success);
   },
 
-  update: function(data) {
-    var db = this.openDB();
-    console.log(data);
-    var queryUpdate = "UPDATE " + this.DATABASE_NAME +
-      " SET confirmed_sended="+ data.confirmed_sended +
-      " WHERE id = " + data.id;
-    db.transaction(_.bind(function(tx){
+  updateStatus: function(data, status) {
+    var queryUpdate = "UPDATE " + this.TABLE_NAME +
+    " SET confirmed_sended="+ status +
+    " WHERE id = " + data.id;
 
-      console.log("\n[DB] UPDATING survey");
+    console.log("!!!! App.storage.UPDATE()");
+    console.log("QUERY = " + queryUpdate);
+
+    this.openDB().transaction(function(tx){
       tx.executeSql(queryUpdate);
-
-    },this), this.error, this.success);
+    }, this.error, this.success);
   },
 
-  surveysUnsent: function(callback) {
+  handleAnsweredSurveys: function() {
     var db = this.openDB();
-    var queryGetSurveysUnsent = "SELECT * FROM " + this.DATABASE_NAME + " WHERE confirmed_sended = 0";
-    console.log("@@@@ >> App.storage.surveysUnsent()");
-            console.log(queryGetSurveysUnsent);
+    var queryGetSurveysUnsent = "SELECT * FROM " + this.TABLE_NAME + " WHERE confirmed_sended = " + App.network.status.ERROR;
+    console.log("@@@@ >> App.storage.handleAnsweredSurveys()");
+    console.log(queryGetSurveysUnsent);
+
     db.transaction(
-      function(tx){
+      _.bind(function(tx){
         tx.executeSql(
           queryGetSurveysUnsent,
           [],          
-          callback,
+          this.handleUnsentResults,
           this.error
-          );
-      },
+        );
+      }, this),
       this.error
-    );
+    ); 
+  },
+
+  handleUnsentResults: function(tx, result) {
+    console.log("@@@@ >> App.storage.handleUnsentResults");
+    var len = result.rows.length;
+    console.log("UNSENT SURVEYS: " + len + " rows found.");
+    surveys = [];
+    for (var i=0; i<len; i++){
+      surveys.push(result.rows.item(i));
+    }
+    App.network.submitSurveys(surveys);
   }
+
 };
