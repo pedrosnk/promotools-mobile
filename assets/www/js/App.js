@@ -1,14 +1,17 @@
-if(window.App === undefined){
-  window.App = {};
-}
+(function() {
 
-// ENDPOINT: "http://promotools.com.br/surveys" ,
-window.App.config =  { 
-	ENDPOINT: null,
-	CLIENT_KEY: "SUSHILOKO_406_SUL"
-};
+  window.App = {
 
-window.App.init = function(){
-	window.App.storage.createDB();
-  window.App.network.initSenderJob();
-};
+    config: { 
+      ENDPOINT: null,
+      CLIENT_KEY: "SUSHILOKO_406_SUL"
+    },
+
+    init: function(){
+      console.log("\n[APP] Initializing Promotools Mobile App...");
+      window.App.storage.createDB();
+      window.App.network.initSenderJob();
+    }
+  }
+
+})();

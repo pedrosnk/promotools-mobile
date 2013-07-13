@@ -1,6 +1,4 @@
-if(window.App === undefined){
-  window.App = {};
-}
+window.App = window.App || {};
 
 window.App.storage = {
 
@@ -16,16 +14,16 @@ window.App.storage = {
       tx.executeSql('DROP TABLE '+ this.DATABASE_NAME);
       tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.DATABASE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, email, first_time, nps, reason, sugestion, confirmed_sended, created_at)');
     },this), this.error, function(){
-      console.log("[DB - SUCCESS] DB created successfully.");  
+      console.log("\n[DB - SUCCESS] DB created successfully.");  
     });
   },
 
   error: function(err) {
-    console.log("[DB - ERROR] Error processing SQL: " + err.code);
+    console.log("\n[DB - ERROR] Error processing SQL: " + err.code);
   },
 
   success: function() {
-    console.log("[DB - SUCCESS] Db operation was successfull.");
+    console.log("\n[DB - SUCCESS] Db operation was successfull.");
   },
 
   save: function(data){
@@ -37,8 +35,7 @@ window.App.storage = {
       data.reason +"', '"+ data.sugestion +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
       db.transaction(_.bind(function(tx){
 
-      console.log("SALVANDO:");
-      console.log(queryInsert);
+      console.log("\n[DB] SAVING survey");
       tx.executeSql(queryInsert);
 
     },this), this.error, this.success);
@@ -52,29 +49,23 @@ window.App.storage = {
       " WHERE id = " + data.id;
     db.transaction(_.bind(function(tx){
 
-      console.log("UPDATANDO:");
-      console.log(queryUpdate);
+      console.log("\n[DB] UPDATING survey");
       tx.executeSql(queryUpdate);
 
     },this), this.error, this.success);
   },
 
   surveysUnsent: function(callback) {
-    console.log(" >>> surveysUnsent");
     var db = this.openDB();
     var queryGetSurveysUnsent = "SELECT * FROM " + this.DATABASE_NAME + " WHERE confirmed_sended = 0";
-
+    console.log("@@@@ >> App.storage.surveysUnsent()");
+            console.log(queryGetSurveysUnsent);
     db.transaction(
       function(tx){
-        console.log(queryGetSurveysUnsent);
         tx.executeSql(
           queryGetSurveysUnsent,
-          [],
-          function(tx, result){
-            console.log(" >>> surveysUnsent.CALLBACK");
-            console.log(result);
-            callback(result);
-          },
+          [],          
+          callback,
           this.error
           );
       },

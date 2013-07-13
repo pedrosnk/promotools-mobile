@@ -1,6 +1,4 @@
-if(window.App === undefined){
-  window.App = {};
-}
+window.App = window.App || {};
 
 window.App.network = {  
   
@@ -21,9 +19,10 @@ window.App.network = {
   sender: function(){
     console.log("[SENDER] TRYING TO SUBMIT SURVEYS " + new Date());
     App.storage.surveysUnsent(_.bind(this.submitSurveysUnsent,this));
+    //App.storage.surveysUnsent(this.submitSurveysUnsent);
   },
 
-  saveSurvey: function(survey){
+  sendSurvey: function(survey){
     App.storage.save(survey);
     this.sender();
   },
@@ -38,9 +37,11 @@ window.App.network = {
       crossDomain : true,
       dataType: 'json',
       success : _.bind(function(form, action) {
+        console.log("@@@@ >> App.network.submitSurveys.success");
         this.updateSurveys(surveys, this.status.SUCCESS)
       }, this),
       error: _.bind(function(jqXHR, textStatus, errorThrown){
+        console.log("@@@@ >> App.network.submitSurveys.error");
         this.reloadPage();
       }, this)
     });
@@ -54,7 +55,8 @@ window.App.network = {
     this.reloadPage();
   },
 
-  submitSurveysUnsent: function(result) {
+  submitSurveysUnsent: function(tx, result) {
+    console.log("@@@@ >> App.network.submitSurveysUnsent");
     var len = result.rows.length;
     console.log("UNSENT SURVEYS: " + len + " rows found.");
     surveys = [];

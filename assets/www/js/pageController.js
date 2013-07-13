@@ -47,15 +47,15 @@ $(".email-question-yes, .email-question-no").click(function(e){
 $("#leave-sugestion").children().click(function(e){
   console.log(" >> on leave-sugestion");
   e.preventDefault();
-  window.DATA_SURVEY.sugestion = e.currentTarget.innerText;
 
   if($(e.currentTarget).hasClass('yes')){
       $("#leave-sugestion").hide();
       $("#sugestion-box").show();
   } else{
     $("#leave-sugestion").hide();
+    window.DATA_SURVEY.sugestion = null;
   	$(".alert").show();
-    window.App.network.saveSurvey(window.DATA_SURVEY);
+    window.App.network.sendSurvey(window.DATA_SURVEY);
   }
 
 });
@@ -67,6 +67,6 @@ $(".submit-sugestion").click(function(e){
 	var el = $(e.toElement.parentNode);
   var feedback = el.find('textarea[name=feedback]').val();
   window.DATA_SURVEY.sugestion = feedback;
-  window.App.network.saveSurvey(window.DATA_SURVEY);
+  window.App.network.sendSurvey(window.DATA_SURVEY);
 });
 
