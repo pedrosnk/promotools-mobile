@@ -14,7 +14,7 @@ window.App.storage = {
       //tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
       tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, email, first_time, nps, reason, sugestion, confirmed_sended, created_at)');
     },this), this.error, function(){
-      console.log("\n[DB - SUCCESS] DB created successfully.");  
+      console.log("\n[DB - SUCCESS] DB created successfully.");
     });
   },
 
@@ -57,7 +57,8 @@ window.App.storage = {
 
   handleAnsweredSurveys: function() {
     var db = this.openDB();
-    var queryGetSurveysUnsent = "SELECT * FROM " + this.TABLE_NAME + " WHERE confirmed_sended = " + App.network.status.ERROR;
+    var queryGetSurveysUnsent = "SELECT * FROM " +
+      this.TABLE_NAME + " WHERE confirmed_sended = " + App.network.status.ERROR;
     console.log("@@@@ >> App.storage.handleAnsweredSurveys()");
     console.log(queryGetSurveysUnsent);
 
@@ -65,13 +66,13 @@ window.App.storage = {
       _.bind(function(tx){
         tx.executeSql(
           queryGetSurveysUnsent,
-          [],          
+          [],
           this.handleUnsentResults,
           this.error
         );
       }, this),
       this.error
-    ); 
+    );
   },
 
   handleUnsentResults: function(tx, result) {
@@ -80,9 +81,13 @@ window.App.storage = {
     console.log("UNSENT SURVEYS: " + len + " rows found.");
     surveys = [];
     for (var i=0; i<len; i++){
-      surveys.push(result.rows.item(i));
+      survey = result.rows.item(i);
+      survey.origin = 'totem';
+      surveys.push(survey);
     }
-    App.network.submitSurveys(surveys);
+    if (len !== 0) {
+      App.network.submitSurveys(surveys);
+    }
   }
 
 };

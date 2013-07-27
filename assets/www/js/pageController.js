@@ -2,7 +2,8 @@ window.DATA_SURVEY = null;
 
 $("#nps-question-itens").children().click(function(e){
     e.preventDefault();
-    window.DATA_SURVEY = { nps : e.currentTarget.innerText, confirmed_sended: 0 };
+    window.DATA_SURVEY = { nps : e.currentTarget.innerText, confirmed_sended: 0,
+      origin: 'toten'};
 
     $("#nps-question").hide();
     $("#reason-question").show();

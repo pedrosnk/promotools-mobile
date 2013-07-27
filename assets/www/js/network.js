@@ -3,8 +3,8 @@ window.App = window.App || {};
 window.App.network = {
 
   //BASE_URL: App.config.ENDPOINT || "http://10.0.2.2:3000",
-  BASE_URL: App.config.ENDPOINT || "http://10.0.2.2:5000",
-  CLIENT_KEY: App.config.CLIENT_KEY || "SUSHI_LOKO_406_SUL",
+  BASE_URL: App.config.ENDPOINT || "http://10.0.2.2:3000",
+  CLIENT_KEY: App.config.CLIENT_KEY || "sushi_loko_406_sul",
 
   status: {
     ERROR: 0,
