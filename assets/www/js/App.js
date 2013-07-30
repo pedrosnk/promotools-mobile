@@ -2,7 +2,7 @@
 
   window.App = {
 
-    config: { 
+    config: {
       ENDPOINT: null,
       CLIENT_KEY: "SUSHILOKO_406_SUL"
     },
