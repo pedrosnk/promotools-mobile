@@ -27,7 +27,7 @@ $("#first-time-question").children().click(function(e){
 
     $("#first-time-question").hide();
 
-    if(window.DATA_SURVEY.nps > 7) {
+    if(window.DATA_SURVEY.nps > 5) {
         $("#email-question").show();
     } else{
         $("#claim-email-question").show();
