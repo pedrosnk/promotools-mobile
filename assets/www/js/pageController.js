@@ -125,6 +125,7 @@ $(document).ready(function(){
     window.DATA_SURVEY = { nps : e.currentTarget.innerText, confirmed_sended: 0, origin: "web" };
     _setMarkedButton(e);
     _nextQuestion($("#reason-question"));
+    startScreenTimeOut();
   });
 
   $("#reason-question-itens .column-left, #reason-question-itens .column-right").children().one("click", function(e){
@@ -201,6 +202,29 @@ $(document).ready(function(){
     });
     return o;
   };
-});
 
+  /*
+   * Timeout things
+   */
+  document.addEventListener('touchstart', restartTimeOut, false);
+  $(document).on('keydown', restartTimeOut );
+
+  var restartTimeOut = function(e) {
+    if (window.touchScheduler !== undefined) {
+      startScreenTimeOut();
+    }
+  };
+
+  var startScreenTimeOut = function() {
+    if (window.touchScheduler !== undefined){
+      window.clearTimeout(window.touchScheduler);
+    }
+    window.touchScheduler = setTimeout(reloadApp, 300000); // 5 minutes to shutdown
+  };
+
+  var reloadApp = function() {
+    window.location.reload();
+  };
+
+});
 
