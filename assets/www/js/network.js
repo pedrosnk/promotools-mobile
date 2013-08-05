@@ -3,7 +3,7 @@ window.App = window.App || {};
 window.App.network = {
 
   //BASE_URL: App.config.ENDPOINT || "http://10.0.2.2:3000",
-  BASE_URL: App.config.ENDPOINT || "http://192.168.1.104:3000",
+  BASE_URL: App.config.ENDPOINT || "http://192.168.1.104:5000",
   CLIENT_KEY: App.config.CLIENT_KEY || "sushi_loko_406_sul",
 
   status: {
@@ -40,11 +40,11 @@ window.App.network = {
         surveys.forEach(function(survey) {
           App.storage.updateStatus(survey, App.network.status.SUCCESS);
         });
-        App.utils.reloadPage();
+ //       App.utils.reloadPage();
       },
       error: function(jqXHR, textStatus, errorThrown){
         console.log("[NETWORK] ERROR in submitSurveys ");
-        App.utils.reloadPage();
+ //       App.utils.reloadPage();
       }
     });
   },
