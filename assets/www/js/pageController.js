@@ -226,5 +226,13 @@ $(document).ready(function(){
     window.location.reload();
   };
 
+  $(".email-input, .feedback-input").on("focus", function(e){
+    $('.l-header-survey').hide();
+  });
+
+  $(".email-input, .feedback-input").on("focusout", function(e){
+    $('.l-header-survey').show();
+  });
+
 });
 
