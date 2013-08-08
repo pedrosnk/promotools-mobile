@@ -2,15 +2,18 @@ $(document).ready(function(){
   $('#email_sugestion').hide();
   $('#claim_email_sugestion').hide();
 
+  window.BASE_URL = "http://192.168.1.110:3000/"; 
+  //window.BASE_URL = "http://localhost:3000/";
   //window.BASE_URL = "http://promotools-survey.herokuapp.com/"
-  window.BASE_URL = "http://localhost:3000/";
+  //window.BASE_URL = "http://promotools.com.br/"
+
   window.END_POINT = "v1.0/surveys/sushi_loko_409_sul";
   window.DATA_SURVEY = null;
   window.EMAIL_REGEX = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/
 
   var domains = ['hotmail.com', 'gmail.com', 'aol.com','yahoo.com.br'];
 
-  $('#email_sugestion_link,#claim_email_sugestion_link').click(function(e){
+  $('#email_sugestion_link, #claim_email_sugestion_link').click(function(e){
     e.preventDefault();
     var emailSuggested = $(this).html();
     $(this).parent().parent().children('input[name=user_contact]').val(emailSuggested);
@@ -115,22 +118,37 @@ $(document).ready(function(){
     }, 1000);
     // submitSurvey();
     window.App.utils.handleAnswer(window.DATA_SURVEY);
+    _showNextQuestion($("#good-reason-question"));
+
+    /*
     setTimeout(function() {
       window.location.reload();
     }, 5000);
+    */
   };
 
-  $("#nps-question-itens .survey-btn").one("click", function(e){
-    $("#nps-question-itens .survey-btn").off("click");
-    window.DATA_SURVEY = { nps : e.currentTarget.innerText, confirmed_sended: 0, origin: "web" };
-    _setMarkedButton(e);
-    _nextQuestion($("#reason-question"));
+  /*
+   *  EVENTS 
+   */
+
+  $("#good-reason-question .column-left, #good-reason-question .column-right").children().one("click", function(e){
+    $("#good-reason-question .column-left, #good-reason-question .column-right").children().off("click");
     startScreenTimeOut();
+    window.DATA_SURVEY = { good_reason: e.currentTarget.innerText, confirmed_sended: 0, origin: "qrcode" };
+    _setMarkedButton(e);
+    _nextQuestion($("#bad-reason-question"));
   });
 
-  $("#reason-question-itens .column-left, #reason-question-itens .column-right").children().one("click", function(e){
-    $("#reason-question-itens .column-left, #reason-question-itens .column-right").children().off("click");
-    window.DATA_SURVEY.reason = e.currentTarget.innerText;
+  $("#bad-reason-question .column-left, #bad-reason-question .column-right").children().one("click", function(e){
+    $("#bad-reason-question .column-left, #bad-reason-question .column-right").children().off("click");
+    window.DATA_SURVEY.bad_reason = e.currentTarget.innerText;
+    _setMarkedButton(e);
+    _nextQuestion($("#nps-question"));
+  });
+
+  $("#nps-question-itens .survey-btn").one("click", function(e){    
+    $("#nps-question-itens .survey-btn").off("click");
+    window.DATA_SURVEY.nps = e.currentTarget.innerText;
     _setMarkedButton(e);
     _nextQuestion($("#first-time-question"));
   });
@@ -139,15 +157,10 @@ $(document).ready(function(){
     $("#first-time-question").children().off("click");
     _setMarkedButton(e);
 
-<<<<<<< HEAD
-    if(window.DATA_SURVEY.nps > 5) {
-        $("#email-question").show();
-=======
     window.DATA_SURVEY.first_time = $(e.currentTarget).hasClass('yes') ? 1 : 0;
 
-    if(window.DATA_SURVEY.nps > 5) {
+    if(window.DATA_SURVEY.nps > 6) {
       _nextQuestion($("#email-question"));
->>>>>>> 12fdf1e895818475280f7171084bc8b2a917dda8
     } else{
       _nextQuestion($("#claim-email-question"));
     }

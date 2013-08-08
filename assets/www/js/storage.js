@@ -11,8 +11,9 @@ window.App.storage = {
   createDB: function() {
     var db = this.openDB();
     db.transaction(_.bind(function(tx){
-      //tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
-      tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, email, first_time, nps, reason, sugestion, confirmed_sended, created_at)');
+      tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
+      tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, good_reason, bad_reason, nps, first_time, email, sugestion, confirmed_sended, created_at)');
+      
     },this), this.error, function(){
       console.log("\n[DB - SUCCESS] DB created successfully.");
     });
@@ -28,13 +29,12 @@ window.App.storage = {
 
   save: function(data){
     var queryInsert = "INSERT INTO " + this.TABLE_NAME +
-      " (email, first_time, nps, reason, sugestion, confirmed_sended, created_at) " +
-      "VALUES ('"+ data.email + "', "+  data.first_time + " , "+ data.nps +", '"+
-      data.reason +"', '"+ data.sugestion +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
+    " (good_reason, bad_reason, nps, first_time, email, sugestion, confirmed_sended, created_at) " +
+    "VALUES ('"+ data.good_reason + "', '"+  data.bad_reason + "' , "+ data.nps +", "+ data.first_time +", '"+ 
+    data.email +"', '"+ data.sugestion +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
 
     console.log("!!!! App.storage.SAVE()");
     console.log("QUERY = " + queryInsert);
-
 
     this.openDB().transaction(function(tx){
       console.log("[DB] SAVING survey");

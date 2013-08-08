@@ -32,6 +32,7 @@
   <li class="status" data-order="3"></li>
   <li class="status" data-order="4"></li>
   <li class="status" data-order="5"></li>
+  <li class="status" data-order="6"></li>
   <li class="order"><span class="status">1</span> / <span class="total">5</span></li>
 </ul>
 
@@ -39,7 +40,40 @@
 <div class="splash-screen"><p>Queremos saber como foi sua experiência no Sushiloko. </p></div>
 -->
 <div class="survey-container">
-  <div id="nps-question" class="question current">
+
+  <div id="good-reason-question" class="question current">
+    <label>Do que mais gostou no Sushiloko?</label>
+    <div class="reason-question-itens">
+      <ul class="column-left">
+        <li><button type="submit" class="survey-large-btn">Ambiente</button> </li>
+        <li><button type="submit" class="survey-large-btn">Atendimento</button></li>
+        <li><button type="submit" class="survey-large-btn">Qualidade do produto</button></li>            
+      </ul>
+      <ul class="column-right">
+        <li><button type="submit" class="survey-large-btn">Tempo de espera</button></li>
+        <li><button type="submit" class="survey-large-btn">Preço</button></li>        
+        <li><button type="submit" class="survey-large-btn">Outro motivo</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="bad-reason-question" class="question">
+    <label>Do que menos gostou no Sushiloko?</label>
+    <div class="reason-question-itens">
+      <ul class="column-left">
+        <li><button type="submit" class="survey-large-btn">Ambiente</button> </li>
+        <li><button type="submit" class="survey-large-btn">Atendimento</button></li>
+        <li><button type="submit" class="survey-large-btn">Qualidade do produto</button></li>            
+      </ul>
+      <ul class="column-right">
+        <li><button type="submit" class="survey-large-btn">Tempo de espera</button></li>
+        <li><button type="submit" class="survey-large-btn">Preço</button></li>        
+        <li><button type="submit" class="survey-large-btn">Outro motivo</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="nps-question" class="question">
     <label>Qual a possibilidade de você recomendar o Sushiloko para um amigo?</label>
     <div id="nps-question-itens">
       <button type="submit" class="survey-btn">0</button>
@@ -56,61 +90,57 @@
     </div>
   </div>
 
-  <div id="reason-question" class="question">
-    <label>Qual o principal motivo da sua nota?</label>
-    <div id="reason-question-itens">
-      <ul class="column-left">
-        <li><button type="submit" class="survey-large-btn">Ambiente</button> </li>
-        <li><button type="submit" class="survey-large-btn">Atendimento</button></li>
-        <li><button type="submit" class="survey-large-btn">Qualidade do produto</button></li>
-      </ul>
-      <ul class="column-right">
-        <li><button type="submit" class="survey-large-btn">Tempo de espera</button></li>
-        <li><button type="submit" class="survey-large-btn">Preço</button></li>
-        <li><button type="submit" class="survey-large-btn">Outro motivo</button></li>
-      </ul>
-    </div>
-  </div>
-
   <div id="first-time-question" class="question">
     <label>É a sua primeira visita ao restaurante?</label>
-    <button type="submit" class="survey-large-btn yes">Sim</button>
-    <button type="submit" class="survey-large-btn no">Não</button>
+    <button type="submit" class="survey-large-btn">Sim</button>
+    <button type="submit" class="survey-large-btn">Não</button>
   </div>
 
  <div id="email-question" class="question">
-    <label>Deixe seu email e concorra a prêmios e promoções especiais</label>
-    <input type="text" name="user_contact" class="email-input">
-    <div id="email_sugestion" class="email_suggest_text" style="display: none;">Seu e-mail é <a href="#" id="email_sugestion_link"></a>?</div>
+    <label>Deixe seu email e concorra a prêmios e promoções especiais.</label>
+    <input type="email" name="user_contact" class="email-input">
+    <div id="email_sugestion" class="email_suggest_text">Seu e-mail é <a href='#' id="email_sugestion_link"></a>?</div>
     <button type="submit" class="survey-large-btn email-question-yes">Eu quero</button>
     <button type="submit" class="survey-large-btn email-question-no">Não, obrigado</button>
   </div>
 
   <div id="claim-email-question" class="question">
-    <label>Deixe seu email, queremos te manter informado sobre o resultado da sua reclamação</label>
+    <label>Deixe seu email, queremos te manter informado sobre a melhoria no nosso serviço.</label>
     <input type="email" name="user_contact" class="email-input">
-    <div id="claim_email_sugestion" class="email_suggest_text" style="display: none;">Seu e-mail é <a href="#" id="claim_email_sugestion_link"></a>?</div>
-    <button type="submit" class="survey-large-btn email-question-yes">Ok</button>
+    <div id="claim_email_sugestion" class="email_suggest_text">Seu e-mail é <a href='#' id="claim_email_sugestion_link"></a>?</div>
+    <button type="submit" class="survey-large-btn email-question-yes" >Ok</button>
     <button type="submit" class="survey-large-btn email-question-no">Não, obrigado</button>
   </div>
 
   <div id="leave-sugestion" class="question">
-    <label>Gostaria de deixar uma sugestão ou reclamação?</label>
+    <label>Gostaria de deixar uma sugestão ou elogio?</label>
     <button type="submit" class="survey-large-btn yes">Sim</button>
     <button type="submit" class="survey-large-btn">Encerrar a pesquisa</button>
   </div>
 
   <div id="sugestion-box" class="question">
-    <label>Sugestão ou reclamação</label>
+    <label>Escreva aqui seu feedback. Muito obrigado!</label>
     <textarea name="feedback" rows="6" class="feedback-input"></textarea>
     <button type="submit" class="survey-large-btn cancel-sugestion">Cancelar</button>
     <button type="submit" class="survey-large-btn submit-sugestion">Enviar</button>
   </div>
 
   <div id="thanks-message" class="question">
-    <h1 style='font-size:42px; font-weight:bold;'>Muito obrigado!</h1>
-    <p class="message">Sua opinião é muito importante para nós. Volte sempre!</p>
+    <h1>Muito obrigado!</h1>
+    <p class="message">O Sushiloko agradesce sua participação. Volte sempre!</p>
+    <div class="social-message">
+      <p>Veja o Sushiloko nas redes sociais.</p>
+      <ul class="social-channels">
+        <a class="facebook-share" href="https://www.facebook.com/sushiloko" title="Facebook">
+          <li class="facebook"></li>
+        </a>
+        <a class="twitter-share" href="https://twitter.com/sushiloko" title="Twitter">
+          <li class="twitter"></li>
+        </a>
+      </ul>
+    </div>
   </div>
+
 </div> <!-- /container -->
 
   </div>
