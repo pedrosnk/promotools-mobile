@@ -2,7 +2,7 @@ $(document).ready(function(){
   $('#email_sugestion').hide();
   $('#claim_email_sugestion').hide();
 
-  window.BASE_URL = "http://192.168.1.110:3000/"; 
+  window.BASE_URL = "http://192.168.1.110:3000/";
   //window.BASE_URL = "http://localhost:3000/";
   //window.BASE_URL = "http://promotools-survey.herokuapp.com/"
   //window.BASE_URL = "http://promotools.com.br/"
@@ -120,15 +120,13 @@ $(document).ready(function(){
     window.App.utils.handleAnswer(window.DATA_SURVEY);
     _showNextQuestion($("#good-reason-question"));
 
-    /*
     setTimeout(function() {
       window.location.reload();
     }, 5000);
-    */
   };
 
   /*
-   *  EVENTS 
+   *  EVENTS
    */
 
   $("#good-reason-question .column-left, #good-reason-question .column-right").children().one("click", function(e){
@@ -146,7 +144,7 @@ $(document).ready(function(){
     _nextQuestion($("#nps-question"));
   });
 
-  $("#nps-question-itens .survey-btn").one("click", function(e){    
+  $("#nps-question-itens .survey-btn").one("click", function(e){
     $("#nps-question-itens .survey-btn").off("click");
     window.DATA_SURVEY.nps = e.currentTarget.innerText;
     _setMarkedButton(e);
