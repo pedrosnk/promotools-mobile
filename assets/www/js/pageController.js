@@ -2,10 +2,10 @@ $(document).ready(function(){
   $('#email_sugestion').hide();
   $('#claim_email_sugestion').hide();
 
-  window.BASE_URL = "http://192.168.1.110:3000/";
+  //window.BASE_URL = "http://192.168.1.110:3000/";
   //window.BASE_URL = "http://localhost:3000/";
   //window.BASE_URL = "http://promotools-survey.herokuapp.com/"
-  //window.BASE_URL = "http://promotools.com.br/"
+  window.BASE_URL = "http://promotools.com.br/"
 
   window.END_POINT = "v1.0/surveys/sushi_loko_409_sul";
   window.DATA_SURVEY = null;
@@ -113,16 +113,13 @@ $(document).ready(function(){
   };
 
   function finishSurvey(){
-    setTimeout(function(){
-      _showNextQuestion($("#thanks-message"));
-    }, 1000);
-    // submitSurvey();
+    _showNextQuestion($("#thanks-message"));
     window.App.utils.handleAnswer(window.DATA_SURVEY);
-    _showNextQuestion($("#good-reason-question"));
+    //_showNextQuestion($("#good-reason-question"));
 
     setTimeout(function() {
       window.location.reload();
-    }, 5000);
+    }, 6000);
   };
 
   /*

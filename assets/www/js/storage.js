@@ -11,7 +11,7 @@ window.App.storage = {
   createDB: function() {
     var db = this.openDB();
     db.transaction(_.bind(function(tx){
-      tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
+      //tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
       tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, good_reason, bad_reason, nps, first_time, email, sugestion, confirmed_sended, created_at)');
       
     },this), this.error, function(){
