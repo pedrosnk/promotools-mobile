@@ -20,6 +20,7 @@
       console.log(" == BACKBONE VIEW ROCKS == ");
       $('#email_sugestion').hide();
       $('#claim_email_sugestion').hide();
+      return this;
     },
 
     handleGoodReasonQuestion : function(e){

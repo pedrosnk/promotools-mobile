@@ -8,20 +8,16 @@ window.App.utils = {
   timer : {
 
     reloadAppOnTimeout : function(e){
-      $(document).on('keydown', App.utils.timer.restartTimeOut );
+      window.touchScheduler = null;
+      $(document).click(App.utils.timer.startScreenTimeOut);
     },
     
-    restartTimeOut : function(e) {
-      if (window.touchScheduler !== undefined) {
-        App.utils.timer.startScreenTimeOut();
-      }
-    },
-
     startScreenTimeOut : function() {
-      if (window.touchScheduler !== undefined){
+      if (window.touchScheduler !== null){
         window.clearTimeout(window.touchScheduler);
       }
-      window.touchScheduler = setTimeout(App.utils.timer.reloadApp, 300000); // 5 minutes to shutdown
+      
+      window.touchScheduler = setTimeout(App.utils.timer.reloadApp, 50000); // 1 minutes to shutdown (300000 =  5min)
     },
 
     reloadApp : function() {
