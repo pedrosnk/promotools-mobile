@@ -3,17 +3,19 @@
   window.SurveyView = Backbone.View.extend({
 
     events : {
+      'click .frequency' : 'handleFrequencyQuestion',
+      'click .returning' : 'handleReturningClientQuestion',
       'click .good-reason' : 'handleGoodReasonQuestion',
       'click .bad-reason' : 'handleBadReasonQuestion',
       'click .nps' : 'handleNPSQuestion',
-      'click .first-time' : 'handleFirstTimeQuestion',
+      'click .demographic' : 'handleDemographicQuestion',
       'click .leave-email' : 'handleEmailQuestion',
       'click .leave-sugestion' : 'handleLeaveSugestionQuestion',
       'click .submit-sugestion, .cancel-sugestion' : 'handleSubmitSurvey',
       'keydown :input.email-input' : 'autoCompleteEmail',
       'click #email_sugestion_link, #claim_email_sugestion_link' : 'selectEmailSuggestion',
-      'focus :input.email-input, :input.feedback-input' : 'hideHeaderAndFooter',
-      'focusout :input.email-input, :input.feedback-input' : 'showHeaderAndFooter',
+      'focus :input.email-input, :input.feedback-input' : 'hideFooter',
+      'focusout :input.email-input, :input.feedback-input' : 'showFooter',
     },
 
     render : function() {
@@ -23,11 +25,30 @@
       return this;
     },
 
+    handleFrequencyQuestion : function(e){
+      $(this.el).off('click', '.frequency');
+      //TODO: SET DATA IN MODEL
+      App.utils.setMarkedButton(e);
+      App.config.DATA_SURVEY = { frequency: e.currentTarget.innerText, confirmed_sended: 0, origin: "qrcode" };
+      
+      if(App.config.DATA_SURVEY.frequency === "Primeira vez") {
+        App.utils.nextQuestion($("#returning-question"));        
+      } else{
+        App.utils.nextQuestion($("#good-reason-question"));
+      }    
+    },
+
+    handleReturningClientQuestion : function(e){
+      $(this.el).off('click', '.returning');
+      App.config.DATA_SURVEY.want_return = e.currentTarget.innerText;      
+      App.utils.setMarkedButton(e);
+      App.utils.nextQuestion($("#good-reason-question"));
+    },
+
     handleGoodReasonQuestion : function(e){
       $(this.el).off('click', '.good-reason');
       //TODO: SET DATA IN MODEL
-      App.config.DATA_SURVEY = { good_reason: e.currentTarget.innerText, confirmed_sended: 0, origin: "qrcode" };
-
+      App.config.DATA_SURVEY.good_reason = e.currentTarget.innerText;            
       App.utils.setMarkedButton(e);
       App.utils.nextQuestion("#bad-reason-question")
     },
@@ -44,18 +65,28 @@
       App.config.DATA_SURVEY.nps = e.currentTarget.innerText;
 
       App.utils.setMarkedButton(e);
-      App.utils.nextQuestion($("#first-time-question"));
+      App.utils.nextQuestion($("#demographic-question"));
     },  
 
-    handleFirstTimeQuestion : function(e){
-      $(this.el).off('click', '.first-time');
-      App.utils.setMarkedButton(e);
-      App.config.DATA_SURVEY.first_time = $(e.currentTarget).hasClass('yes') ? 1 : 0;      
+    handleDemographicQuestion : function(e){
+      if($(e.currentTarget).hasClass("age")){                
+        App.config.DATA_SURVEY.age = e.currentTarget.innerText;
+        $('.age').removeClass("selected")
 
-      if(App.config.DATA_SURVEY.nps > 6) {
-        App.utils.nextQuestion($("#email-question"));
-      } else{
-        App.utils.nextQuestion($("#claim-email-question"));
+      } else {
+        $('.sex').removeClass("selected")
+        App.config.DATA_SURVEY.sex = e.currentTarget.innerText;
+      }
+    
+      App.utils.setMarkedButton(e);
+
+      //just go to next question if both params are completed
+      if(App.config.DATA_SURVEY.age != null && App.config.DATA_SURVEY.sex != null){
+        if(App.config.DATA_SURVEY.nps > 6) {
+          App.utils.nextQuestion($("#email-question"));
+        } else{
+          App.utils.nextQuestion($("#claim-email-question"));
+        }
       }
     },
 

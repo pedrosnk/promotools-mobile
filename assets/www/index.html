@@ -1,200 +1,229 @@
-<!DOCTYPE html>
-<html>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <!DOCTYPE html>
+  <html>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  	<title>Promotools</title>
+  <head>
+  	<meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    	<title>Promotools</title>
 
-  	<link href="assets/application.css" media="all" rel="stylesheet" type="text/css" />
-  	<meta content="authenticity_token" name="csrf-param" />
-	<meta content="bPwaQg+CwjeVHA3q8tR0OJuywF4juk2CPrFviUEIPD0=" name="csrf-token" />
+    	<link href="assets/application.css" media="all" rel="stylesheet" type="text/css" />
+    	<meta content="authenticity_token" name="csrf-param" />
+  	<meta content="bPwaQg+CwjeVHA3q8tR0OJuywF4juk2CPrFviUEIPD0=" name="csrf-token" />
 
-    <meta name="description" content="Promotools">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" href="favicon-16.png" sizes="16x16">
-    <link rel="icon" href="favicon-32.png" sizes="32x32">
-    <link rel="icon" href="favicon-48.png" sizes="48x48">
-    <link rel="icon" href="favicon-64.png" sizes="64x64">
-    <link rel="icon" href="favicon-128.png" sizes="128x128">
+      <meta name="description" content="Promotools">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <link rel="icon" href="favicon-16.png" sizes="16x16">
+      <link rel="icon" href="favicon-32.png" sizes="32x32">
+      <link rel="icon" href="favicon-48.png" sizes="48x48">
+      <link rel="icon" href="favicon-64.png" sizes="64x64">
+      <link rel="icon" href="favicon-128.png" sizes="128x128">
 
 
-</head>
+  </head>
 
-<body class="l-survey" >
-  <div class="content-wrapper">
-    <div class="survey-wrapper">
-      
-    <header class="l-header-survey">
-      <div class="header-survey">
-        <div class="client-logo"></div>
-      </div>
-    </header>
+  <body class="l-survey sushiway-form-view">
+    <div class="content-wrapper">
+      <div class="survey-wrapper">
+        
+        <header class="l-header-survey">
+          <div class="header-survey">
+            <div class="logo-sushiway"></div>
+          </div>
+        </header>
+        
+        <ul class="survey-progress">
+          <li class="status first current" data-order="1"></li>
+          <li class="status" data-order="2"></li>
+          <li class="status" data-order="3"></li>
+          <li class="status" data-order="4"></li>
+          <li class="status" data-order="5"></li>
+          <li class="status" data-order="6"></li>
+          <li class="status" data-order="7"></li>
+          <li class="order"><span class="status"></span> / <span class="total"></span></li>
+        </ul>
 
-    <ul class="survey-progress">
-      <li class="status first current" data-order="1"></li>
-      <li class="status" data-order="2"></li>
-      <li class="status" data-order="3"></li>
-      <li class="status" data-order="4"></li>
-      <li class="status" data-order="5"></li>
-      <li class="status" data-order="6"></li>
-      <li class="order"><span class="status">1</span> / <span class="total">5</span></li>
-    </ul>
+        <div class="survey-container" id="survey">
+          
 
-    <!--
-    <div class="splash-screen"><p>Queremos saber como foi sua experiência no Sushiloko. </p></div>
-    -->
-    <div id="survey" class="survey-container">
+          <div class="question current" id="frequency-reason-question">
+            <label>Com que frequência você costuma vir ao Sushi Way?</label>
+            <div class="frequency-question-itens">
+              <ul class="column-left">                
+                <li><button type="submit" class="survey-large-btn frequency">Primeira vez</button> </li>
+                <li><button type="submit" class="survey-large-btn frequency">Semanalmente</button></li>
+                <li><button type="submit" class="survey-large-btn frequency">Quinzenalmente</button></li>
+              </ul>
+              <ul class="column-right">
+                <li><button type="submit" class="survey-large-btn frequency">Mensalmente</button></li>
+                <li><button type="submit" class="survey-large-btn frequency">Raramente</button></li>
+              </ul>
+            </div>
+          </div>
 
-      <div id="good-reason-question" class="question current">
-        <label>Do que mais gostou no Sushiloko?</label>
-        <div class="reason-question-itens">
-          <ul class="column-left">
-            <li><button type="submit" class="survey-large-btn good-reason">Ambiente</button> </li>
-            <li><button type="submit" class="survey-large-btn good-reason">Atendimento</button></li>
-            <li><button type="submit" class="survey-large-btn good-reason">Qualidade do produto</button></li>            
-          </ul>
-          <ul class="column-right">
-            <li><button type="submit" class="survey-large-btn good-reason">Tempo de espera</button></li>
-            <li><button type="submit" class="survey-large-btn good-reason">Preço</button></li>        
-            <li><button type="submit" class="survey-large-btn good-reason">Outro motivo</button></li>
-          </ul>
+          <div class="question" id="returning-question">
+            <label>Pretende voltar outras vezes?</label>
+            <button type="submit" class="survey-large-btn returning">Sim</button>
+            <button type="submit" class="survey-large-btn returning">Não</button>
+          </div>
+
+          <div class="question" id="good-reason-question">
+            <label>Por que você escolheu o Sushi Way?</label>
+            <div class="reason-question-itens">
+              <ul class="column-left">
+                <li><button type="submit" class="survey-large-btn good-reason">Qualidade</button> </li>
+                <li><button type="submit" class="survey-large-btn good-reason">Preço</button></li>
+                <li><button type="submit" class="survey-large-btn good-reason">Localização</button></li>
+              </ul>
+              <ul class="column-right">
+                <li><button type="submit" class="survey-large-btn good-reason">Variedade</button></li>
+                <li><button type="submit" class="survey-large-btn good-reason">Sistema por quilo</button></li>
+                <li><button type="submit" class="survey-large-btn good-reason">Outros</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question" id="bad-reason-question">
+            <label>O que precisa melhorar no Sushi Way?</label>
+            <div class="reason-question-itens">
+              <ul class="column-left">
+                <li><button type="submit" class="survey-large-btn bad-reason">Qualidade</button> </li>
+                <li><button type="submit" class="survey-large-btn bad-reason">Sistema por quilo</button></li>
+                <li><button type="submit" class="survey-large-btn bad-reason">Localização</button></li>
+              </ul>
+              <ul class="column-right">
+                <li><button type="submit" class="survey-large-btn bad-reason">Variedade</button></li>
+                <li><button type="submit" class="survey-large-btn bad-reason">Preço</button>        </li>
+                <li><button type="submit" class="survey-large-btn bad-reason">Outros</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question" id="nps-question">
+            <label>Qual a possibilidade de você recomendar o Sushi Way para um amigo?</label>
+            <div id="nps-question-itens">
+              <button type="submit" class="survey-btn nps">0</button>
+              <button type="submit" class="survey-btn nps">1</button>
+              <button type="submit" class="survey-btn nps">2</button>
+              <button type="submit" class="survey-btn nps">3</button>
+              <button type="submit" class="survey-btn nps">4</button>
+              <button type="submit" class="survey-btn nps">5</button>
+              <button type="submit" class="survey-btn nps">6</button>
+              <button type="submit" class="survey-btn nps">7</button>
+              <button type="submit" class="survey-btn nps">8</button>
+              <button type="submit" class="survey-btn nps">9</button>
+              <button type="submit" class="survey-btn nps">10</button>
+            </div>
+          </div>
+
+          <div class="question" id="demographic-question">
+            <label>Qual sua faixa etária e sexo?</label>
+            <div class="column-left" style="width: 55%;">
+              <ul class="column-left">
+                <li><button type="submit" class="survey-large-btn demographic age">Até 18</button></li>
+                <li><button type="submit" class="survey-large-btn demographic age">19 a 25 anos</button> </li>
+                <li><button type="submit" class="survey-large-btn demographic age">26 a 35 anos</button> </li></ul>
+              <ul class="column-right">
+                <li><button type="submit" class="survey-large-btn demographic age">36 a 45 anos</button> </li>
+                <li><button type="submit" class="survey-large-btn demographic age">46 a 55 anos</button> </li>
+                <li><button type="submit" class="survey-large-btn demographic age">acima de 56 anos</button> </li>
+              </ul>
+            </div>
+            <ul class="column-right" style="width: 39%">
+              <li><button type="submit" class="survey-large-btn demographic sex icon-male icon-large"> &nbsp; Masculino</button></li>
+              <li><button type="submit" class="survey-large-btn demographic sex icon-female icon-large"> &nbsp; Feminino</button></li>
+            </ul>
+          </div>
+
+          <div class="question" id="email-question">
+            <label>Deixe seu email e concorra a prêmios e promoções especiais.</label>
+            <div class="email_suggest_text" id="email_sugestion" style="display: none;">Seu e-mail é <a href="#" id="email_sugestion_link"></a>?</div>
+            <button type="submit" class="survey-large-btn leave-email">Eu quero</button>
+            <button type="submit" class="survey-large-btn leave-email">Não, obrigado</button>
+          </div>
+
+          <div class="question" id="claim-email-question">
+            <label>Deixe seu email, queremos te manter informado sobre a melhoria no nosso serviço.</label>
+            <input class="email-input" name="user_contact" type="email">
+            <div class="email_suggest_text" id="claim_email_sugestion" style="display: none;">Seu e-mail é <a href="#" id="claim_email_sugestion_link"></a>?</div>
+            <button type="submit" class="survey-large-btn leave-email">Ok</button>
+            <button type="submit" class="survey-large-btn leave-email">Não, obrigado</button>
+          </div>
+
+          <div class="question" id="leave-sugestion">
+            <label>Gostaria de deixar uma sugestão ou elogio?</label>
+            <button type="submit" class="survey-large-btn leave-sugestion yes">Sim</button>
+            <button type="submit" class="survey-large-btn leave-sugestion">Encerrar a pesquisa</button>
+          </div>
+
+          <div class="question" id="sugestion-box">
+            <label>Escreva aqui seu feedback. Muito obrigado!</label>
+            <textarea class="feedback-input" name="feedback" rows="6"></textarea>
+            <button type="submit" class="survey-large-btn cancel-sugestion">Cancelar</button>
+            <button type="submit" class="survey-large-btn submit-sugestion">Enviar</button>
+          </div>
+
+          <div class="question" id="thanks-message">
+            <h1>Muito obrigado!</h1>
+            <p class="message">O Sushi Way agradece sua participação. Volte sempre!</p>
+            <div class="social-message">
+                <p>Veja o Sushi Way nas redes sociais.</p>
+                <ul class="social-channels">
+                  <a class="facebook-share" href="https://www.facebook.com/sushiloko" title="Facebook">
+                    <li class="facebook"></li>
+                  </a>
+                  <a class="twitter-share" href="https://twitter.com/sushiloko" title="Twitter">
+                    <li class="twitter"></li>
+                  </a>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div id="bad-reason-question" class="question">
-        <label>Do que menos gostou no Sushiloko?</label>
-        <div class="reason-question-itens">
-          <ul class="column-left">
-            <li><button type="submit" class="survey-large-btn bad-reason">Ambiente</button> </li>
-            <li><button type="submit" class="survey-large-btn bad-reason">Atendimento</button></li>
-            <li><button type="submit" class="survey-large-btn bad-reason">Qualidade do produto</button></li>            
-          </ul>
-          <ul class="column-right">
-            <li><button type="submit" class="survey-large-btn bad-reason">Tempo de espera</button></li>
-            <li><button type="submit" class="survey-large-btn bad-reason">Preço</button></li>        
-            <li><button type="submit" class="survey-large-btn bad-reason">Outro motivo</button></li>
-          </ul>
+        <div class="l-footer-survey">
+          <div class="about">
+            <h2 class="title">
+              <span class="developed-by">Desenvolvido por </span> <strong><a href="http://www.promotools.com.br" target="_blank">promotools.com.br</a></strong></h2>
+              <span class="promotools-icon"></span>
+          </div>
         </div>
-      </div>
 
-      <div id="nps-question" class="question">
-        <label>Qual a possibilidade de você recomendar o Sushiloko para um amigo?</label>
-        <div id="nps-question-itens">
-          <button type="submit" class="survey-btn nps">0</button>
-          <button type="submit" class="survey-btn nps">1</button>
-          <button type="submit" class="survey-btn nps">2</button>
-          <button type="submit" class="survey-btn nps">3</button>
-          <button type="submit" class="survey-btn nps">4</button>
-          <button type="submit" class="survey-btn nps">5</button>
-          <button type="submit" class="survey-btn nps">6</button>
-          <button type="submit" class="survey-btn nps">7</button>
-          <button type="submit" class="survey-btn nps">8</button>
-          <button type="submit" class="survey-btn nps">9</button>
-          <button type="submit" class="survey-btn nps">10</button>
-        </div>
-      </div>
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
-      <div id="first-time-question" class="question">
-        <label>É a sua primeira visita ao restaurante?</label>
-        <button type="submit" class="survey-large-btn first-time">Sim</button>
-        <button type="submit" class="survey-large-btn first-time">Não</button>
-      </div>
+  <script src="js/vendors/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="js/vendors/jquery.transit.js" type="text/javascript"></script>
+  <script src="js/vendors/later.min.js" type="text/javascript"></script>
+  <script src="js/vendors/mailcheck.js" type="text/javascript"></script>
+  <script src="js/vendors/underscore-min.js" type="text/javascript"></script>
+  <script src="js/vendors/backbone.js" type="text/javascript"></script>
 
-     <div id="email-question" class="question">
-        <label>Deixe seu email e concorra a prêmios e promoções especiais.</label>
-        <input type="email" name="user_contact" class="email-input">
-        <div id="email_sugestion" class="email_suggest_text">Seu e-mail é <a href='#' id="email_sugestion_link"></a>?</div>
-        <button type="submit" class="survey-large-btn leave-email">Eu quero</button>
-        <button type="submit" class="survey-large-btn leave-email">Não, obrigado</button>
-      </div>
+  <script src="js/app/app.js" type="text/javascript"></script>
+  <script src="js/app/utils/utils.js" type="text/javascript"></script>
+  <script src="js/app/view/SurveyView.js" type="text/javascript"></script>
+  <script src="js/app/network.js" type="text/javascript"></script>
+  <script src="js/app/storage.js" type="text/javascript"></script>
+  <script src="js/app/utils.js" type="text/javascript"></script>
 
-      <div id="claim-email-question" class="question">
-        <label>Deixe seu email, queremos te manter informado sobre a melhoria no nosso serviço.</label>
-        <input type="email" name="user_contact" class="email-input">
-        <div id="claim_email_sugestion" class="email_suggest_text">Seu e-mail é <a href='#' id="claim_email_sugestion_link"></a>?</div>
-        <button type="submit" class="survey-large-btn leave-email" >Ok</button>
-        <button type="submit" class="survey-large-btn leave-email">Não, obrigado</button>
-      </div>
+  <script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
 
-      <div id="leave-sugestion" class="question">
-        <label>Gostaria de deixar uma sugestão ou elogio?</label>
-        <button type="submit" class="survey-large-btn leave-sugestion yes">Sim</button>
-        <button type="submit" class="survey-large-btn leave-sugestion">Encerrar a pesquisa</button>
-      </div>
+    function onDeviceReady() {    
 
-      <div id="sugestion-box" class="question">
-        <label>Escreva aqui seu feedback. Muito obrigado!</label>
-        <textarea name="feedback" rows="6" class="feedback-input"></textarea>
-        <button type="submit" class="survey-large-btn cancel-sugestion">Cancelar</button>
-        <button type="submit" class="survey-large-btn submit-sugestion">Enviar</button>
-      </div>
+      window.App.init();
 
-      <div id="thanks-message" class="question">
-        <h1>Muito obrigado!</h1>
-        <p class="message">O Sushiloko agradece sua participação. Volte sempre!</p>
-        <div class="social-message">
-          <p>Veja o Sushiloko nas redes sociais.</p>
-          <ul class="social-channels">
-            <a class="facebook-share" href="https://www.facebook.com/sushiloko" title="Facebook">
-              <li class="facebook"></li>
-            </a>
-            <a class="twitter-share" href="https://twitter.com/sushiloko" title="Twitter">
-              <li class="twitter"></li>
-            </a>
-          </ul>
-        </div>
-      </div>
+      var surveyView = new SurveyView({
+        el : $('#survey')
+      });
+      surveyView.render();
 
-    </div> <!-- /container -->
+      jQuery.ajaxSetup({
+        'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+      });
+    }
+  </script>
 
   </div>
-  <div class="l-footer-survey">
-    <div class="about">
-      <h2 class="title">
-        <span class="developed-by">Desenvolvido por </span>
-        <strong>promotools.com.br</strong>
-      </h2>
-      <span class="promotools-icon"></span>
-  </div>
-</div>
-</div>
-
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
-<script src="js/vendors/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="js/vendors/jquery.transit.js" type="text/javascript"></script>
-<script src="js/vendors/later.min.js" type="text/javascript"></script>
-<script src="js/vendors/mailcheck.js" type="text/javascript"></script>
-<script src="js/vendors/underscore-min.js" type="text/javascript"></script>
-<script src="js/vendors/backbone.js" type="text/javascript"></script>
-
-<script src="js/app/app.js" type="text/javascript"></script>
-<script src="js/app/utils/utils.js" type="text/javascript"></script>
-<script src="js/app/view/SurveyView.js" type="text/javascript"></script>
-<script src="js/app/network.js" type="text/javascript"></script>
-<script src="js/app/storage.js" type="text/javascript"></script>
-<script src="js/app/utils.js" type="text/javascript"></script>
-
-<script type="text/javascript" charset="utf-8">
-  document.addEventListener("deviceready", onDeviceReady, false);
-
-  function onDeviceReady() {    
-
-    window.App.init();
-
-    var surveyView = new SurveyView({
-      el : $('#survey')
-    });
-    surveyView.render();
-
-    jQuery.ajaxSetup({
-      'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-    });
-  }
-</script>
-
 </body>
 
 </html>

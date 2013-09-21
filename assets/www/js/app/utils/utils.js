@@ -43,7 +43,7 @@ window.App.utils = {
     var current = $(".survey-container").find(".current");
 
     //not move on progress bar in this cases
-    if($(current).attr("id") != "leave-sugestion" && $(current).attr("id") != "sugestion-box"){
+    if($(current).attr("id") != "leave-sugestion" && $(current).attr("id") != "sugestion-box" && $(next).attr("id") != "returning-question"){
       App.utils.updateProgressBar();
     }
 
