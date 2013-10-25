@@ -79,7 +79,6 @@ window.App.utils = {
   finishSurvey : function(){
     App.utils.nextQuestion($("#thanks-message"));
     App.utils.handleAnswer(App.config.DATA_SURVEY);
-    //_showNextQuestion($("#good-reason-question"));
 
     setTimeout(function() {
       window.location.reload();

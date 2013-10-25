@@ -14,8 +14,8 @@
       'click .submit-sugestion, .cancel-sugestion' : 'handleSubmitSurvey',
       'keydown :input.email-input' : 'autoCompleteEmail',
       'click #email_sugestion_link, #claim_email_sugestion_link' : 'selectEmailSuggestion',
-      'focus :input.email-input, :input.feedback-input' : 'hideFooter',
-      'focusout :input.email-input, :input.feedback-input' : 'showFooter',
+      'focus :input.email-input, :input.feedback-input' : 'hideHeaderAndFooter',
+      'focusout :input.email-input, :input.feedback-input' : 'showHeaderAndFooter',
     },
 
     render : function() {
@@ -29,11 +29,12 @@
       $(this.el).off('click', '.frequency');
       //TODO: SET DATA IN MODEL
       App.utils.setMarkedButton(e);
-      App.config.DATA_SURVEY = { frequency: e.currentTarget.innerText, confirmed_sended: 0, origin: "qrcode" };
+      App.config.DATA_SURVEY = { frequency: e.currentTarget.innerText, confirmed_sended: 0, origin: "totem" };
       
       if(App.config.DATA_SURVEY.frequency === "Primeira vez") {
         App.utils.nextQuestion($("#returning-question"));        
       } else{
+        App.config.DATA_SURVEY.want_return = null;  
         App.utils.nextQuestion($("#good-reason-question"));
       }    
     },
@@ -69,9 +70,9 @@
     },  
 
     handleDemographicQuestion : function(e){
-      if($(e.currentTarget).hasClass("age")){                
-        App.config.DATA_SURVEY.age = e.currentTarget.innerText;
+      if($(e.currentTarget).hasClass("age")){                        
         $('.age').removeClass("selected")
+        App.config.DATA_SURVEY.age = e.currentTarget.innerText;
 
       } else {
         $('.sex').removeClass("selected")
@@ -93,7 +94,13 @@
     handleEmailQuestion : function(e){
       $(this.el).off('click', '.leave-email');
       var el = $(this).parent();
-      App.config.DATA_SURVEY.email = el.find('input[name=user_contact]').val();
+      var email = null;
+      if($(this.el).find("input[name='user_contact']").val()){
+        email = $(this.el).find("input[name='user_contact']").val();
+      } else {
+        email = $(this.el).find("input[name='claim_user_contact']").val();
+      }
+      App.config.DATA_SURVEY.email = email;
       App.utils.setMarkedButton(e);
       App.utils.nextQuestion($("#leave-sugestion"));
     },
@@ -101,8 +108,6 @@
     handleLeaveSugestionQuestion : function(e){
       $(this.el).off('click', '.email-question');      
       App.utils.setMarkedButton(e);
-
-      $('input[name=sugestion]').val(e.currentTarget.innerText);
 
       if($(e.currentTarget).hasClass('yes')){
         App.utils.nextQuestion($("#sugestion-box"));
@@ -115,10 +120,13 @@
     handleSubmitSurvey : function(e){
       $(this.el).off('click', '.submit-sugestion, .cancel-sugestion');   
 
-      App.utils.setMarkedButton(e);
-      var el = $(this).parent();
-      var feedback = el.find('textarea[name=feedback]').val();
+      App.utils.setMarkedButton(e);    
+      var feedback = $(this.el).find("textarea[name='feedback']").val();
       App.config.DATA_SURVEY.sugestion = feedback;
+
+      console.log("---------")
+      console.log(" FEEDBACK = " + feedback)
+
       App.utils.finishSurvey();
     },
 

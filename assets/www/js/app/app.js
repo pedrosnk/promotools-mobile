@@ -4,7 +4,7 @@
 
     config: {
       ENDPOINT: null,
-      CLIENT_KEY: "SUSHILOKO_406_SUL"
+      CLIENT_KEY: "VITRINNI"
     },
 
     init: function(){

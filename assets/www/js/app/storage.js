@@ -12,7 +12,7 @@ window.App.storage = {
     var db = this.openDB();
     db.transaction(_.bind(function(tx){
       //tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
-      tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, good_reason, bad_reason, nps, first_time, email, sugestion, confirmed_sended, created_at)');
+      tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, frequency, want_return, good_reason, bad_reason, nps, age, sex, email, sugestion, origin, confirmed_sended, created_at)');
       
     },this), this.error, function(){
       console.log("\n[DB - SUCCESS] DB created successfully.");
@@ -29,9 +29,9 @@ window.App.storage = {
 
   save: function(data){
     var queryInsert = "INSERT INTO " + this.TABLE_NAME +
-    " (good_reason, bad_reason, nps, first_time, email, sugestion, confirmed_sended, created_at) " +
-    "VALUES ('"+ data.good_reason + "', '"+  data.bad_reason + "' , "+ data.nps +", "+ data.first_time +", '"+ 
-    data.email +"', '"+ data.sugestion +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
+    " (frequency, want_return, good_reason, bad_reason, nps, age, sex, email, sugestion, origin, confirmed_sended, created_at) " +
+    "VALUES ('"+ data.frequency + "', '"+  data.want_return + "' , '"+ data.good_reason +"', '"+ data.bad_reason +"', '"+ 
+    data.nps +"', '"+  data.age +"', '"+  data.sex +"', '"+ data.email +"', '"+ data.sugestion +"' , '"+ data.origin +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
 
     console.log("!!!! App.storage.SAVE()");
     console.log("QUERY = " + queryInsert);

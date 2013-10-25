@@ -2,9 +2,9 @@ window.App = window.App || {};
 
 window.App.network = {
 
-  //BASE_URL: App.config.ENDPOINT || "http://10.0.2.2:3000",
-  BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/surveys/sushiway/",
-  CLIENT_KEY: App.config.CLIENT_KEY || "conjunto",
+  //BASE_URL: App.config.ENDPOINT || "http://promotools-survey.herokuapp.com/v1.0/surveys/sushiway/",
+  BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
+  CLIENT_KEY: App.config.CLIENT_KEY || "VITRINNI",
 
   status: {
     ERROR: 0,
@@ -25,8 +25,8 @@ window.App.network = {
 
   submitSurveys: function(surveys){
     console.log("@@@@ >> App.network.submitSurveys()");
-    var full_url = this.BASE_URL + "/v1.0/surveys/" + this.CLIENT_KEY
-    console.log("[NETWORK] full_url == " + full_url);
+    var full_url = this.BASE_URL + this.CLIENT_KEY
+    console.log(">> [NETWORK] full_url == " + full_url);
     //sending surveys to our server
     $.ajax({
       contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
