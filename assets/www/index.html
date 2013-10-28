@@ -4,31 +4,28 @@
 
   <head>
   	<meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    	<title>Promotools</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<title>Promotools</title>
 
-    	<link href="assets/application.css" media="all" rel="stylesheet" type="text/css" />
-    	<meta content="authenticity_token" name="csrf-param" />
+  	<link href="assets/application.css" media="all" rel="stylesheet" type="text/css" />
+  	<meta content="authenticity_token" name="csrf-param" />
   	<meta content="bPwaQg+CwjeVHA3q8tR0OJuywF4juk2CPrFviUEIPD0=" name="csrf-token" />
-
-      <meta name="description" content="Promotools">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <link rel="icon" href="favicon-16.png" sizes="16x16">
-      <link rel="icon" href="favicon-32.png" sizes="32x32">
-      <link rel="icon" href="favicon-48.png" sizes="48x48">
-      <link rel="icon" href="favicon-64.png" sizes="64x64">
-      <link rel="icon" href="favicon-128.png" sizes="128x128">
-
-
+    <meta name="description" content="Promotools">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="favicon-16.png" sizes="16x16">
+    <link rel="icon" href="favicon-32.png" sizes="32x32">
+    <link rel="icon" href="favicon-48.png" sizes="48x48">
+    <link rel="icon" href="favicon-64.png" sizes="64x64">
+    <link rel="icon" href="favicon-128.png" sizes="128x128">
   </head>
 
-  <body class="l-survey sushiway-form-view">
+  <body class="l-survey carlton-form-view">
     <div class="content-wrapper">
       <div class="survey-wrapper">
         
         <header class="l-header-survey">
           <div class="header-survey">
-            <div class="logo-sushiway"></div>
+            <div class="logo-carlton"></div>
           </div>
         </header>
         
@@ -40,67 +37,15 @@
           <li class="status" data-order="5"></li>
           <li class="status" data-order="6"></li>
           <li class="status" data-order="7"></li>
+          <li class="status" data-order="8"></li>
+          <li class="status" data-order="9"></li>
           <li class="order"><span class="status"></span> / <span class="total"></span></li>
         </ul>
 
         <div class="survey-container" id="survey">
           
-
-          <div class="question current" id="frequency-reason-question">
-            <label>Com que frequência você costuma vir ao Sushi Way?</label>
-            <div class="frequency-question-itens">
-              <ul class="column-left">                
-                <li><button type="submit" class="survey-large-btn frequency">Primeira vez</button> </li>
-                <li><button type="submit" class="survey-large-btn frequency">Semanalmente</button></li>
-                <li><button type="submit" class="survey-large-btn frequency">Quinzenalmente</button></li>
-              </ul>
-              <ul class="column-right">
-                <li><button type="submit" class="survey-large-btn frequency">Mensalmente</button></li>
-                <li><button type="submit" class="survey-large-btn frequency">Raramente</button></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="question" id="returning-question">
-            <label>Pretende voltar outras vezes?</label>
-            <button type="submit" class="survey-large-btn returning">Sim</button>
-            <button type="submit" class="survey-large-btn returning">Não</button>
-          </div>
-
-          <div class="question" id="good-reason-question">
-            <label>Por que você escolheu o Sushi Way?</label>
-            <div class="reason-question-itens">
-              <ul class="column-left">
-                <li><button type="submit" class="survey-large-btn good-reason">Qualidade</button> </li>
-                <li><button type="submit" class="survey-large-btn good-reason">Preço</button></li>
-                <li><button type="submit" class="survey-large-btn good-reason">Localização</button></li>
-              </ul>
-              <ul class="column-right">
-                <li><button type="submit" class="survey-large-btn good-reason">Variedade</button></li>
-                <li><button type="submit" class="survey-large-btn good-reason">Sistema por quilo</button></li>
-                <li><button type="submit" class="survey-large-btn good-reason">Outros</button></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="question" id="bad-reason-question">
-            <label>O que precisa melhorar no Sushi Way?</label>
-            <div class="reason-question-itens">
-              <ul class="column-left">
-                <li><button type="submit" class="survey-large-btn bad-reason">Qualidade</button> </li>
-                <li><button type="submit" class="survey-large-btn bad-reason">Sistema por quilo</button></li>
-                <li><button type="submit" class="survey-large-btn bad-reason">Localização</button></li>
-              </ul>
-              <ul class="column-right">
-                <li><button type="submit" class="survey-large-btn bad-reason">Variedade</button></li>
-                <li><button type="submit" class="survey-large-btn bad-reason">Preço</button>        </li>
-                <li><button type="submit" class="survey-large-btn bad-reason">Outros</button></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="question" id="nps-question">
-            <label>Qual a possibilidade de você recomendar o Sushi Way para um amigo?</label>
+          <div class="question current" id="nps-question">
+            <label>Qual a possibilidade de você recomendar o Hotel Carlton para um amigo?</label>
             <div id="nps-question-itens">
               <button type="submit" class="survey-btn nps">0</button>
               <button type="submit" class="survey-btn nps">1</button>
@@ -116,77 +61,129 @@
             </div>
           </div>
 
-          <div class="question" id="demographic-question">
-            <label>Qual sua faixa etária e sexo?</label>
-            <div class="column-left" style="width: 55%;">
+          <div class="question" id="checkin-question">
+            <label>Como você avalia o atendimento na hora check-in?</label>
+            <div class="reason-question-itens">
               <ul class="column-left">
-                <li><button type="submit" class="survey-large-btn demographic age">Até 18</button></li>
-                <li><button type="submit" class="survey-large-btn demographic age">19 a 25 anos</button> </li>
-                <li><button type="submit" class="survey-large-btn demographic age">26 a 35 anos</button> </li></ul>
+                <li><button type="submit" class="survey-large-btn checkin">Ruim</button> </li>
+                <li><button type="submit" class="survey-large-btn checkin">Regular</button> </li>
+              </ul>
               <ul class="column-right">
-                <li><button type="submit" class="survey-large-btn demographic age">36 a 45 anos</button> </li>
-                <li><button type="submit" class="survey-large-btn demographic age">46 a 55 anos</button> </li>
-                <li><button type="submit" class="survey-large-btn demographic age">acima de 56 anos</button> </li>
+                <li><button type="submit" class="survey-large-btn checkin">Bom</button> </li>
+                <li><button type="submit" class="survey-large-btn checkin">Muito bom</button></li>
               </ul>
             </div>
-            <ul class="column-right" style="width: 39%">
-              <li><button type="submit" class="survey-large-btn demographic sex icon-male icon-large"> &nbsp; Masculino</button></li>
-              <li><button type="submit" class="survey-large-btn demographic sex icon-female icon-large"> &nbsp; Feminino</button></li>
+          </div>
+
+          <div class="question" id="room-question">
+            <label>Você ficou satisfeito com seu quarto? Ele estava limpo, confortável e devidamente suprido?</label>
+            <div class="reason-question-itens">
+              <ul class="column-left">
+                <li><button type="submit" class="survey-large-btn room">Ruim</button> </li>
+                <li><button type="submit" class="survey-large-btn room">Regular</button> </li>
+              </ul>
+              <ul class="column-right">
+                <li><button type="submit" class="survey-large-btn room">Bom</button></li>
+                <li><button type="submit" class="survey-large-btn room">Muito bom</button></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="question" id="public-areas-question">
+            <label>Em geral, como você classifica as áreas públicas do nosso hotel?</label>
+            <div class="reason-question-itens">
+              <ul class="column-left">
+                <li><button type="submit" class="survey-large-btn public-areas">Ruim</button> </li>
+                <li><button type="submit" class="survey-large-btn public-areas">Regular</button></li>
+              </ul>
+              <ul class="column-right">
+                <li><button type="submit" class="survey-large-btn public-areas">Bom</button> </li>
+                <li><button type="submit" class="survey-large-btn public-areas">Muito bom</button></li>
+              </ul>
+            </div>
+          </div>
+          
+        <div class="question" id="bar-question">
+          <label>O que achou do nossos serviços de bar e restaurante?</label>
+          <div class="reason-question-itens">
+            <ul class="column-left">
+              <li><button type="submit" class="survey-large-btn bar">Ruim</button> </li>
+              <li><button type="submit" class="survey-large-btn bar">Regular</button></li>
+            </ul>
+            <ul class="column-right">
+              <li><button type="submit" class="survey-large-btn bar">Bom</button> </li>
+              <li><button type="submit" class="survey-large-btn bar">Muito bom</button></li>
             </ul>
           </div>
+        </div>
 
-          <div class="question" id="email-question">
-            <label>Deixe seu email e concorra a prêmios e promoções especiais.</label>
-            <input class="email-input" name="user_contact" type="email">
-            <div class="email_suggest_text" id="email_sugestion" style="display: none;">Seu e-mail é <a href="#" id="email_sugestion_link"></a>?</div>
-            <button type="submit" class="survey-large-btn leave-email">Eu quero</button>
-            <button type="submit" class="survey-large-btn leave-email">Não, obrigado</button>
-          </div>
 
-          <div class="question" id="claim-email-question">
-            <label>Deixe seu email, queremos te manter informado sobre a melhoria no nosso serviço.</label>
-            <input class="email-input" name="claim_user_contact" type="email">
-            <div class="email_suggest_text" id="claim_email_sugestion" style="display: none;">Seu e-mail é <a href="#" id="claim_email_sugestion_link"></a>?</div>
-            <button type="submit" class="survey-large-btn leave-email">Ok</button>
-            <button type="submit" class="survey-large-btn leave-email">Não, obrigado</button>
+        <div class="question" id="staff-question">
+          <label>Como você classifica a hospitalidade de nossa equipe? (Simpatia, cortesia, agilidade)</label>
+          <div class="reason-question-itens">
+            <ul class="column-left">
+              <li><button type="submit" class="survey-large-btn staff">Ruim</button> </li>
+              <li><button type="submit" class="survey-large-btn staff">Regular</button></li>
+            </ul>
+            <ul class="column-right">
+              <li><button type="submit" class="survey-large-btn staff">Bom</button> </li>
+              <li><button type="submit" class="survey-large-btn staff">Muito bom</button></li>
+            </ul>
           </div>
+        </div>
 
-          <div class="question" id="leave-sugestion">
-            <label>Gostaria de deixar uma sugestão ou elogio?</label>
-            <button type="submit" class="survey-large-btn leave-sugestion yes">Sim</button>
-            <button type="submit" class="survey-large-btn leave-sugestion">Encerrar a pesquisa</button>
-          </div>
 
-          <div class="question" id="sugestion-box">
-            <label>Escreva aqui seu feedback. Muito obrigado!</label>
-            <textarea class="feedback-input" name="feedback" rows="6"></textarea>
-            <button type="submit" class="survey-large-btn cancel-sugestion">Cancelar</button>
-            <button type="submit" class="survey-large-btn submit-sugestion">Enviar</button>
+        <div class="question" id="return-question">
+          <label>Você pretende voltar outras vezes?</label>
+          <button type="submit" class="survey-large-btn returning">Sim</button>
+          <button type="submit" class="survey-large-btn returning">Não</button>    
+        </div>
+
+
+        <div class="question" id="email-question">
+          <label>Deixe seu email, queremos te manter informado sobre promoções especiais e melhorias no nosso serviço.</label>
+
+          <input class="email-input" name="user_contact" type="email" />
+          <div class="email_suggest_text" id="email_sugestion">Seu e-mail é 
+            <a href='#' id="email_sugestion_link"></a>?
           </div>
+          <button type="submit" class="survey-large-btn email" >Ok</button>
+          <button type="submit" class="survey-large-btn email">Não, obrigado</button>
+        </div>
+
+        <div class="question" id="leave-sugestion">
+          <label>Gostaria de deixar uma sugestão, elogio ou comentário?</label>
+
+          <textarea class="feedback-input" name="feedback" rows="6"></textarea>
+          <button type="submit" class="survey-large-btn sugestion">Enviar</button>
+          <button type="submit" class="survey-large-btn sugestion">Encerrar a pesquisa</button>
+        </div>
 
           <div class="question" id="thanks-message">
             <h1>Muito obrigado!</h1>
-            <p class="message">O Sushi Way agradece sua participação. Volte sempre!</p>
+            <p class="message">O Hotel Carlton agradece sua participação. Volte sempre!</p>
             <div class="social-message">
-                <p>Veja o Sushi Way nas redes sociais.</p>
-                <ul class="social-channels">
-                  <a class="facebook-share" href="https://www.facebook.com/sushiloko" title="Facebook">
-                    <li class="facebook"></li>
-                  </a>
-                  <a class="twitter-share" href="https://twitter.com/sushiloko" title="Twitter">
-                    <li class="twitter"></li>
-                  </a>
-                </ul>
-              </div>
+              <p>Siga o Hotel Carlton nas redes sociais.</p>
+              <ul class="social-channels">
+                <a class="facebook-share" href="https://www.facebook.com/sushiloko" title="Facebook">
+                  <li class="facebook"></li>
+                </a>
+                <a class="twitter-share" href="https://twitter.com/sushiloko" title="Twitter">
+                  <li class="twitter"></li>
+                </a>
+              </ul>
             </div>
+          </div>
+
           </div>
         </div>
 
         <div class="l-footer-survey">
           <div class="about">
             <h2 class="title">
-              <span class="developed-by">Desenvolvido por </span> <strong><a href="http://www.promotools.com.br" target="_blank">promotools.com.br</a></strong></h2>
-              <span class="promotools-icon"></span>
+              <span class="developed-by">Desenvolvido por </span> <strong><a href="http://www.promotools.com.br" target="_blank">promotools.com.br</a></strong>
+            </h2>
+            <span class="promotools-icon"></span>
           </div>
         </div>
 
