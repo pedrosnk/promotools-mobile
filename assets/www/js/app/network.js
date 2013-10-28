@@ -3,8 +3,9 @@ window.App = window.App || {};
 window.App.network = {
 
   //BASE_URL: App.config.ENDPOINT || "http://promotools-survey.herokuapp.com/v1.0/surveys/sushiway/",
+  //BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
   BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
-  CLIENT_KEY: App.config.CLIENT_KEY || "VITRINNI",
+  CLIENT_KEY: App.config.CLIENT_KEY || "VITRINE",
 
   status: {
     ERROR: 0,

@@ -19,19 +19,18 @@
       <link rel="icon" href="favicon-64.png" sizes="64x64">
       <link rel="icon" href="favicon-128.png" sizes="128x128">
 
-
   </head>
 
   <body class="l-survey sushiway-form-view">
     <div class="content-wrapper">
       <div class="survey-wrapper">
-        
+
         <header class="l-header-survey">
           <div class="header-survey">
             <div class="logo-sushiway"></div>
           </div>
         </header>
-        
+
         <ul class="survey-progress">
           <li class="status first current" data-order="1"></li>
           <li class="status" data-order="2"></li>
@@ -44,30 +43,8 @@
         </ul>
 
         <div class="survey-container" id="survey">
-          
 
-          <div class="question current" id="frequency-reason-question">
-            <label>Com que frequência você costuma vir ao Sushi Way?</label>
-            <div class="frequency-question-itens">
-              <ul class="column-left">                
-                <li><button type="submit" class="survey-large-btn frequency">Primeira vez</button> </li>
-                <li><button type="submit" class="survey-large-btn frequency">Semanalmente</button></li>
-                <li><button type="submit" class="survey-large-btn frequency">Quinzenalmente</button></li>
-              </ul>
-              <ul class="column-right">
-                <li><button type="submit" class="survey-large-btn frequency">Mensalmente</button></li>
-                <li><button type="submit" class="survey-large-btn frequency">Raramente</button></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="question" id="returning-question">
-            <label>Pretende voltar outras vezes?</label>
-            <button type="submit" class="survey-large-btn returning">Sim</button>
-            <button type="submit" class="survey-large-btn returning">Não</button>
-          </div>
-
-          <div class="question" id="good-reason-question">
+          <div class="question current" id="good-reason-question">
             <label>Por que você escolheu o Sushi Way?</label>
             <div class="reason-question-itens">
               <ul class="column-left">
@@ -88,12 +65,12 @@
             <div class="reason-question-itens">
               <ul class="column-left">
                 <li><button type="submit" class="survey-large-btn bad-reason">Qualidade</button> </li>
-                <li><button type="submit" class="survey-large-btn bad-reason">Sistema por quilo</button></li>
+                <li><button type="submit" class="survey-large-btn bad-reason">Preço</button></li>
                 <li><button type="submit" class="survey-large-btn bad-reason">Localização</button></li>
               </ul>
               <ul class="column-right">
                 <li><button type="submit" class="survey-large-btn bad-reason">Variedade</button></li>
-                <li><button type="submit" class="survey-large-btn bad-reason">Preço</button>        </li>
+                <li><button type="submit" class="survey-large-btn bad-reason">Sistema por quilo</button></li>
                 <li><button type="submit" class="survey-large-btn bad-reason">Outros</button></li>
               </ul>
             </div>
@@ -114,6 +91,27 @@
               <button type="submit" class="survey-btn nps">9</button>
               <button type="submit" class="survey-btn nps">10</button>
             </div>
+          </div>
+
+          <div class="question" id="frequency-reason-question">
+            <label>Com que frequência você costuma vir ao Sushi Way?</label>
+            <div class="frequency-question-itens">
+              <ul class="column-left">
+                <li><button type="submit" class="survey-large-btn frequency">Primeira vez</button> </li>
+                <li><button type="submit" class="survey-large-btn frequency">Semanalmente</button></li>
+                <li><button type="submit" class="survey-large-btn frequency">Quinzenalmente</button></li>
+              </ul>
+              <ul class="column-right">
+                <li><button type="submit" class="survey-large-btn frequency">Mensalmente</button></li>
+                <li><button type="submit" class="survey-large-btn frequency">Raramente</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question" id="returning-question">
+            <label>Pretende voltar outras vezes?</label>
+            <button type="submit" class="survey-large-btn returning">Sim</button>
+            <button type="submit" class="survey-large-btn returning">Não</button>
           </div>
 
           <div class="question" id="demographic-question">
@@ -138,7 +136,6 @@
           <div class="question" id="email-question">
             <label>Deixe seu email e concorra a prêmios e promoções especiais.</label>
             <input class="email-input" name="user_contact" type="email">
-            <div class="email_suggest_text" id="email_sugestion" style="display: none;">Seu e-mail é <a href="#" id="email_sugestion_link"></a>?</div>
             <button type="submit" class="survey-large-btn leave-email">Eu quero</button>
             <button type="submit" class="survey-large-btn leave-email">Não, obrigado</button>
           </div>
@@ -209,7 +206,7 @@
   <script type="text/javascript" charset="utf-8">
     document.addEventListener("deviceready", onDeviceReady, false);
 
-    function onDeviceReady() {    
+    function onDeviceReady() {
 
       window.App.init();
 

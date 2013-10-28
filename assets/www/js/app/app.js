@@ -4,7 +4,7 @@
 
     config: {
       ENDPOINT: null,
-      CLIENT_KEY: "VITRINNI"
+      CLIENT_KEY: "VITRINE"
     },
 
     init: function(){
