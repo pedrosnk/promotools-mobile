@@ -23,7 +23,6 @@ $(document).ready(function(){
   $('input[name=user_contact]').on('keydown', function() {
     $('#email_sugestion').hide();
     $('#claim_email_sugestion').hide();
-    console.log('[LOG] blur')
     $(this).mailcheck({
       domains: domains,
       suggested: function(element, suggestion) {

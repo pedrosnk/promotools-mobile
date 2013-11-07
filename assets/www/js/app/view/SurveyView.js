@@ -32,7 +32,7 @@
       App.utils.nextQuestion("#bad-reason-question")
     },
 
-    handleBadReasonQuestion : function(e){    
+    handleBadReasonQuestion : function(e){
       $(this.el).off('click', '.bad-reason');
       App.config.DATA_SURVEY.bad_reason = e.currentTarget.innerText;
       App.utils.setMarkedButton(e);
@@ -45,12 +45,12 @@
 
       App.utils.setMarkedButton(e);
       App.utils.nextQuestion($("#first-time-question"));
-    },  
+    },
 
     handleFirstTimeQuestion : function(e){
       $(this.el).off('click', '.first-time');
       App.utils.setMarkedButton(e);
-      App.config.DATA_SURVEY.first_time = $(e.currentTarget).hasClass('yes') ? 1 : 0;      
+      App.config.DATA_SURVEY.first_time = $(e.currentTarget).hasClass('yes') ? 1 : 0;
 
       if(App.config.DATA_SURVEY.nps > 6) {
         App.utils.nextQuestion($("#email-question"));
@@ -62,13 +62,17 @@
     handleEmailQuestion : function(e){
       $(this.el).off('click', '.leave-email');
       var el = $(this).parent();
-      App.config.DATA_SURVEY.email = el.find('input[name=user_contact]').val();
+      if($(this.el).find("input[name='user_contact']").val()){
+        App.config.DATA_SURVEY.email = $(this.el).find("input[name='user_contact']").val();
+      } else {
+        App.config.DATA_SURVEY.email = $(this.el).find("input[name='claim_user_contact']").val();
+      }
       App.utils.setMarkedButton(e);
       App.utils.nextQuestion($("#leave-sugestion"));
     },
 
     handleLeaveSugestionQuestion : function(e){
-      $(this.el).off('click', '.email-question');      
+      $(this.el).off('click', '.email-question');
       App.utils.setMarkedButton(e);
 
       $('input[name=sugestion]').val(e.currentTarget.innerText);
@@ -82,11 +86,11 @@
     },
 
     handleSubmitSurvey : function(e){
-      $(this.el).off('click', '.submit-sugestion, .cancel-sugestion');   
+      $(this.el).off('click', '.submit-sugestion, .cancel-sugestion');
 
       App.utils.setMarkedButton(e);
-      var el = $(this).parent();
-      var feedback = el.find('textarea[name=feedback]').val();
+      //var el = $(this).parent();
+      var feedback = $(this.el).find("textarea[name='feedback']").val();
       App.config.DATA_SURVEY.sugestion = feedback;
       App.utils.finishSurvey();
     },
@@ -94,9 +98,9 @@
     autoCompleteEmail : function(e){
       $('#email_sugestion').hide();
       $('#claim_email_sugestion').hide();
-      
+
       var el = $(e.currentTarget);
-      
+
       el.mailcheck({
         domains: App.utils.mail.domains,
         suggested: function(element, suggestion) {
@@ -106,7 +110,7 @@
         empty: function(element) {
         }
     });
-    },    
+    },
 
     selectEmailSuggestion : function(e){
       e.preventDefault();
@@ -125,8 +129,8 @@
     showHeaderAndFooter : function(){
       $(".l-footer-survey").show();
       $('.l-header-survey').show();
-    }    
+    }
 
   });
-    
+
 })();
