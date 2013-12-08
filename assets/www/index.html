@@ -19,158 +19,173 @@
     <link rel="icon" href="favicon-128.png" sizes="128x128">
   </head>
 
-  <body class="l-survey carlton-form-view">
+  <body class="l-survey-v2 vintage-form-view">
     <div class="content-wrapper">
-      <div class="survey-wrapper">
-
-        <header class="l-header-survey">
-          <div class="header-survey">
-            <div class="logo-carlton"></div>
-          </div>
-        </header>
-
-        <ul class="survey-progress">
-          <li class="status first current" data-order="1"></li>
-          <li class="status" data-order="2"></li>
-          <li class="status" data-order="3"></li>
-          <li class="status" data-order="4"></li>
-          <li class="status" data-order="5"></li>
-          <li class="status" data-order="6"></li>
-          <li class="status" data-order="7"></li>
-          <li class="status" data-order="8"></li>
-          <li class="status" data-order="9"></li>
-          <li class="order"><span class="status"></span> / <span class="total"></span></li>
-        </ul>
-
-        <div class="survey-container" id="survey">
-          
-          <div class="question current" id="nps-question">
-            <label>Qual a possibilidade de você recomendar o Hotel Carlton para um amigo?</label>
-            <div id="nps-question-itens">
-              <button type="submit" class="survey-btn nps">0</button>
-              <button type="submit" class="survey-btn nps">1</button>
-              <button type="submit" class="survey-btn nps">2</button>
-              <button type="submit" class="survey-btn nps">3</button>
-              <button type="submit" class="survey-btn nps">4</button>
-              <button type="submit" class="survey-btn nps">5</button>
-              <button type="submit" class="survey-btn nps">6</button>
-              <button type="submit" class="survey-btn nps">7</button>
-              <button type="submit" class="survey-btn nps">8</button>
-              <button type="submit" class="survey-btn nps">9</button>
-              <button type="submit" class="survey-btn nps">10</button>
+        <div class="survey-wrapper">
+            <header id="header-survey">
+                <div class="header-container">
+                    <div class="logo-vintage"></div>
+                </div>
+            </header>
+            <div id="survey" class="survey-container" >
+                <div class="question current" id="nps-question">
+                    <label>Qual a possibilidade de você indicar nossa adega para um amigo?</label>
+                    <div class="slider-wrapper">
+                      <div class="dragdealer" id="nps-slider">
+                        <div class="slider-marker handle"></div>
+                      </div>
+                    </div>
+                    <div id="slideshow-menu-wrapper">
+                        <div class="cursor" id="slideshow-menu-cursor"></div>
+                        <ul class="nps-rate">
+                            <li><a id="nps-0" href="#"><i class="icon-circle red"></i><span class="number" data-nps="0">0</span></a> 
+                            </li>
+                            <li><a id="nps-1" href="#"><i class="icon-circle red"></i><span class="number" data-nps="1">1</span></a>
+                            </li>
+                            <li><a id="nps-2" href="#"><i class="icon-circle red"></i><span class="number" data-nps="2">2</span></a>
+                            </li>
+                            <li><a id="nps-3" href="#"><i class="icon-circle red"></i><span class="number" data-nps="3">3</span></a> 
+                            </li>
+                            <li><a id="nps-4" href="#"><i class="icon-circle red"></i><span class="number" data-nps="4">4</span></a> 
+                            </li>
+                            <li><a id="nps-5" href="#"><i class="icon-circle red"></i><span class="number" data-nps="5">5</span></a> 
+                            </li>
+                            <li><a id="nps-6" href="#"><i class="icon-circle red"></i><span class="number" data-nps="6">6</span></a> 
+                            </li>
+                            <li><a id="nps-7" href="#"><i class="icon-circle yellow"></i><span class="number" data-nps="7">7</span></a> 
+                            </li>
+                            <li><a id="nps-8" href="#photo8"><i class="icon-circle yellow"></i><span class="number" data-nps="8">8</span></a> 
+                            </li>
+                            <li><a id="nps-9" href="#"><i class="icon-circle green"></i><span class="number" data-nps="9">9</span></a> 
+                            </li>
+                            <li><a id="nps-10" href="#"><i class="icon-circle green"></i><span class="number" data-nps="10">10</span></a> 
+                            </li>
+                        </ul>
+                        <ul class="nps-footer">
+                            <li><span>Muito Insatisfeito</span>
+                            </li>
+                            <li class="center">
+                                <button type="submit" class="btn-gray nps-done">OK</button>
+                            </li>
+                            <li class="right"><span>Muito Satisfeito</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="question" id="rating-question">
+                    <label>Como foi sua experiência na Vintage?</label>
+                    <div class="options">
+                        <ul class="rating-optins-list" data-category="enviroument">
+                            <li>
+                                <label class="item">Ambiente</label>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="bad" class="btn-item bad"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="regular" class="btn-item regular"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="good" class="btn-item good"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="awesome" class="btn-item awesome"></button>
+                            </li>
+                        </ul>
+                        <ul class="rating-optins-list" data-category="treatment">
+                            <li>
+                                <label class="item">Atendimento</label>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="bad" class="btn-item bad"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="regular" class="btn-item regular"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="good" class="btn-item good"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="awesome" class="btn-item awesome"></button>
+                            </li>
+                        </ul>
+                        <ul class="rating-optins-list" data-category="variety">
+                            <li>
+                                <label class="item">Variedade</label>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="bad" class="btn-item bad"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="regular" class="btn-item regular"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="good" class="btn-item good"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="awesome" class="btn-item awesome"></button>
+                            </li>
+                        </ul>
+                        <ul class="rating-optins-list" data-category="price">
+                            <li>
+                                <label class="item">Preço</label>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="bad" class="btn-item bad"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="regular" class="btn-item regular"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="good" class="btn-item good"></button>
+                            </li>
+                            <li>
+                                <button type="submit" data-rate="awesome" class="btn-item awesome"></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="question item-question" id="treatment-question">
+                    <label>Como você avalia nosso atendimento?</label>
+                    <div class="select-answer">
+                        <p>Selecione uma opção</p>
+                    </div>
+                    <div class="options">
+                        <ul class="optins-list" data-category="treatment">
+                            <li>
+                                <button type="submit" class="btn-gray rate" data-rate="bad">Ruim</button>
+                            </li>
+                            <li>
+                                <button type="submit" class="btn-gray rate" data-rate="regular">Regular</button>
+                            </li>
+                            <li>
+                                <button type="submit" class="btn-gray rate" data-rate="good">Bom</button>
+                            </li>
+                            <li>
+                                <button type="submit" class="btn-gray rate" data-rate="awesome">Ótimo</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="question" id="email-question">
+                    <label>Deixe seu email e concorra a prêmios e promoções especiais.</label>
+                    <input class="email-input" name="user_contact" type="email" />
+                    <button type="submit" class="btn-gray large leave-email">Não, obrigado</button>
+                    <button type="submit" class="btn-gray large leave-email">Enviar</button>
+                </div>
+                <div class="question" id="feedback-question">
+                    <label>Gostaria de deixar uma sugestão ou elogio? Escreva aqui seu feedback.</label>
+                    <textarea class="feedback-input" name="feedback" rows="5"></textarea>
+                    <button type="submit" class="btn-gray large send-feedback">Não, obrigado</button>
+                    <button type="submit" class="btn-gray large send-feedback">Enviar</button>
+                </div>
+                <div class="question" id="thanks-message">
+                    <h1>Muito obrigado!</h1>
+                    <h1>A Vintage agradece sua participação. Volte sempre!</h1>
+                </div>
             </div>
-          </div>
-
-          <div class="question" id="checkin-question">
-            <label>Como você avalia o atendimento na hora check-in?</label>
-            <div class="reason-question-itens">
-              <ul class="column-left">
-                <li><button type="submit" class="survey-large-btn checkin">Ruim</button> </li>
-                <li><button type="submit" class="survey-large-btn checkin">Regular</button> </li>
-              </ul>
-              <ul class="column-right">
-                <li><button type="submit" class="survey-large-btn checkin">Bom</button></li>
-                <li><button type="submit" class="survey-large-btn checkin">Muito bom</button></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="question" id="room-question">
-            <label>Você ficou satisfeito com seu quarto? Ele estava limpo, confortável e devidamente suprido?</label>
-            <div class="reason-question-itens">
-              <ul class="column-left">
-                <li><button type="submit" class="survey-large-btn room">Ruim</button> </li>
-                <li><button type="submit" class="survey-large-btn room">Regular</button> </li>
-              </ul>
-              <ul class="column-right">
-                <li><button type="submit" class="survey-large-btn room">Bom</button></li>
-                <li><button type="submit" class="survey-large-btn room">Muito bom</button></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="question" id="public-areas-question">
-            <label>Em geral, como você classifica as áreas públicas do nosso hotel?</label>
-            <div class="reason-question-itens">
-              <ul class="column-left">
-                <li><button type="submit" class="survey-large-btn public-areas">Ruim</button> </li>
-                <li><button type="submit" class="survey-large-btn public-areas">Regular</button> </li>
-              </ul>
-              <ul class="column-right">
-                <li><button type="submit" class="survey-large-btn public-areas">Bom</button></li>
-                <li><button type="submit" class="survey-large-btn public-areas">Muito bom</button></li>
-              </ul>
-            </div>
-          </div>
-
-        <div class="question" id="staff-question">
-          <label>Como você classifica a hospitalidade de nossa equipe? (Simpatia, cortesia, agilidade)</label>
-          <div class="reason-question-itens">
-            <ul class="column-left">
-              <li><button type="submit" class="survey-large-btn staff">Ruim</button> </li>
-              <li><button type="submit" class="survey-large-btn staff">Regular</button></li>
-            </ul>
-            <ul class="column-right">
-              <li><button type="submit" class="survey-large-btn staff">Bom</button> </li>
-              <li><button type="submit" class="survey-large-btn staff">Muito bom</button></li>
-            </ul>
-          </div>
         </div>
-
-
-        <div class="question" id="return-question">
-          <label>Você pretende voltar outras vezes?</label>
-          <button type="submit" class="survey-large-btn returning">Sim</button>
-          <button type="submit" class="survey-large-btn returning">Não</button>    
-        </div>
-
-
-        <div class="question" id="email-question">
-          <label>Deixe seu email, queremos te manter informado sobre promoções especiais e melhorias no nosso serviço.</label>
-
-          <input class="email-input" name="user_contact" type="email" />
-          <div class="email_suggest_text" id="email_sugestion">Seu e-mail é 
-            <a href='#' id="email_sugestion_link"></a>?
-          </div>
-          <button type="submit" class="survey-large-btn email" >Ok</button>
-          <button type="submit" class="survey-large-btn email">Não, obrigado</button>
-        </div>
-
-        <div class="question" id="leave-sugestion">
-          <label>Gostaria de deixar uma sugestão, elogio ou comentário?</label>
-
-          <textarea class="feedback-input" name="feedback" rows="6"></textarea>
-          <button type="submit" class="survey-large-btn sugestion">Enviar</button>
-          <button type="submit" class="survey-large-btn sugestion">Encerrar a pesquisa</button>
-        </div>
-
-          <div class="question" id="thanks-message">
-            <h1>Muito obrigado!</h1>
-            <p class="message">O Hotel Carlton agradece sua participação. Volte sempre!</p>
-            <div class="social-message">
-              <p>Siga o Hotel Carlton nas redes sociais.</p>
-              <ul class="social-channels">
-                <a class="facebook-share" href="https://www.facebook.com/sushiloko" title="Facebook">
-                  <li class="facebook"></li>
-                </a>
-                <a class="twitter-share" href="https://twitter.com/sushiloko" title="Twitter">
-                  <li class="twitter"></li>
-                </a>
-              </ul>
-            </div>
-          </div>
-
-          </div>
-        </div>
-
-        <div class="l-footer-survey">
-          <div class="about">
-            <h2 class="title">
-              <span class="developed-by">Desenvolvido por </span> <strong><a href="http://www.promotools.com.br" target="_blank">promotools.com.br</a></strong>
-            </h2>
-            <span class="promotools-icon"></span>
-          </div>
-        </div>
+      </div>
 
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
@@ -180,13 +195,23 @@
   <script src="js/vendors/mailcheck.js" type="text/javascript"></script>
   <script src="js/vendors/underscore-min.js" type="text/javascript"></script>
   <script src="js/vendors/backbone.js" type="text/javascript"></script>
+  <script src="js/vendors/dragdealer.js" type="text/javascript"></script>
 
   <script src="js/app/app.js" type="text/javascript"></script>
   <script src="js/app/utils/utils.js" type="text/javascript"></script>
-  <script src="js/app/view/SurveyView.js" type="text/javascript"></script>
+  
   <script src="js/app/network.js" type="text/javascript"></script>
   <script src="js/app/storage.js" type="text/javascript"></script>
   <script src="js/app/utils.js" type="text/javascript"></script>
+  
+  <script src="js/app/model/Survey.js" type="text/javascript"></script>
+  <script src="js/app/view/questions/NpsQuestionView.js" type="text/javascript"></script>
+  <script src="js/app/view/questions/RatingQuestionView.js" type="text/javascript"></script>
+  <script src="js/app/view/questions/ItemRatingQuestionView.js" type="text/javascript"></script>
+  <script src="js/app/view/questions/EmailQuestionView.js" type="text/javascript"></script>
+  <script src="js/app/view/questions/FeedbackQuestionView.js" type="text/javascript"></script>
+  <script src="js/app/view/VintageSurveyView.js" type="text/javascript"></script>
+
 
   <script type="text/javascript" charset="utf-8">
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -195,7 +220,7 @@
 
       window.App.init();
 
-      var surveyView = new SurveyView({
+      var surveyView = new VintageSurveyView({
         el : $('#survey')
       });
       surveyView.render();
@@ -205,8 +230,6 @@
       });
     }
   </script>
-
-  </div>
 </body>
 
 </html>

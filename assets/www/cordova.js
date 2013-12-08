@@ -5411,17 +5411,17 @@ module.exports = geolocation;
 });
 
 // file: lib/common/plugin/geolocation/symbols.js
-define("cordova/plugin/geolocation/symbols", function(require, exports, module) {
+// define("cordova/plugin/geolocation/symbols", function(require, exports, module) {
 
 
-var modulemapper = require('cordova/modulemapper');
+// var modulemapper = require('cordova/modulemapper');
 
-modulemapper.defaults('cordova/plugin/geolocation', 'navigator.geolocation');
-modulemapper.clobbers('cordova/plugin/PositionError', 'PositionError');
-modulemapper.clobbers('cordova/plugin/Position', 'Position');
-modulemapper.clobbers('cordova/plugin/Coordinates', 'Coordinates');
+// modulemapper.defaults('cordova/plugin/geolocation', 'navigator.geolocation');
+// modulemapper.clobbers('cordova/plugin/PositionError', 'PositionError');
+// modulemapper.clobbers('cordova/plugin/Position', 'Position');
+// modulemapper.clobbers('cordova/plugin/Coordinates', 'Coordinates');
 
-});
+// });
 
 // file: lib/common/plugin/globalization.js
 define("cordova/plugin/globalization", function(require, exports, module) {
