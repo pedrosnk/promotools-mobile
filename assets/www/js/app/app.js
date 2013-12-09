@@ -8,7 +8,7 @@
     },
 
     init: function(){
-      console.log("\n[APP] Initializing Promotools Mobile App...");
+      console.log("[APP] Initializing Promotools Mobile App...");
       window.App.storage.createDB();
       window.App.network.initSenderJob();
       window.App.utils.timer.reloadAppOnTimeout();

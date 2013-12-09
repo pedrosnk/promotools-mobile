@@ -49,7 +49,7 @@ if (vintageFormView && vintageFormView.length > 0) {
       var feedbackQuestion = new FeedbackQuestionView({
         el : $('#feedback-question'),
         survey : this.surveyDataModel,
-        nextQuestion : $("#thanks-message"),
+        nextQuestion : $("#thanks-message")
       });      
 
       feedbackQuestion.on("finish", this.finishSurvey, this);      
@@ -60,23 +60,26 @@ if (vintageFormView && vintageFormView.length > 0) {
     //save data model and refresh view
 
     finishSurvey : function(){
-      console.log("=== surveyDataModel = " + this.surveyDataModel);   
+      console.log("=== surveyDataModel = " + JSON.stringify(this.surveyDataModel.attributes));   
+      App.storage.saveModelData(this.surveyDataModel.attributes);
 
-      this.surveyDataModel.save({}, {
-        success : _.bind(function(model, response, options) {
-          console.log("save success!!!");
-          window.location.reload();
-          //this.render();          
-        }, this),
-        error : _.bind(function(model, xhr, options){
-          console.log("save success!!!");
-          //window.location.reload();
-          this.render();
-        }, this),
-      });
-      
+      setTimeout(_.bind( function() {        
+        this.surveyDataModel.save({}, {
+          success : _.bind(function(model, response, options) {
+            console.log("[BACKBONE] save success!!!");
+            App.storage.updateStatus(model, App.network.status.SUCCESS);
+            //window.location.reload();
+            this.render();          
+          }, this),
+          error : _.bind(function(model, xhr, options){
+            console.log("[BACKBONE] save error!!!");
+            App.storage.updateStatus(model, App.network.status.ERROR);
+            //window.location.reload();
+            this.render();
+          }, this),
+        });
+      }, this), 600);      
     },
-
 
 
   });

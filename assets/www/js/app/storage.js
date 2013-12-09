@@ -12,8 +12,7 @@ window.App.storage = {
     var db = this.openDB();
     db.transaction(_.bind(function(tx){
       //tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
-      tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, frequency, want_return, good_reason, bad_reason, nps, age, sex, email, sugestion, origin, confirmed_sended, created_at)');
-      
+      tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, survey_response, confirmed_sended, created_at)');
     },this), this.error, function(){
       console.log("\n[DB - SUCCESS] DB created successfully.");
     });
@@ -29,12 +28,22 @@ window.App.storage = {
 
   save: function(data){
     var queryInsert = "INSERT INTO " + this.TABLE_NAME +
-    " (frequency, want_return, good_reason, bad_reason, nps, age, sex, email, sugestion, origin, confirmed_sended, created_at) " +
-    "VALUES ('"+ data.frequency + "', '"+  data.want_return + "' , '"+ data.good_reason +"', '"+ data.bad_reason +"', '"+ 
-    data.nps +"', '"+  data.age +"', '"+  data.sex +"', '"+ data.email +"', '"+ data.sugestion +"' , '"+ data.origin +"' , "+ data.confirmed_sended +", "+ new Date().getTime() +") ";
+    " (survey_response, confirmed_sended, created_at) " +
+    "VALUES ('"+ data.survey_response +"', "+  data.confirmed_sended +", "+ new Date().getTime() +") ";
 
     console.log("!!!! App.storage.SAVE()");
     console.log("QUERY = " + queryInsert);
+
+    this.openDB().transaction(function(tx){
+      console.log("[DB] SAVING survey");
+      tx.executeSql(queryInsert);
+    }, this.error, this.success);
+  },
+
+  saveModelData: function(data){
+    var queryInsert = "INSERT INTO " + this.TABLE_NAME +
+    " (survey_response, confirmed_sended, created_at) " +
+    "VALUES ('"+ JSON.stringify(data) +"', "+  App.network.status.ERROR +", "+ new Date().getTime() +") ";
 
     this.openDB().transaction(function(tx){
       console.log("[DB] SAVING survey");
