@@ -68,14 +68,14 @@ if (vintageFormView && vintageFormView.length > 0) {
           success : _.bind(function(model, response, options) {
             console.log("[BACKBONE] save success!!!");
             App.storage.updateStatus(model, App.network.status.SUCCESS);
-            //window.location.reload();
-            this.render();          
+            //this.render();          
+            window.location.reload();
           }, this),
           error : _.bind(function(model, xhr, options){
             console.log("[BACKBONE] save error!!!");
             App.storage.updateStatus(model, App.network.status.ERROR);
-            //window.location.reload();
-            this.render();
+            //this.render();
+            window.location.reload();
           }, this),
         });
       }, this), 600);      
