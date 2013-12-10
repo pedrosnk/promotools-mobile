@@ -4,7 +4,8 @@ window.App.network = {
 
   //BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
   BASE_URL: App.config.ENDPOINT || "http://192.168.1.6:3000/v1.0/surveys/vintage/",
-  CLIENT_KEY: App.config.CLIENT_KEY || "BRASILIA",
+  KEEP_ALIVE: "http://10.0.2.2:3000/totems/ping",
+  CLIENT_KEY: App.config.CLIENT_KEY || "VINTAGE_BRASILIA",
 
   status: {
     ERROR: 0,
@@ -16,6 +17,30 @@ window.App.network = {
     var cronFrequency = 'every 1 min';
     var textSched = later.parse.text(cronFrequency);
     var timer = later.setInterval(this.sender, textSched);
+  },
+
+  initKeepAlive : function() {
+    var cronFrequency = 'every 5 min';
+    var textSched = later.parse.text(cronFrequency);
+    var timer = later.setInterval(this.sendKeepAlive, textSched);
+  },
+
+  sendKeepAlive: function () {
+    var full_url = window.App.network.KEEP_ALIVE;
+    $.ajax({
+      contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+      type: 'POST',
+      url: full_url,
+      data: { token: window.App.network.CLIENT_KEY },
+      crossDomain : true,
+      dataType: 'json',
+      success: function(form, action) {
+        // console.log('[KEEP-ALIVE] Keep Alive Success');
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        // console.log('[KEEP-ALIVE] Keep Alive ERROR');
+      }
+    });
   },
 
   sender: function(){
