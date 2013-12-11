@@ -22,12 +22,12 @@ if (ratingQuestion && ratingQuestion.length > 0) {
     handleRating : function(e){
       this.selectItem(e)
       var category = $(e.currentTarget).closest('.rating-optins-list').data("category");
-      var rate = $(e.currentTarget).data("rate");      
+      var rate = parseInt($(e.currentTarget).data("rate"));
       this.rating[category] = rate;
 
-      if(_.size(this.rating) === 4){        
-        this.options.survey.set({rating: this.rating});                                              
-        App.utils.nextQuestion(this.options.nextQuestion); 
+      if(_.size(this.rating) === 4){
+        this.options.survey.set({rating: this.rating});
+        App.utils.nextQuestion(this.options.nextQuestion);
       }
     },
 
@@ -38,8 +38,8 @@ if (ratingQuestion && ratingQuestion.length > 0) {
       if (previousMarkupInCategory){
         previousMarkupInCategory.removeClass("active");
       }
-      $(e.currentTarget).addClass("active");      
+      $(e.currentTarget).addClass("active");
     }
   });
 }
-})();    
+})();

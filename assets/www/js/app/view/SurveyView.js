@@ -12,7 +12,7 @@
       'click .returning' : 'handleReturningQuestion',
       'click .email' : 'handleEmailQuestion',
       'click .sugestion' : 'handleSugestionQuestion',
-      'keydown :input.email-input' : 'autoCompleteEmail',      
+      'keydown :input.email-input' : 'autoCompleteEmail',
       'click .demographic' : 'handleDemographicQuestion',
       'click .leave-email' : 'handleEmailQuestion',
       'click .leave-sugestion' : 'handleLeaveSugestionQuestion',
@@ -28,9 +28,8 @@
       return this;
     },
 
-
     handleNPSQuestion : function(e){
-      $(this.el).off('click', '.nps');    
+      $(this.el).off('click', '.nps');
       App.config.DATA_SURVEY = { nps: e.currentTarget.innerText, confirmed_sended: 0, origin: "qrcode" };
 
       App.utils.setMarkedButton(e);
@@ -38,7 +37,7 @@
     },
 
     handleCheckinQuestion : function(e){
-      $(this.el).off('click', '.checkin');    
+      $(this.el).off('click', '.checkin');
       App.config.DATA_SURVEY.room =  e.currentTarget.innerText;
 
       App.utils.setMarkedButton(e);
@@ -46,7 +45,7 @@
     },
 
     handleRoomQuestion : function(e){
-      $(this.el).off('click', '.room');    
+      $(this.el).off('click', '.room');
       App.config.DATA_SURVEY.room =  e.currentTarget.innerText;
 
       App.utils.setMarkedButton(e);
@@ -54,14 +53,14 @@
     },
 
     handlePublicAreasQuestion : function(e){
-      $(this.el).off('click', '.public-areas');    
+      $(this.el).off('click', '.public-areas');
       App.config.DATA_SURVEY.publicAreas =  e.currentTarget.innerText;
       App.utils.setMarkedButton(e);
       App.utils.nextQuestion($("#staff-question"));
     },
 
     handleBarQuestion : function(e){
-      $(this.el).off('click', '.bar');    
+      $(this.el).off('click', '.bar');
       App.config.DATA_SURVEY.bar =  e.currentTarget.innerText;
 
       App.utils.setMarkedButton(e);
@@ -113,7 +112,7 @@
     },
 
     handleStaffQuestion : function(e){
-      $(this.el).off('click', '.staff');    
+      $(this.el).off('click', '.staff');
       App.config.DATA_SURVEY.staff =  e.currentTarget.innerText;
 
       App.utils.setMarkedButton(e);
@@ -121,19 +120,19 @@
     },
 
     handleReturningQuestion : function(e){
-      $(this.el).off('click', '.returning');    
+      $(this.el).off('click', '.returning');
       App.utils.setMarkedButton(e);
       App.config.DATA_SURVEY.returning =  e.currentTarget.innerText;
     },
 
     handleLeaveSugestionQuestion : function(e){
-      $(this.el).off('click', '.email-question');      
+      $(this.el).off('click', '.email-question');
       App.utils.setMarkedButton(e);
       App.utils.nextQuestion($("#email-question"));
     },
 
     handleEmailQuestion : function(e){
-      $(this.el).off('click', '.email');    
+      $(this.el).off('click', '.email');
       App.config.DATA_SURVEY.email =  e.currentTarget.innerText;
 
       App.utils.setMarkedButton(e);
@@ -141,7 +140,7 @@
     },
 
     handleSugestionQuestion : function(e){
-      $(this.el).off('click', '.sugestion');        
+      $(this.el).off('click', '.sugestion');
     },
 
     handleSubmitSurvey : function(e){
@@ -153,16 +152,15 @@
       App.utils.finishSurvey();
 
       App.utils.setMarkedButton(e);
-      App.utils.finishSurvey();
-      //App.utils.nextQuestion($("#thanks-message"));
-    },    
+      App.utils.nextQuestion($("#thanks-message"));
+    },
 
     autoCompleteEmail : function(e){
       $('#email_sugestion').hide();
       $('#claim_email_sugestion').hide();
-      
+
       var el = $(e.currentTarget);
-      
+
       el.mailcheck({
         domains: App.utils.mail.domains,
         suggested: function(element, suggestion) {

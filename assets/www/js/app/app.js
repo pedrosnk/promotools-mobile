@@ -3,8 +3,10 @@
   window.App = {
 
     config: {
-      ENDPOINT: null,
-      CLIENT_KEY: "VITRINNI"
+      ENDPOINT: 'http://192.168.1.11:3000',
+      CLIENT_NAME: 'habibs',
+      API_VERSION: 'v1.1',
+      CLIENT_KEY: 'HABIBS_CONJUNTO'
     },
 
     init: function(){

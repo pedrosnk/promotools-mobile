@@ -3,16 +3,18 @@ window.App = window.App || {};
 window.App.network = {
 
   //BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
-  BASE_URL: App.config.ENDPOINT || "http://192.168.1.6:3000/v1.0/surveys/vintage/",
-  KEEP_ALIVE: "http://10.0.2.2:3000/totems/ping",
-  CLIENT_KEY: App.config.CLIENT_KEY || "VINTAGE_BRASILIA",
+  ENDPOINT: App.config.ENDPOINT || 'http://192.168.1.11:3000',
+  CLIENT_NAME: App.config.CLIENT_NAME || 'habibs',
+  API_VERSION: App.config.API_VERSION || 'v1.1',
+  CLIENT_KEY: App.config.CLIENT_KEY || "HABIBS_CONJUNTO",
+  KEEP_ALIVE: "totems/ping",
 
   status: {
     ERROR: 0,
     SUCCESS: 1
   },
 
-  initSenderJob : function(){
+  initSenderJob : function() {
     console.log("[CRON] Init sender job");
     var cronFrequency = 'every 1 min';
     var textSched = later.parse.text(cronFrequency);
@@ -26,19 +28,21 @@ window.App.network = {
   },
 
   sendKeepAlive: function () {
-    var full_url = window.App.network.KEEP_ALIVE;
+    var full_url = window.App.config.ENDPOINT + '/' +
+      window.App.network.API_VERSION + '/' +
+      window.App.network.KEEP_ALIVE;
     $.ajax({
       contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
       type: 'POST',
       url: full_url,
-      data: { token: window.App.network.CLIENT_KEY },
+      data: { token: window.App.config.CLIENT_KEY },
       crossDomain : true,
       dataType: 'json',
       success: function(form, action) {
-        // console.log('[KEEP-ALIVE] Keep Alive Success');
+      //  console.log('[KEEP-ALIVE] Keep Alive Success');
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        // console.log('[KEEP-ALIVE] Keep Alive ERROR');
+      //  console.log('[KEEP-ALIVE] Keep Alive ERROR');
       }
     });
   },
@@ -50,7 +54,9 @@ window.App.network = {
 
   submitSurveys: function(surveys){
     console.log("@@@@ >> App.network.submitSurveys()");
-    var full_url = this.BASE_URL + this.CLIENT_KEY
+    var full_url = this.ENDPOINT + '/' +
+      this.API_VERSION + '/surveys/' +
+      this.CLIENT_NAME;
     console.log(">> [NETWORK] full_url == " + full_url);
     //sending surveys to our server
     $.ajax({
@@ -61,7 +67,7 @@ window.App.network = {
       crossDomain : true,
       dataType: 'json',
       success : function(form, action) {
-        console.log("@@@@ >> App.network.submitSurveys.success - " + App.network.status.SUCCESS);
+        console.log("@@@@ >> [NETWORK] App.network.submitSurveys.success - " + App.network.status.SUCCESS);
         surveys.forEach(function(survey) {
           App.storage.updateStatus(survey, App.network.status.SUCCESS);
         });

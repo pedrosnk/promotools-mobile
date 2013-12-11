@@ -27,11 +27,11 @@ if (npsQuestion && npsQuestion.length > 0) {
           var previousEl = $(".nps-red-target, .nps-green-target, .nps-yellow-target");
           previousEl.removeClass("nps-red-target nps-green-target nps-yellow-target");
 
-          var target = '#nps-' + String(x * 10); 
+          var target = '#nps-' + String(x * 10);
           var npsEl = $(target).find(".number");
           var npsValue = parseInt(npsEl.data("nps"));
           var targetClass = "nps-red-target";
-          
+
           if(npsValue > 8) {
             targetClass = "nps-green-target";
           } else if (npsValue > 6 && npsValue < 9){
@@ -81,29 +81,29 @@ if (npsQuestion && npsQuestion.length > 0) {
       document.getElementById('nps-7').onclick = function(){
         slideshow.setStep(8);
         return false;
-      }  
+      }
 
       document.getElementById('nps-8').onclick = function(){
         slideshow.setStep(9);
         return false;
-      } 
+      }
 
       document.getElementById('nps-9').onclick = function(){
         slideshow.setStep(10);
         return false;
-      }    
+      }
 
       document.getElementById('nps-10').onclick = function(){
         slideshow.setStep(11);
         return false;
-      }          
+      }
     },
 
     handleNPSQuestion : function(e){
       $(this.el).off('click', '.nps-done');
       App.utils.setMarkedButton(e);
 
-      var targetRate = null;      
+      var targetRate = null;
       if($(".nps-red-target").length){
         targetRate =  $(".nps-red-target").data("nps");
       } else if($(".nps-yellow-target").length){
@@ -111,9 +111,9 @@ if (npsQuestion && npsQuestion.length > 0) {
       } else {
         targetRate = $(".nps-green-target").data("nps");
       }
-      this.options.survey.set({nps: targetRate});                                        
-      App.utils.nextQuestion(this.options.nextQuestion);      
+      this.options.survey.set({nps: targetRate});
+      App.utils.nextQuestion(this.options.nextQuestion);
     }
   });
 }
-})();  
+})();
