@@ -43,6 +43,8 @@ if (npsQuestion && npsQuestion.length > 0) {
         }
       });
 
+      slideshow.setStep(6);
+      
       //We can improve it
       document.getElementById('nps-0').onclick = function(e){
         slideshow.setStep(1);

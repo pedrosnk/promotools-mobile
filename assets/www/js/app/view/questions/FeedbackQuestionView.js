@@ -26,17 +26,22 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
       var feedback = $(this.el).find("textarea[name='feedback']").val() || null ;
       this.answerModel.value = feedback;
       this.options.survey.questions.push(this.answerModel);
-      this.trigger("finish", this);
       console.log('[DEBUG] ' +  JSON.stringify(this.options.survey));
+      this.trigger("finish", this);
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
     hideHeader : function(){
       $("#header-survey").hide();
+      $(".hide-keyboard").show();
+      $(".hide-keyboard").css("top", "150px");
+      $(".survey-container").css("margin-top", "-150px");
     },
 
     showHeader : function(){
       $("#header-survey").show();
+      $(".hide-keyboard").hide();
+      $(".survey-container").css("margin-top", "130px");
     }
   });
 }

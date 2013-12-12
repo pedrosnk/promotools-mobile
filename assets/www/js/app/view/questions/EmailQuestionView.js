@@ -34,10 +34,15 @@ if (emailQuestion && emailQuestion.length > 0) {
 
     hideHeader : function(){
       $("#header-survey").hide();
+      $(".hide-keyboard").show();
+      $(".hide-keyboard").css("top", "150px");
+      $(".survey-container").css("margin-top", "-150px");
     },
 
     showHeader : function(){
       $("#header-survey").show();
+      $(".hide-keyboard").hide();
+      $(".survey-container").css("margin-top", "130px");
     }
   });
 }
