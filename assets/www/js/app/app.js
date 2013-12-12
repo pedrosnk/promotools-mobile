@@ -3,7 +3,7 @@
   window.App = {
 
     config: {
-      ENDPOINT: 'http://192.168.1.11:3000',
+      ENDPOINT: 'http://www.promotools.com.br',
       CLIENT_NAME: 'habibs',
       API_VERSION: 'v1.1',
       CLIENT_KEY: 'HABIBS_CONJUNTO'

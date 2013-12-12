@@ -1,19 +1,19 @@
 (function(){
 
-var vintageFormView = $('.vintage-form-view');
+var habibsFormView = $('.habibs-form-view');
 
-if (vintageFormView && vintageFormView.length > 0) {
+if (habibsFormView && habibsFormView.length > 0) {
 
-  window.VintageSurveyView = Backbone.View.extend({
+  window.HabibsSurveyView = Backbone.View.extend({
 
     render : function() {
       console.log(" === Rendering VintageFormView === ");
 
       //TODO: CREATE SURVEY MODEL
-      App.config.DATA_SURVEY = { confirmed_sended: 0, origin: "qrcode" };
+      //App.config.DATA_SURVEY = { confirmed_sended: 0, origin: "qrcode" };
 
       this.surveyDataModel = new Survey( {
-        url: '/v1.0/surveys/vintage/brasilia'
+        url: '/v1.0/surveys/habibs/conjunto'
       });
 
       var npsQuestion = new NpsQuestionView({
@@ -49,7 +49,7 @@ if (vintageFormView && vintageFormView.length > 0) {
       var feedbackQuestion = new FeedbackQuestionView({
         el : $('#feedback-question'),
         survey : this.surveyDataModel,
-        nextQuestion : $("#thanks-message")
+        nextQuestion : $("#thanks")
       });
 
       feedbackQuestion.on("finish", this.finishSurvey, this);
@@ -78,7 +78,7 @@ if (vintageFormView && vintageFormView.length > 0) {
             window.location.reload();
           }, this),
         });
-      }, this), 600);
+      }, this), 5000);
     },
 
 

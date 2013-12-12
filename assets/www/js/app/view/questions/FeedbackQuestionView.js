@@ -23,17 +23,22 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
     handleSendFeedback : function(e){
       App.utils.setMarkedButton(e);
       var feedback = $(this.el).find("textarea[name='feedback']").val() || null ;
-      this.options.survey.set({sugestion: feedback});      
-      this.trigger("finish", this);
-      App.utils.nextQuestion(this.options.nextQuestion);   
+      this.options.survey.set({sugestion: feedback}); 
+      this.trigger("finish", this);       
+      App.utils.nextQuestion(this.options.nextQuestion);     
     },
 
     hideHeader : function(){
       $("#header-survey").hide();
+      $(".hide-keyboard").show();
+      $(".hide-keyboard").css("top", "150px");
+      $(".survey-container").css("margin-top", "-150px");
     },
 
     showHeader : function(){
       $("#header-survey").show();
+      $(".hide-keyboard").hide();
+      $(".survey-container").css("margin-top", "130px");
     }
   });
 }

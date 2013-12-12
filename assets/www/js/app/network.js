@@ -3,7 +3,7 @@ window.App = window.App || {};
 window.App.network = {
 
   //BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
-  ENDPOINT: App.config.ENDPOINT || 'http://192.168.1.11:3000',
+  ENDPOINT: App.config.ENDPOINT || 'http://www.promotools.com.br',
   CLIENT_NAME: App.config.CLIENT_NAME || 'habibs',
   API_VERSION: App.config.API_VERSION || 'v1.1',
   CLIENT_KEY: App.config.CLIENT_KEY || "HABIBS_CONJUNTO",
