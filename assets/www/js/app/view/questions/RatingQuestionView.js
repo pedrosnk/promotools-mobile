@@ -26,7 +26,11 @@ if (ratingQuestion && ratingQuestion.length > 0) {
       this.rating[category] = rate;
 
       if(_.size(this.rating) === 4){
-        this.options.survey.set({rating: this.rating});
+        var ratingTypes = ['enviroument', 'quality', 'variety', 'price'];
+        for ( rate in ratingTypes ) {
+          var ratingModel = { _type: 'Answer::MultipleChoice', value: this.rating[ratingTypes[rate]], rating_label: ratingTypes[rate] };
+          this.options.survey.questions.push(ratingModel);
+        }
         App.utils.nextQuestion(this.options.nextQuestion);
       }
     },

@@ -14,18 +14,21 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
+      this.answerModel = { _type: 'Answer::Feedback', value: null };
     },
 
     render : function() {
-      console.log(" == Render FeedbackQuestionView");     
+      console.log(" == Render FeedbackQuestionView");
     },
 
     handleSendFeedback : function(e){
       App.utils.setMarkedButton(e);
       var feedback = $(this.el).find("textarea[name='feedback']").val() || null ;
-      this.options.survey.set({sugestion: feedback});      
+      this.answerModel.value = feedback;
+      this.options.survey.questions.push(this.answerModel);
       this.trigger("finish", this);
-      App.utils.nextQuestion(this.options.nextQuestion);   
+      console.log('[DEBUG] ' +  JSON.stringify(this.options.survey));
+      App.utils.nextQuestion(this.options.nextQuestion);
     },
 
     hideHeader : function(){
@@ -37,4 +40,4 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
     }
   });
 }
-})();    
+})();

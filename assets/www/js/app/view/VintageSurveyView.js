@@ -13,7 +13,8 @@ if (vintageFormView && vintageFormView.length > 0) {
       App.config.DATA_SURVEY = { confirmed_sended: 0, origin: "qrcode" };
 
       this.surveyDataModel = new Survey( {
-        url: '/v1.0/surveys/vintage/brasilia'
+        url: '/v1.0/surveys/vintage/brasilia',
+        questions: []
       });
 
       var npsQuestion = new NpsQuestionView({

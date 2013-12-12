@@ -14,6 +14,7 @@ if (emailQuestion && emailQuestion.length > 0) {
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
+      this.answerModel = { _type: 'Answer::Email', email_value: null };
     },
 
     render : function() {
@@ -21,13 +22,14 @@ if (emailQuestion && emailQuestion.length > 0) {
     },
 
     handleEmailQuestion : function(e){
-      $(this.el).off('click', '.leave-email'); 
+      $(this.el).off('click', '.leave-email');
       App.utils.setMarkedButton(e);
-      
-      var contact = $(this.el).find("input[name='user_contact']").val() || null;      
-      
-      this.options.survey.set({email : contact});                                              
-      App.utils.nextQuestion(this.options.nextQuestion);      
+
+      var contact = $(this.el).find("input[name='user_contact']").val() || null;
+
+      this.answerModel.email_value = contact;
+      this.options.survey.questions.push(this.answerModel);
+      App.utils.nextQuestion(this.options.nextQuestion);
     },
 
     hideHeader : function(){
@@ -39,4 +41,5 @@ if (emailQuestion && emailQuestion.length > 0) {
     }
   });
 }
-})();    
+})();
+

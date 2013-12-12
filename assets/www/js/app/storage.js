@@ -90,8 +90,11 @@ window.App.storage = {
     console.log("UNSENT SURVEYS: " + len + " rows found.");
     surveys = [];
     for (var i=0; i<len; i++){
-      survey = result.rows.item(i);
+      var item = result.rows.item(i);
+      var survey = {};
+      survey.survey_data = JSON.parse(item.survey_response);
       survey.origin = 'totem';
+      survey.created_at = item.created_at;
       surveys.push(survey);
     }
     if (len !== 0) {

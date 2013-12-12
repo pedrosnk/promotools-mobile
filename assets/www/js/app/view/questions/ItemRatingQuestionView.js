@@ -8,6 +8,7 @@
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
+      this.answerModel = { _type: 'Answer::MultipleChoice', value: null, rating_label: 'service' };
     },
 
     render : function() {
@@ -19,11 +20,6 @@
 
       var category = $(e.currentTarget).closest('.optins-list').data("category");
       var rate = parseInt($(e.currentTarget).data("rate"));
-      var category_obj = {};
-      category_obj[category] = rate;
-      //TODO: SET DATA IN MODEL
-      //config.DATA_SURVEY[this.options.category] = rate;
-      this.options.survey.set(category_obj) ;
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
@@ -33,6 +29,8 @@
 
       var rate = parseInt($(e.currentTarget).data("rate"));
       $(".select-answer p").hide();
+      this.answerModel.value = rate;
+      this.options.survey.questions.push(this.answerModel);
       var faceClass;
       switch(rate) {
         case 1:
@@ -48,8 +46,6 @@
           faceClass = 'awesome-face'
           break;
       }
-      console.log('[]');
-      console.log(faceClass);
       $(".select-answer").addClass(faceClass);
     }
   });

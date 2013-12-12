@@ -12,6 +12,7 @@ if (npsQuestion && npsQuestion.length > 0) {
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
+      this.npsModel = { _type: 'Answer::Nps', value: null };
     },
 
     render : function() {
@@ -111,7 +112,8 @@ if (npsQuestion && npsQuestion.length > 0) {
       } else {
         targetRate = $(".nps-green-target").data("nps");
       }
-      this.options.survey.set({nps: targetRate});
+      this.npsModel.value = targetRate;
+      this.options.survey.questions.push(this.npsModel);
       App.utils.nextQuestion(this.options.nextQuestion);
     }
   });
