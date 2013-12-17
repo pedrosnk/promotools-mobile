@@ -22,6 +22,7 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
     },
 
     handleSendFeedback : function(e){
+      $(this.el).off('click', '.send-feedback');
       App.utils.setMarkedButton(e);
       var feedback = $(this.el).find("textarea[name='feedback']").val() || null ;
       this.answerModel.value = feedback;

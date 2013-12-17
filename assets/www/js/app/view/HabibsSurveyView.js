@@ -76,7 +76,7 @@ if (habibsFormView && habibsFormView.length > 0) {
             window.location.reload();
           }, this),
         });
-      }, this), 5000);
+      }, this), 2000);
     },
 
 
