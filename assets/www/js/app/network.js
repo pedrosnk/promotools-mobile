@@ -1,8 +1,7 @@
 window.App = window.App || {};
 
 window.App.network = {
-
-  //BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
+  
   ENDPOINT: App.config.ENDPOINT || 'http://www.promotools.com.br',
   CLIENT_NAME: App.config.CLIENT_NAME || 'habibs',
   API_VERSION: App.config.API_VERSION || 'v1.1',

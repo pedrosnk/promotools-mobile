@@ -1,17 +1,18 @@
 (function(){
 
-var habibsFormView = $('.habibs-form-view');
+var vintageFormView = $('.vintage-form-view');
 
-if (habibsFormView && habibsFormView.length > 0) {
+if (vintageFormView && vintageFormView.length > 0) {
 
-  window.HabibsSurveyView = Backbone.View.extend({
+  window.VintageSurveyView = Backbone.View.extend({
 
     render : function() {
       console.log(" === Rendering VintageFormView === ");
 
       this.surveyDataModel = new Survey( {
-        url: '/v1.0/surveys/habibs/conjunto',
-        questions: []
+        url: '/v1.0/surveys/vintage/liberty',
+        questions: [],
+        metrics : []
       });
 
       var npsQuestion = new NpsQuestionView({
@@ -47,7 +48,7 @@ if (habibsFormView && habibsFormView.length > 0) {
       var feedbackQuestion = new FeedbackQuestionView({
         el : $('#feedback-question'),
         survey : this.surveyDataModel,
-        nextQuestion : $("#thanks")
+        nextQuestion : $("#thanks-message")
       });
 
       feedbackQuestion.on("finish", this.finishSurvey, this);
