@@ -36,7 +36,7 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
       $("#header-survey").hide();
       $(".hide-keyboard").show();
       $(".hide-keyboard").css("top", "150px");
-      $(".survey-container").css("margin-top", "-150px");
+      $(".survey-container").css("margin-top", "-110px");
     },
 
     showHeader : function(){

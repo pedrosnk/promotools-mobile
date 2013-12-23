@@ -1,11 +1,11 @@
 window.App = window.App || {};
 
 window.App.network = {
-  
-  ENDPOINT: App.config.ENDPOINT || 'http://www.promotools.com.br',
-  CLIENT_NAME: App.config.CLIENT_NAME || 'habibs',
-  API_VERSION: App.config.API_VERSION || 'v1.1',
-  CLIENT_KEY: App.config.CLIENT_KEY || "HABIBS_CONJUNTO",
+
+  ENDPOINT: App.config.ENDPOINT || 'http://0.0.0.0',
+  CLIENT_NAME: App.config.CLIENT_NAME || 'client-name',
+  API_VERSION: App.config.API_VERSION || 'api-version',
+  CLIENT_KEY: App.config.CLIENT_KEY || "client-key",
   KEEP_ALIVE: "totems/ping",
 
   status: {

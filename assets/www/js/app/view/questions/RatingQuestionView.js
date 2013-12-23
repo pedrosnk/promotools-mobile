@@ -37,6 +37,7 @@ if (ratingQuestion && ratingQuestion.length > 0) {
 
     selectItem : function(e){
       //remove previous markup in a category list
+      App.utils.setMarkedButton(e);
       var categoryList = $(e.currentTarget).closest('.rating-optins-list');
       var previousMarkupInCategory = $(categoryList).find(".active");
       if (previousMarkupInCategory){

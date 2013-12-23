@@ -10,7 +10,8 @@ if (vintageFormView && vintageFormView.length > 0) {
       'click .go-to-survey' : 'handleShowSurvey',
     },
 
-    handleShowSurvey : function(){
+    handleShowSurvey : function(){   
+      this.slider.stopAuto();   
       $('.vintage-form-view').removeClass('slider-bkg-home slider-bkg-itens');
       $('#header-survey').show();
       $('.survey-container').show();   
@@ -19,7 +20,6 @@ if (vintageFormView && vintageFormView.length > 0) {
     },
 
     render : function() {
-
       $('#header-survey').hide();
       $('.vintage-form-view').addClass('slider-bkg-home');
       $('.top-info').hide();

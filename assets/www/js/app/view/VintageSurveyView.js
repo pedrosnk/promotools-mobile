@@ -77,7 +77,7 @@ if (vintageFormView && vintageFormView.length > 0) {
             window.location.reload();
           }, this),
         });
-      }, this), 2000);
+      }, this), 3000);
     },
 
 

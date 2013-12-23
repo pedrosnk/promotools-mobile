@@ -29,7 +29,8 @@ window.App.utils = {
   setMarkedButton : function(e){
     var el = $(e.currentTarget);
     //get a button or a li children, witch is a button
-    var button = el.hasClass("survey-btn") || el.hasClass("survey-large-btn") ? el : el.children();
+    var button = el.hasClass("btn-gray") || (
+      el.hasClass("survey-btn") || el.hasClass("survey-large-btn")) ? el : el.children();
     button.addClass("selected");
   },
 

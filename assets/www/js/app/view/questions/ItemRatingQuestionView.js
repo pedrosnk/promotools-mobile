@@ -16,21 +16,20 @@
     },
 
     handleRatingItem : function(e){
-      this.selectRatingItem(e)
-
-      var category = $(e.currentTarget).closest('.optins-list').data("category");
+      $(this.el).off('click', '.rate');
+      App.utils.setMarkedButton(e);
+      
       var rate = parseInt($(e.currentTarget).data("rate"));
+      this.answerModel.value = rate;
+      this.options.survey.questions.push(this.answerModel);
+
+      this.selectRatingItem(rate)
+      
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
-    selectRatingItem : function(e){
-      $(this.el).off('click', '.rate');
-      App.utils.setMarkedButton(e);
-
-      var rate = parseInt($(e.currentTarget).data("rate"));
+    selectRatingItem : function(rate){      
       $(".select-answer p").hide();
-      this.answerModel.value = rate;
-      this.options.survey.questions.push(this.answerModel);
       var faceClass;
       switch(rate) {
         case 1:
