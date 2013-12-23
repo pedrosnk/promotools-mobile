@@ -3,8 +3,8 @@ window.Survey = Backbone.Model.extend({
   initialize: function(props){
     this.instanceUrl = props.url;
     this.questions = props.questions;
-    this.store = props.store;
     this.client = props.client;
+    this.store = props.store;
   } ,
 
   url: function(){

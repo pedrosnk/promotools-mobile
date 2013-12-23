@@ -18,9 +18,12 @@
     handleRatingItem : function(e){
       $(this.el).off('click', '.rate');
       App.utils.setMarkedButton(e);
-      
+
       var rate = parseInt($(e.currentTarget).data("rate"));
+      var category = $(e.currentTarget).closest('.optins-list').data("category");
+
       this.answerModel.value = rate;
+      this.answerModel.rating_label = category;
       this.options.survey.questions.push(this.answerModel);
 
       this.selectRatingItem(rate)

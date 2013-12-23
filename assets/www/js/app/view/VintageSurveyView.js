@@ -12,7 +12,9 @@ if (vintageFormView && vintageFormView.length > 0) {
       this.surveyDataModel = new Survey( {
         url: '/v1.0/surveys/vintage/liberty',
         questions: [],
-        metrics : []
+        metrics : [],        
+        client : App.config.CLIENT_KEY,
+        store : App.config.CLIENT_STORE
       });
 
       var npsQuestion = new NpsQuestionView({
