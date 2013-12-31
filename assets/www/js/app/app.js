@@ -7,7 +7,7 @@
       API_VERSION: 'v1.1',
       CLIENT_NAME: 'vintage',      
       CLIENT_KEY: 'VINTAGE',
-      CLIENT_STORE: 'iguatemi'
+      CLIENT_STORE: 'liberty'
     },
 
     init: function(){

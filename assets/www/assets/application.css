@@ -45,4 +45,9 @@
   width: 100%;   
 }
 
+.vintage-slider .slide .content-wrapper .wine-info-wrapper .wine-info {
+width: 240px;
+float: left;
+text-align: right;
+}
 
