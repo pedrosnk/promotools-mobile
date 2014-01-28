@@ -3,10 +3,11 @@
   window.App = {
 
     config: {
-      ENDPOINT: 'http://www.promotools.com.br',
+      ENDPOINT: 'http://192.168.1.14:3000',
       CLIENT_NAME: 'habibs',
       API_VERSION: 'v1.1',
-      CLIENT_KEY: 'HABIBS_CONJUNTO'
+      CLIENT_KEY: 'HABIBS_CONJUNTO',
+      STORE_NAME: 'conjunto'
     },
 
     init: function(){

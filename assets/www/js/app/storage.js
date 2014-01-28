@@ -93,7 +93,9 @@ window.App.storage = {
       var item = result.rows.item(i);
       var survey = {};
       survey.survey_data = JSON.parse(item.survey_response);
-      survey.origin = 'totem';
+      survey.survey_data.client = App.config.CLIENT_NAME || 'habibs';
+      survey.survey_data.store = App.config.STORE_NAME || 'conjunto';
+      survey.origin = 'totem' ;
       survey.created_at = item.created_at;
       survey.id = item.id;
       surveys.push(survey);
