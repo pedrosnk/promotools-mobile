@@ -22,21 +22,44 @@ package br.com.promotools.app;
 import org.apache.cordova.Config;
 import org.apache.cordova.DroidGap;
 
+import android.content.ContentResolver;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 public class Promotools extends DroidGap
 {
+    private static ContentResolver applicationContentResolver;
+    private static Promotools instance;
+    
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         super.loadUrl(Config.getStartUrl());
+        Promotools.setApplicationContentResolver(getContentResolver());
+        instance = this;
         /**
          * Uncoment the line bellow to run the tests spec
          */
-//        super.loadUrl("file:///android_asset/www/spec.html"); // to run tests
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-    }
-}
 
+//        super.loadUrl("file:///android_asset/www/spec.html"); // to run tests
+//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+    }
+
+
+
+    public static ContentResolver getApplicationContentResolver() {
+        return applicationContentResolver;
+    }
+
+    public static void setApplicationContentResolver(
+            ContentResolver applicationContentResolver) {
+        Promotools.applicationContentResolver = applicationContentResolver;
+    }
+    
+    public static void executeIntent(Intent intent){
+        instance.startActivity(intent);
+    }
+    
+}
