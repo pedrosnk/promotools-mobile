@@ -1,5 +1,5 @@
 define('views/multiInfoApp/appViewController',
-    ['backbone','collection/teams', 'storage'], function(Backbone, Teams, Storage) {
+    ['backbone','collection/teams'], function(Backbone, Teams) {
   'use strict';
    return Backbone.View.extend({
     initialize: function(){
@@ -27,15 +27,8 @@ define('views/multiInfoApp/appViewController',
     showTeamView : function(e){
       this.setSelectedButton(e);
       this.showSelectedView("team-content-view");
-      this.teams.fetch({success : _.bind(this.fetchTeamsDataSuccess, this),
-        error: _.bind(this.tryLoadFromDB, this) });
-    },
-
-    tryLoadFromDB: function() {
-      Storage.getTeams(_.bind(function(result){
-        this.teams.add(result);
-        this.renderTeamsView();
-      }, this));
+      this.renderTeamsView()
+      this.teams.fetch({success : _.bind(this.renderTeamsView, this)});
     },
 
     showMentorsView : function(e){
@@ -57,11 +50,6 @@ define('views/multiInfoApp/appViewController',
       var menu = $(e.currentTarget).closest('.menu-itens');
       $(menu).find(".selected").removeClass("selected");
       $(e.currentTarget).addClass("selected");
-    },
-
-    fetchTeamsDataSuccess : function(){
-      Storage.saveTeams(this.teams);
-      this.renderTeamsView();
     },
 
     renderTeamsView : function() {

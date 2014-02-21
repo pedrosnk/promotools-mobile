@@ -39,8 +39,6 @@ define('storage', ['network'], function(Network) {
     },
 
     getTeams: function(success) {
-
-
       var query = "SELECT * FROM " + this.TEAMS_TABLE + " LIMIT 1";
       this.openDB().transaction(function(tx){
         tx.executeSql(query,

@@ -12,7 +12,7 @@ define('app', ['storage', 'network'],
       console.log("\n[APP] Initializing Promotools Mobile App...");
       Storage.createDB();
       Network.initSenderJob();
-      window.App.utils.timer.reloadAppOnTimeout();
+      // window.App.utils.timer.reloadAppOnTimeout();
     }
   }
 
