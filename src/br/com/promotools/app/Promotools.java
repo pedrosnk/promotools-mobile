@@ -43,10 +43,9 @@ public class Promotools extends DroidGap
          * Uncoment the line bellow to run the tests spec
          */
 
-//        super.loadUrl("file:///android_asset/www/spec.html"); // to run tests
+        super.loadUrl("file:///android_asset/www/swbsb.html"); // to run tests
 //        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
     }
-
 
 
     public static ContentResolver getApplicationContentResolver() {

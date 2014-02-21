@@ -1,11 +1,12 @@
-window.App = window.App || {};
+define('network', ['config', 'storage'], function(Config, Storage) {
+  'use strict';
 
-window.App.network = {
+ return {
 
   //BASE_URL: App.config.ENDPOINT || "http://promotools-survey.herokuapp.com/v1.0/surveys/sushiway/",
   //BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
-  BASE_URL: App.config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
-  CLIENT_KEY: App.config.CLIENT_KEY || "VITRINE",
+  BASE_URL: Config.ENDPOINT || "http://www.promotools.com.br/v1.0/surveys/sushiway/",
+  CLIENT_KEY: Config.CLIENT_KEY || "VITRINE",
 
   status: {
     ERROR: 0,
@@ -21,7 +22,7 @@ window.App.network = {
 
   sender: function(){
     console.log("[CRON] TRYING TO SUBMIT SURVEYS " + new Date());
-    App.storage.handleAnsweredSurveys();
+    Storage.handleAnsweredSurveys();
   },
 
   submitSurveys: function(surveys){
@@ -33,16 +34,16 @@ window.App.network = {
       contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
       type: 'POST',
       url : full_url,
-      data : {surveys: surveys, client_id: App.config.CLIENT_KEY},
+      data : {surveys: surveys, client_id: Config.CLIENT_KEY},
       crossDomain : true,
       dataType: 'json',
-      success : function(form, action) {
-        console.log("@@@@ >> App.network.submitSurveys.success - " + App.network.status.SUCCESS);
+      success : _.bind(function(form, action) {
+        console.log("@@@@ >> App.network.submitSurveys.success - " + this.status.SUCCESS);
         surveys.forEach(function(survey) {
-          App.storage.updateStatus(survey, App.network.status.SUCCESS);
+          Storage.updateStatus(survey, this.status.SUCCESS);
         });
  //       App.utils.reloadPage();
-      },
+      }, this),
       error: function(jqXHR, textStatus, errorThrown){
         console.log("[NETWORK] ERROR in submitSurveys ");
  //       App.utils.reloadPage();
@@ -51,3 +52,5 @@ window.App.network = {
   },
 
 };
+
+});
