@@ -5,11 +5,7 @@ define('collection/teams',
 
   return Backbone.Collection.extend({
     url: Config.BASE_URL + 'swbsb/teams.json',
-    model: Team,
-
-    saveOnDB: function() {
-
-    }
+    model: Team
   });
 
 });

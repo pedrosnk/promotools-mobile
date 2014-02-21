@@ -1,7 +1,8 @@
-(function() {
+define('app', ['storage', 'network'],
+  function(Storage, Network){
+  'use strict';
 
-  window.App = {
-
+  return {
     config: {
       ENDPOINT: null,
       CLIENT_KEY: "VITRINE"
@@ -9,10 +10,10 @@
 
     init: function(){
       console.log("\n[APP] Initializing Promotools Mobile App...");
-      window.App.storage.createDB();
-      window.App.network.initSenderJob();
+      Storage.createDB();
+      Network.initSenderJob();
       window.App.utils.timer.reloadAppOnTimeout();
     }
   }
 
-})();
+});

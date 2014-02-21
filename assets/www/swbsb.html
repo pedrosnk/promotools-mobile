@@ -56,13 +56,19 @@
 <script src="js/app/collection/teams.js"></script>
 <script src="js/app/model/Team.js"></script>
 <script src="assets/multi_info_app.js"></script>
+<script src="js/app/network.js" type="text/javascript"></script>
+<script src="js/app/storage.js" type="text/javascript"></script>
+<script src="js/app/app.js" type="text/javascript"></script>
+<script src="js/app/utils/utils.js" type="text/javascript"></script>
+<script src="js/vendors/later.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
   jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 });
 $(document).ready(function(){
-  require(['views/multiInfoApp/appViewController'], function(AppViewController){
+  require(['views/multiInfoApp/appViewController', 'app'], function(AppViewController, App){
+    App.init();
     appView = new AppViewController({
       el : $('.l-multi-info-app')
     });

@@ -3,6 +3,7 @@ define('storage', ['network'], function(Network) {
 
   return {
     TABLE_NAME: "SURVEY",
+    TEAMS_TABLE: "TEAM",
 
     openDB: function(){
       return window.openDatabase("promotools-survey", "1.0", "Promotools DB", 1000000);
@@ -13,6 +14,8 @@ define('storage', ['network'], function(Network) {
       db.transaction(_.bind(function(tx){
         //tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
         tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, frequency, want_return, good_reason, bad_reason, nps, age, sex, email, sugestion, origin, confirmed_sended, created_at)');
+
+        tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TEAMS_TABLE + ' (id INTEGER PRIMARY KEY, value TEXT)');
 
       },this), this.error, function(){
         console.log("\n[DB - SUCCESS] DB created successfully.");
@@ -25,6 +28,32 @@ define('storage', ['network'], function(Network) {
 
     success: function() {
       console.log("[DB - SUCCESS] Db operation was successfull.");
+    },
+
+    saveTeams: function(teams) {
+      var query = "insert or replace into " + this.TEAMS_TABLE + " (id, value) " +
+        " VALUES(1, '" + JSON.stringify(teams.toJSON()) + "')";
+      this.openDB().transaction(function(tx){
+        tx.executeSql(query);
+      }, this.error, this.success);
+    },
+
+    getTeams: function(success) {
+
+
+      var query = "SELECT * FROM " + this.TEAMS_TABLE + " LIMIT 1";
+      this.openDB().transaction(function(tx){
+        tx.executeSql(query,
+          [],
+          function(tx, result) {
+            if (result.rows.length > 0){
+              var value = result.rows.item(0).value;
+              success(JSON.parse(value));
+            } else {
+              success([]);
+            }
+          }, this.error )
+      });
     },
 
     save: function(data){

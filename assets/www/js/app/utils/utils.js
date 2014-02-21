@@ -1,9 +1,9 @@
 window.App = window.App || {};
 
-window.App.utils = {  
+window.App.utils = {
   mail : {
-    domains : ['hotmail.com', 'gmail.com', 'aol.com','yahoo.com.br'],  
-  },  
+    domains : ['hotmail.com', 'gmail.com', 'aol.com','yahoo.com.br'],
+  },
 
   timer : {
 
@@ -11,12 +11,12 @@ window.App.utils = {
       window.touchScheduler = null;
       $(document).click(App.utils.timer.startScreenTimeOut);
     },
-    
+
     startScreenTimeOut : function() {
       if (window.touchScheduler !== null){
         window.clearTimeout(window.touchScheduler);
       }
-      
+
       window.touchScheduler = setTimeout(App.utils.timer.reloadApp, 50000); // 1 minutes to shutdown (300000 =  5min)
     },
 
@@ -54,7 +54,7 @@ window.App.utils = {
         $(current).removeClass("current");
         $(next).addClass("current");
       },
-      opacity: 0 
+      opacity: 0
     });
   },
 
