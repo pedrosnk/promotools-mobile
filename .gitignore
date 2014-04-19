@@ -1,4 +1,8 @@
-.DS_Store
-bin/*
-*.swp
-*.swo
+
+*.DS_Store
+
+platforms/ios/build
+platforms/ios/www
+
+platforms/android/bin
+platforms/android/assets/www
