@@ -12,7 +12,7 @@ if (vintageFormView && vintageFormView.length > 0) {
       this.surveyDataModel = new Survey( {
         url: '/v1.0/surveys/vintage/liberty',
         questions: [],
-        metrics : [],        
+        metrics : [],
         client : App.config.CLIENT_KEY,
         store : App.config.CLIENT_STORE
       });
@@ -20,14 +20,13 @@ if (vintageFormView && vintageFormView.length > 0) {
       var npsQuestion = new NpsQuestionView({
         el : $('#nps-question'),
         survey : this.surveyDataModel,
-        nextQuestion : $("#rating-question"),
+        nextQuestion : $("#email-question")
       });
-      npsQuestion.render();
 
       var ratingQuestion = new RatingQuestionView({
         el : $('#rating-question'),
         survey : this.surveyDataModel,
-        nextQuestion : $("#service-question"),
+        nextQuestion : $("#service-question")
       });
       ratingQuestion.render();
 
@@ -42,15 +41,27 @@ if (vintageFormView && vintageFormView.length > 0) {
       var emailQuestion = new EmailQuestionView({
         el : $('#email-question'),
         survey : this.surveyDataModel,
-        nextQuestion : $("#feedback-question"),
+        nextQuestion : $("#feedback-question")
       });
       emailQuestion.render();
-
 
       var feedbackQuestion = new FeedbackQuestionView({
         el : $('#feedback-question'),
         survey : this.surveyDataModel,
         nextQuestion : $("#thanks-message")
+      });
+
+      var buyFurnitureYesNoQuestion = new YesNoWithTextQuestionView({
+        el: $('#buy-furniture-yes-no-question'),
+        survey: this.surveyDataModel,
+        nextQuestion : $('#buy-furniture-internet-question')
+      });
+
+      var buyFurnitureinternetQuestion = new YesNoWithTextQuestionView({
+        el: $('#buy-furniture-internet-question'),
+        survey: this.surveyDataModel,
+        nextQuestion : $('#nps-question'),
+        npsView: npsQuestion
       });
 
       feedbackQuestion.on("finish", this.finishSurvey, this);

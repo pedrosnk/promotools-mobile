@@ -20,7 +20,7 @@ if (ratingQuestion && ratingQuestion.length > 0) {
     },
 
     handleRating : function(e){
-      this.selectItem(e)
+      this.selectItem(e);
       var category = $(e.currentTarget).closest('.rating-optins-list').data("category");
       var rate = parseInt($(e.currentTarget).data("rate"));
       this.rating[category] = rate;
@@ -48,3 +48,4 @@ if (ratingQuestion && ratingQuestion.length > 0) {
   });
 }
 })();
+

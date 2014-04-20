@@ -27,11 +27,11 @@
       this.options.survey.questions.push(this.answerModel);
 
       this.selectRatingItem(rate)
-      
+
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
-    selectRatingItem : function(rate){      
+    selectRatingItem : function(rate){
       $(".select-answer p").hide();
       var faceClass;
       switch(rate) {

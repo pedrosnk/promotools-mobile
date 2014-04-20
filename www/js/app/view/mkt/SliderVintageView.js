@@ -10,13 +10,13 @@ if (vintageFormView && vintageFormView.length > 0) {
       'click .go-to-survey' : 'handleShowSurvey',
     },
 
-    handleShowSurvey : function(){   
-      this.slider.stopAuto();   
+    handleShowSurvey : function(){
+      this.slider.stopAuto();
       $('.vintage-form-view').removeClass('slider-bkg-home slider-bkg-itens');
       $('#header-survey').show();
-      $('.survey-container').show();   
-      $('.slider-container').hide();  
-      this.survey.render(); 
+      $('.survey-container').show();
+      $('.slider-container').hide();
+      this.survey.render();
     },
 
     render : function() {
@@ -27,7 +27,7 @@ if (vintageFormView && vintageFormView.length > 0) {
 
       this.survey = new VintageSurveyView({
         el : $('#survey')
-      });      
+      });
 
       this.slider = $('.carrousel').bxSlider({
         adaptiveHeight: true,
@@ -43,7 +43,7 @@ if (vintageFormView && vintageFormView.length > 0) {
         onSlideBefore : function(slideElement, oldIndex, newIndex){
           if(newIndex == 0){
             $('.vintage-form-view').removeClass('slider-bkg-itens');
-            $('.vintage-form-view').addClass('slider-bkg-home');            
+            $('.vintage-form-view').addClass('slider-bkg-home');
             $('.top-info').hide();
 
           } else {
