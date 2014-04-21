@@ -1,12 +1,18 @@
 window.App = window.App || {};
 
 window.App.utils = {
-  mail : {
-    domains : ['hotmail.com', 'gmail.com', 'aol.com','yahoo.com.br'],
+  model : {
+    setValue : function(model, value){
+      if(_.contains(model.questions, value)){
+        var index = _.indexOf(model.questions, value);
+        model.questions[index] = value;     
+      } else{
+        model.questions.push(value);  
+      }            
+    }
   },
 
   timer : {
-
     reloadAppOnTimeout : function(e){
       window.touchScheduler = null;
       $(document).click(App.utils.timer.startScreenTimeOut);
@@ -23,16 +29,23 @@ window.App.utils = {
     reloadApp : function() {
       window.location.reload();
     }
+  },
 
+  remoteSelection : function(e){
+    //remote older selections
+    var parentList = $(e.currentTarget).closest("ul");   
+    var selectedItens = $(parentList).find("li button.selected");
+    _.each(selectedItens, function(item){
+      $(item).removeClass("selected");
+    })
   },
 
   setMarkedButton : function(e){
-    var el = $(e.currentTarget);
-    //get a button or a li children, witch is a button
-    var button = el.hasClass("btn-gray") || (
-      el.hasClass("survey-btn") || el.hasClass("survey-large-btn")) ? el : el.children();
-    button.addClass("selected");
-  },
+    this.remoteSelection(e);
+    //set new selection
+    var el = $(e.currentTarget);   
+    el.addClass("selected");
+  },  
 
   nextQuestion : function(next){
     setTimeout(function(){
@@ -40,65 +53,38 @@ window.App.utils = {
     }, 500);
   },
 
-  showNextQuestion : function(next){
-    var current = $(".survey-container").find(".current");
+  moveToQuestion : function(questionToShow, direction){
+    var current = $("#survey-form-view").find(".current");
+    var move;
 
-    //not move on progress bar in this cases
-    if($(current).attr("id") != "leave-sugestion" && $(current).attr("id") != "sugestion-box" && $(next).attr("id") != "returning-question"){
-      App.utils.updateProgressBar();
+    if(direction === "next"){
+      move = -$(current).width();
+    } else {
+      move = $(current).width();
     }
 
     $(current).transition({
-      x: -$(current).width(),
-      duration: 800,
+      x: move,
+      duration: 500,
       complete: function(){
-        $(current).removeClass("current");
-        $(next).addClass("current");
+        $(current).removeClass("current");        
+        $(questionToShow).addClass("current");
+        $(current).removeAttr("style");
       },
       opacity: 0
     });
   },
 
-  createProgressNumbers : function(){
-    var total = $(".survey-progress").children().length - 1;
-    var progressEl = $(".survey-progress .order");
-    $(progressEl).find(".status").text(1);
-    $(progressEl).find(".total").text(total);
+  showNextQuestion : function(next){
+    this.moveToQuestion(next, "next");
   },
 
-  updateProgressBar : function(){
-    var currentEl = $(".survey-progress").find(".current");
-    currentEl.removeClass("current");
-
-    var nextEl = currentEl.next().hasClass("status") ? currentEl.next() : $(".first");
-    nextEl.addClass("current");
-
-    var progressEl = $(".survey-progress .order").find(".status");
-    $(progressEl).text(parseInt(progressEl.text()) + 1);
+  showPreviousQuestion : function(next){
+    this.moveToQuestion(next, "previous");
   },
 
-  finishSurvey : function(){
-    App.utils.nextQuestion($("#thanks-message"));
-    App.utils.handleAnswer(App.config.DATA_SURVEY);
-
-    setTimeout(function() {
-      window.location.reload();
-    }, 6000);
-  },
-
-  handleAnswer: function(survey) {
-    App.storage.save(survey);
-    App.storage.handleAnsweredSurveys();
-  },
-
-  reloadPage: function(){
-    console.log(">>>>  App.utils.reloadPage");
-    setTimeout(function() {
-      $(".alert").hide();
-      $("#nps-question").show();
-    }, 500);
-  },
-
-
-
-};
+  updateProgressBar : function(total, actualSize){
+    var progress = ((actualSize * 100) / total) + "%";
+    $(".progress-bar").attr("style", "width : " + progress);
+  }
+}

@@ -7,9 +7,9 @@ if (emailQuestion && emailQuestion.length > 0) {
   window.EmailQuestionView = Backbone.View.extend({
 
     events : {
-      'click .leave-email': 'handleEmailQuestion',
-      'focus :input.email-input' : 'hideHeader',
-      'focusout :input.email-input' : 'showHeader',
+      'click .send, .no-thanks': 'handleEmailQuestion',
+      'focus :input.email' : 'hideHeader',
+      'focusout :input.email' : 'showHeader',
     },
 
     initialize: function(options) {
@@ -22,13 +22,13 @@ if (emailQuestion && emailQuestion.length > 0) {
     },
 
     handleEmailQuestion : function(e){
-      $(this.el).off('click', '.leave-email');
+      $(this.el).off('click', '.send');
       App.utils.setMarkedButton(e);
 
-      var contact = $(this.el).find("input[name='user_contact']").val() || null;
-
+      var contact = $(this.el).find("input[name='user_contact']").val() || null;      
       this.answerModel.email_value = contact;
-      this.options.survey.questions.push(this.answerModel);
+      App.utils.model.setValue(this.options.survey, this.answerModel); 
+      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size()); 
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 

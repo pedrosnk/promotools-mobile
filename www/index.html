@@ -1,12 +1,14 @@
-  <!DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+<html>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
+  
   <head>
-  	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  	<title>Promotools</title>
-
+    <title>
+      Promotools
+    </title>
+    
     <meta content="authenticity_token" name="csrf-param" />
     <meta content="Woy8tNn2hBD2PJ1VhV9rmFVhHFrsQo6MT5IieMD8tMs=" name="csrf-token" />
     <link href="assets/application.css" media="all" rel="stylesheet" />
@@ -18,346 +20,312 @@
     <link rel="icon" href="favicon-64.png" sizes="64x64">
     <link rel="icon" href="favicon-128.png" sizes="128x128">
   </head>
-
- <body class="l-survey-v2 vintage-form-view">
-    <div class="content-wrapper">
-        <header id="header-survey">
-            <div class="header-container">
-                <div class="vintage-logo"></div>
+  
+  <body>
+    <div class="l-survey" id="survey-view">
+      <div class="l-header fixed-top" id="header-view">
+        <div class="container">
+          <div class="client">
+            Zimbrus 
+          </div>
+          <div class="slider">
+            <a href="#">
+              <span class="left go-back no-more"></span>
+            </a>
+            <a href="#">
+              <span class="right go-next"></span>
+            </a>
+          </div>
+          <div class="progress">
+            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="progress-bar" role="progressbar">
+              <span class="sr-only">
+                40% Complete (success) 
+              </span>
             </div>
-        </header>
-        <div class="slider-container" id="slider">
-            <div class="top-info">
-                <div class="vintage-logo"></div>
-                <button class="btn-green go-to-survey" type="submit">Participar da pesquisa</button>
-            </div>
-            <div class="vintage-slider">
-                <div class="carrousel">
-                    <div class="slide">
-                        <div class="starting-page">
-                            <div class="logo"></div>
-                            <p class="call-to-action">Responda nossa pesquisa de satisfação e concorra a prêmios e promoções especiais
-                                <button class="btn-green large go-to-survey" type="submit">Participar da pesquisa</button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="content-wrapper">
-                            <div class="wine-info-wrapper">
-                                <div class="wine-info">
-                                    <h1 class="name"><span>366</span> CORBIÈRES "CHRIS LIMOUZI" </h1>
-                                </div>
-                                <div class="wine2"></div>
-                            </div>
-                            <div class="wine-prove-note">
-                                <p>Este vinho é um assemblage, ou seja, uma mistura de diferentes tipos de uvas. Produzido com uvas Grenache, Carignan e Syrah, colhidas manualmente e vinificadas separadamente. Após um breve estágio em barricas novas, os
-                                    vinhos são cuidadosamente misturados de forma a obter o melhor resultado possível.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="content-wrapper">
-                            <div class="wine-info-wrapper">
-                                <div class="wine-info">
-                                    <h1 class="name"><span>356</span> SAUTERNES "CHATEAU DYQUEM" </h1>
-                                </div>
-                                <div class="wine6"></div>
-                            </div>
-                            <div class="wine-prove-note">
-                                <p>Todos os vinhos Sauternes são produzidos com uvas "botrytizadas", isto é, atacadas por um fungo. O Château D' Yquem hoje pertence ao Grupo LVMH - Moet & Chandon. Com 100 pontos por Robert Parker e pela Wine Spectator. Bela
-                                    cor dourada brilhante. Bouquet concentrada de frutos maduros e frutas secas, seguido por sugestões de frutas brancas e picantes nuances.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="content-wrapper">
-                            <div class="wine-info-wrapper">
-                                <div class="wine-info">
-                                    <h1 class="name"><span>1136</span> VILLA FRANCIONI ROSE </h1>
-                                    <p class="description">Uvas: Cab. Sauvignon, Cab. Franc, Sangiovese, Syrah, Petit Verdot, Pinot Noir, Merlot e Malbec.</p>
-                                </div>
-                                <div class="wine4"></div>
-                            </div>
-                            <div class="wine-prove-note">
-                                <p>Uma arrebatadora manifestação de vida, sabor e elegância, com variedade em perfeita sintonia. Aromas intensos de frutas vermelhas maduras que, paradoxalmente, enfatizam delicadas notas florais. Estimulante e vívido, prolonga-se
-                                    aveludado e convidativo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="content-wrapper">
-                            <div class="wine-info-wrapper">
-                                <div class="wine-info">
-                                    <h1 class="name"><span>1244</span> MAPUCHE - CARMENÉRE RESERVA </h1>
-                                    <p class="description">Uvas: Carmenère.</p>
-                                </div>
-                                <div class="wine5"></div>
-                            </div>
-                            <div class="wine-prove-note">
-                                <p>Vinho que se destaca por sua bela coloração e aromas de frutas maduras. Parceiro ideal para carnes, molhos mais pesados, e também uma excelente opção para acompanhar uma tábua de queijos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="content-wrapper">
-                            <div class="wine-info-wrapper">
-                                <div class="wine-info">
-                                    <h1 class="name"><span>140</span> CHARLES DURET BRUT </h1>
-                                    <p class="description">Uvas: Chardonnay.</p>
-                                </div>
-                                <div class="wine1"></div>
-                            </div>
-                            <div class="wine-prove-note">
-                                <p>Espumante elaborado sob o método tradicional champenoise, ou seja, um "Blanc de Blancs". Classificado como um Crémand de Bourgogne de alta qualidade, perfeito como aperitivo em grandes celebrações e com frutos do mar.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="content-wrapper">
-                            <div class="wine-info-wrapper">
-                                <div class="wine-info">
-                                    <h1 class="name"><span>1668</span> GEVREY CHAMBERTIN LES PLATIERES PH LECLERC </h1>
-                                    <p class="description">Uvas: Pinot Noir</p>
-                                </div>
-                                <div class="wine7"></div>
-                            </div>
-                            <div class="wine-prove-note">
-                                <p>Esse Gevrey Chambertin possui aromas de madeira e de frutas vermelhas maduras. No paladar sua maturação é reconhecida e se apresenta fina, juntamente com a excelente riqueza de seu acabamento.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-        <div class="survey-container" id="survey">
-            <div class="question current" id="nps-question">
-                <label>Baseado em sua experiência de hoje, você recomendaria a Vintage para um amigo?</label>
-                <div id="slideshow-menu-wrapper">
-                    <div class="cursor" id="slideshow-menu-cursor"></div>
-                    <ul class="nps-rate">
-                        <li>
-                            <a id="nps-0" href="#"> <span class="number" data-nps="0">0</span><i class="icon-circle red"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a id="nps-1" href="#"> <span class="number" data-nps="1">1</span><i class="icon-circle red"></i>
-                            </a>
-                        </li>
-                        <li><a id="nps-2" href="#"><span class="number" data-nps="2">2</span><i class="icon-circle red"></i></a>
-                        </li>
-                        <li>
-                            <a id="nps-3" href="#"> <span class="number" data-nps="3">3</span><i class="icon-circle red"></i>
-                            </a>
-                        </li>
-                        <li><a id="nps-4" href="#"><span class="number" data-nps="4">4</span><i class="icon-circle red"></i></a> 
-                        </li>
-                        <li><a id="nps-5" href="#"><span class="number" data-nps="5">5</span><i class="icon-circle red"></i></a> 
-                        </li>
-                        <li><a id="nps-6" href="#"><span class="number" data-nps="6">6</span><i class="icon-circle red"></i></a> 
-                        </li>
-                        <li><a id="nps-7" href="#"><span class="number" data-nps="7">7</span><i class="icon-circle yellow"></i></a> 
-                        </li>
-                        <li>
-                            <a id="nps-8" href="#photo8"> <span class="number" data-nps="8">8</span><i class="icon-circle yellow"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a id="nps-9" href="#"> <span class="number" data-nps="9">9     </span><i class="icon-circle green"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a id="nps-10" href="#"> <span class="number" data-nps="10">10</span><i class="icon-circle green"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="slider-wrapper">
-                    <div class="dragdealer" id="nps-slider">
-                        <div class="slider-marker handle"></div>
-                    </div>
-                    <ul class="nps-footer">
-                        <li><span>Muito Insatisfeito</span>
-                        </li>
-                        <li class="center">
-                            <button type="submit" class="btn-gray nps-done">OK</button>
-                        </li>
-                        <li class="right"><span>Muito Satisfeito</span>
-                        </li>
-                    </ul>
-                </div>
+      </div>
+      <div class="container">
+        <ul class="question-list" id="survey-form-view">
+          <li class="question current" id="nps-question">
+            <p>Baseado na sua experiência de <b>hoje</b>, quais as chances de recomendar o Zimbrus para um amigo?</p>
+            <ul class="nps-values">
+              <li>
+                <button class="nps" data-nps="0">0</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="1">1</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="2">2</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="3">3</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="4">4</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="5">5</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="6">6</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="7">7</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="8">8</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="9">9</button>
+              </li>
+              <li>
+                <button class="nps" data-nps="10">10 </button>
+              </li>
+            </ul>
+          </li>
+
+          <li class="question" id="rating-service">
+            <p>
+              Como você avalia:
+              <br>
+              <b>o atendimento:</b>
+            </p>
+            <ul class="rating-values" data-category="service">
+              <li>
+                <button class="heart" data-rate="1">
+                  1
+                </button>
+              </li>
+              <li>
+                <button class="heart" data-rate="2">
+                  2
+                </button>
+              </li>
+              <li>
+                <button class="heart" data-rate="3">
+                  3
+                </button>
+              </li>
+              <li>
+                <button class="heart" data-rate="4">
+                  4
+                </button>
+              </li>
+              <li>
+                <button class="heart" data-rate="5">
+                  5
+                </button>
+              </li>
+            </ul>
+          </li>
+          <li class="question" id="rating-value-for-money">
+            <p>
+              Como você avalia:
+              <br>
+              
+              <b>
+                o custo benefício:
+              </b>
+            </p>
+            <ul class="rating-values" data-category="value-for-money">
+              <li>
+                <button class="star" data-rate="1">
+                  1
+                </button>
+              </li>
+              <li>
+                <button class="star" data-rate="2">
+                  2
+                </button>
+              </li>
+              <li>
+                <button class="star" data-rate="3">
+                  3
+                </button>
+              </li>
+              <li>
+                <button class="star" data-rate="4">
+                  4
+                </button>
+              </li>
+              <li>
+                <button class="star" data-rate="5">
+                  5
+                </button>
+              </li>
+            </ul>
+          </li>
+          <li class="question" id="like-more">
+            <p>
+              O que você mais gostou? 
+            </p>
+            <ul class="options-values" data-choice-option="like-more">
+              <li>
+                <button class="option" data-option="Ambiente">
+                  Ambiente
+                </button>
+              </li>
+              <li>
+                <button class="option" data-option="Atendimento">
+                  Atendimento 
+                </button>
+              </li>
+              <li>
+                <button class="option" data-option="Cardápio">
+                  cardápio
+                </button>
+              </li>
+            </ul>
+            <a class="other" href="#">
+              Outros
+            </a>
+            <div class="form-group other-option">
+              <input class="email" name="other_option" placeholder="Escreva aqui..." type="text">
+              <button class="send">
+                Enviar
+              </button>
             </div>
-            <div class="question" id="rating-question">
-                <label>Como você avalia a Vintage hoje?</label>
-                <div class="options">
-                    <ul class="rating-optins-list" data-category="enviroument">
-                        <li>
-                            <label class="item">Ambiente</label>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="1" class="btn-item bad"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="2" class="btn-item regular"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="3" class="btn-item good"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="4" class="btn-item awesome"></button>
-                        </li>
-                    </ul>
-                    <ul class="rating-optins-list" data-category="quality">
-                        <li>
-                            <label class="item">Qualidade</label>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="1" class="btn-item bad"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="2" class="btn-item regular"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="3" class="btn-item good"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="4" class="btn-item awesome"></button>
-                        </li>
-                    </ul>
-                    <ul class="rating-optins-list" data-category="variety">
-                        <li>
-                            <label class="item">Variedade</label>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="1" class="btn-item bad"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="2" class="btn-item regular"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="3" class="btn-item good"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="4" class="btn-item awesome"></button>
-                        </li>
-                    </ul>
-                    <ul class="rating-optins-list" data-category="price">
-                        <li>
-                            <label class="item">Preço</label>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="1" class="btn-item bad"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="2" class="btn-item regular"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="3" class="btn-item good"></button>
-                        </li>
-                        <li>
-                            <button type="submit" data-rate="4" class="btn-item awesome"></button>
-                        </li>
-                    </ul>
-                </div>
+          </li>
+          <li class="question" id="first-time">
+            <p>
+              É a primeira vez que você visita o restaurante? 
+            </p>
+            <ul class="boolean-values" data-category="first-time">
+              <li>
+                <button class="option" data-option="yes">
+                  Sim
+                </button>
+              </li>
+              <li>
+                <button class="option" data-option="no">
+                  Não
+                </button>
+              </li>
+            </ul>
+          </li>
+          <li class="question" id="email-question">
+            <p>
+              Deixe seu email, queremos te manter informado sobre a melhoria no nosso serviço. 
+            </p>
+            <div class="form-group">
+              <input class="email" name="user_contact" placeholder="Digite aqui seu email" type="text">
+              <button class="send">
+                Enviar
+              </button>
+              <a class="other no-thanks pull-left" href="#">
+                Não, obrigado.
+              </a>
             </div>
-            <div class="question" id="service-question">
-                <label>Como você avalia nosso atendimento?</label>
-                <div class="select-answer">
-                    <p>Selecione uma opção</p>
-                </div>
-                <div class="options">
-                    <ul class="optins-list" data-category="service">
-                        <li>
-                            <button type="submit" class="btn-gray rate" data-rate="1">Ruim</button>
-                        </li>
-                        <li>
-                            <button type="submit" class="btn-gray rate" data-rate="2">Regular</button>
-                        </li>
-                        <li>
-                            <button type="submit" class="btn-gray rate" data-rate="3">Bom</button>
-                        </li>
-                        <li>
-                            <button type="submit" class="btn-gray rate" data-rate="4">Ótimo</button>
-                        </li>
-                    </ul>
-                </div>
+          </li>
+          <li class="question feedback-question" id="feedback">
+            <p>
+              Deixe aqui seu feedback, ele é muito importante para nós!        
+            </p>
+            <div class="form-group">
+              <textarea class="mail" name="feedback" placeholder="Digite aqui" type="text">
+              </textarea>
+              <button class="send">
+                Enviar
+              </button>
+              <a class="other no-thanks pull-left" href="#">
+                Não, obrigado.      
+              </a>
             </div>
-            <div class="question" id="email-question">
-                <label>Deixe seu email e concorra a prêmios e promoções especiais.</label>
-                <div class="hide-keyboard"><i class="icon-keyboard"></i><i class="icon-sort-down"></i>
-                </div>
-                <input class="email-input" name="user_contact" placeholder="Digite seu email" type="email" />
-                <button type="submit" class="btn-gray large leave-email">Não, obrigado</button>
-                <button type="submit" class="btn-gray large leave-email">Enviar</button>
-            </div>
-            <div class="question" id="feedback-question">
-                <label>Gostaria de deixar uma sugestão ou elogio? Escreva aqui seu feedback.</label>
-                <div class="hide-keyboard"><i class="icon-keyboard"></i><i class="icon-sort-down"></i>
-                </div>
-                <textarea class="feedback-input" name="feedback" rows="5"></textarea>
-                <button type="submit" class="btn-gray large send-feedback">Não, obrigado</button>
-                <button type="submit" class="btn-gray large send-feedback">Enviar</button>
-            </div>
-            <div class="question" id="thanks-message">
-                <h1>Muito obrigado!</h1>
-                <h2>A Vintage agradece sua participação.<br/> Volte sempre!</h2>
-                <div class="survey-footer">
-                    <div class="developed-by">
-                        <p>Desenvolvido por:</p>
-                    </div>
-                    <div class="logo-promotools-footer"></div>
-                </div>
-            </div>
+          </li>
+          <li class="thanks-message" id="thanks">
+            <p>
+              Obrigado por participar, sua opinião é muito importante. Volte sempre. 
+            </p>
+            <span class="client-logo">
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <footer id="footer">
+      <div class="container">
+        <div class="developed-by pull-right">
+          Desenvolvido por 
+          <b>
+            Promotools
+          </b>
+          
         </div>
-    </div>        
-
-  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
-  <script src="js/vendors/jquery-1.9.1.min.js" type="text/javascript"></script>
-  <script src="js/vendors/jquery.bxslider.js" type="text/javascript"></script>
-  <script src="js/vendors/jquery.transit.js" type="text/javascript"></script>
-  <script src="js/vendors/later.min.js" type="text/javascript"></script>
-  <script src="js/vendors/mailcheck.js" type="text/javascript"></script>
-  <script src="js/vendors/underscore-min.js" type="text/javascript"></script>
-  <script src="js/vendors/backbone.js" type="text/javascript"></script>
-  <script src="js/vendors/dragdealer.js" type="text/javascript"></script>  
-
-  <script src="js/app/app.js" type="text/javascript"></script>
-  <script src="js/app/utils/utils.js" type="text/javascript"></script>
-
-  <script src="js/app/network.js" type="text/javascript"></script>
-  <script src="js/app/storage.js" type="text/javascript"></script>
-  <script src="js/app/utils.js" type="text/javascript"></script>
-
-  <script src="js/app/model/Survey.js" type="text/javascript"></script>
-
-  <script src="js/app/view/mkt/SliderVintageView.js" type="text/javascript"></script>
-
-  <script src="js/app/view/questions/NpsQuestionView.js" type="text/javascript"></script>
-  <script src="js/app/view/questions/RatingQuestionView.js" type="text/javascript"></script>
-  <script src="js/app/view/questions/ItemRatingQuestionView.js" type="text/javascript"></script>
-  <script src="js/app/view/questions/EmailQuestionView.js" type="text/javascript"></script>
-  <script src="js/app/view/questions/FeedbackQuestionView.js" type="text/javascript"></script>
-
-  <script src="js/app/view/VintageSurveyView.js" type="text/javascript"></script>
-
-
-  <script type="text/javascript" charset="utf-8">
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    function onDeviceReady() {
-
-      window.App.init();
-
-      var sliderView = new SliderVintageView({
-        el : $('#slider')
-      });
-      sliderView.render();
-
-      jQuery.ajaxSetup({
-        'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-      });
-    }
-  </script>
-</body>
-
+      </div>
+    </footer>
+    
+    <script type="text/javascript" charset="utf-8" src="cordova.js">
+    </script>
+    
+    <script src="js/vendors/jquery-1.9.1.min.js" type="text/javascript">
+    </script>
+    
+    <script src="js/vendors/jquery.transit.js" type="text/javascript">
+    </script>
+    
+    <script src="js/vendors/later.min.js" type="text/javascript">
+    </script>
+    <script src="js/vendors/mailcheck.js" type="text/javascript">
+    </script>
+    
+    <script src="js/vendors/underscore-min.js" type="text/javascript">
+    </script>
+    <script src="js/vendors/backbone.js" type="text/javascript">
+    </script>
+    
+    
+    <script src="js/app/app.js" type="text/javascript">
+    </script>
+    <script src="js/app/network.js" type="text/javascript">
+    </script>
+    <script src="js/app/storage.js" type="text/javascript">
+    </script>
+    <script src="js/app/utils/Utils.js" type="text/javascript">
+    </script>
+    
+    <script src="js/app/model/Survey.js" type="text/javascript">
+    </script>
+    
+    <script src="js/app/view/questions/BooleanQuestionView.js" type="text/javascript">
+    </script>
+    <script src="js/app/view/questions/EmailQuestionView.js" type="text/javascript">
+    </script>
+    <script src="js/app/view/questions/FeedbackQuestionView.js" type="text/javascript">
+    </script>
+    <script src="js/app/view/questions/ItemRatingQuestionView.js" type="text/javascript">
+    </script>
+    <script src="js/app/view/questions/NpsQuestionView.js" type="text/javascript">
+    </script>
+    
+    <script src="js/app/view/questions/SingleChoiceQuestionView.js" type="text/javascript">
+    </script>
+    <script src="js/app/view/SurveyFormView.js" type="text/javascript">
+    </script>
+    <script src="js/app/view/HeaderSurveyView.js" type="text/javascript">
+    </script>
+    <script src="js/app/view/MainSurveyView.js" type="text/javascript">
+    </script>
+    
+    <script type="text/javascript" charset="utf-8">
+      document.addEventListener("deviceready", onDeviceReady, false);
+      
+      function onDeviceReady() {
+        
+        window.App.init();
+        
+        var main = new MainSurveyView({
+          el : $('#survey-view')
+        });
+        main.render();
+        
+        jQuery.ajaxSetup({
+          'beforeSend': function(xhr) {
+            xhr.setRequestHeader("Accept", "text/javascript")}
+        });
+      }
+    </script>
+  </body>
+  
 </html>
