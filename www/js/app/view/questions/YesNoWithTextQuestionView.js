@@ -23,6 +23,7 @@ window.YesNoWithTextQuestionView = Backbone.View.extend({
   handleClickButton: function(e){
     App.utils.setMarkedButton(e);
     var el = $(e.currentTarget);
+    $(this.el).off('click', '.yes-button, .no-button');
     var optionsList = el.closest('.options-yes-no');
     if (el.hasClass("yes-button")) {
       this.answerModel.value = true;
@@ -44,6 +45,7 @@ window.YesNoWithTextQuestionView = Backbone.View.extend({
 
   handleTextClickButton: function(e){
     var el = $(e.currentTarget);
+    $(this.el).off('click', '.dont-remember-button, .send-button');
     if (el.hasClass('send-button')){
       this.answerTextModel.value = $(this.el).find("input[name='furniture-text-input']").val() || null;
     }
