@@ -8,8 +8,6 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
 
     events : {
       'click .send, .no-thanks': 'handleSendFeedback',
-      'focus :input.feedback-input' : 'hideHeader',
-      'focusout :input.feedback-input' : 'showHeader',
     },
 
     initialize: function(options) {
@@ -34,16 +32,11 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
     },
 
     hideHeader : function(){
-      $("#header-survey").hide();
-      $(".hide-keyboard").show();
-      $(".hide-keyboard").css("top", "150px");
-      $(".survey-container").css("margin-top", "-110px");
+      $("#header-survey").hide();      
     },
 
     showHeader : function(){
       $("#header-survey").show();
-      $(".hide-keyboard").hide();
-      $(".survey-container").css("margin-top", "130px");
     }
   });
 }

@@ -8,8 +8,6 @@ if (emailQuestion && emailQuestion.length > 0) {
 
     events : {
       'click .send, .no-thanks': 'handleEmailQuestion',
-      'focus :input.email' : 'hideHeader',
-      'focusout :input.email' : 'showHeader',
     },
 
     initialize: function(options) {
@@ -34,15 +32,12 @@ if (emailQuestion && emailQuestion.length > 0) {
 
     hideHeader : function(){
       $("#header-survey").hide();
-      $(".hide-keyboard").show();
-      $(".hide-keyboard").css("top", "150px");
-      $(".survey-container").css("margin-top", "-150px");
+      //$(".hide-keyboard").show();      
     },
 
     showHeader : function(){
       $("#header-survey").show();
-      $(".hide-keyboard").hide();
-      $(".survey-container").css("margin-top", "130px");
+      //$(".hide-keyboard").hide();
     }
   });
 }
