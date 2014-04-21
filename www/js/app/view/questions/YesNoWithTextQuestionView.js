@@ -11,7 +11,8 @@ window.YesNoWithTextQuestionView = Backbone.View.extend({
 
   initialize: function(options) {
     this.options = jQuery.extend(true, {}, this.defaultOptions, options);
-    this.answerModel = { _type: 'Answer::MultipleChoice', value: null, rating_label: 'service' };
+    this.answerModel     = { _type: 'Answer::YesNo', value: null };
+    this.answerTextModel = { _type: 'Answer::TextBox', value: null, label: null };
     $(this.el).find('.yes-no-text-option').hide();
   },
 
