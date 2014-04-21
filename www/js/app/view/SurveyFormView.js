@@ -6,74 +6,67 @@ if (formViewEl && formViewEl.length > 0) {
 
   window.SurveyFormView = Backbone.View.extend({
 
+    initialize: function(options) {
+      //this.options = jQuery.extend(true, {}, this.defaultOptions, options);
+      this._surveyDataModel = options.surveyDataModel;
+    },
+
+
     render : function() {
       console.log(" >>>>> Rendering SurveyFormView === ");
 
-      this.surveyDataModel = new Survey({
-        url: App.config.ENDPOINT,
-        questions: [],
-        metrics : [],        
-        client : App.config.CLIENT_KEY,
-        store : App.config.CLIENT_STORE
-      });      
-
-
       var npsQuestion = new NpsQuestionView({
-        cid: 0,
         el : $('#nps-question'),
-        survey : this.surveyDataModel,        
+        survey : this._surveyDataModel,        
         nextQuestion : $("#rating-service"),
       });
       npsQuestion.render();
 
       var ratingService = new ItemRatingQuestionView({
-        cid: 1,
         el : $('#rating-service'),
-        survey : this.surveyDataModel,        
+        survey : this._surveyDataModel,        
         category : "service",
         nextQuestion : $("#rating-value-for-money"),
       });
       ratingService.render();
 
       var valueForMoney = new ItemRatingQuestionView({
-        cid: 2,
         el : $("#rating-value-for-money"),
-        survey : this.surveyDataModel,        
+        survey : this._surveyDataModel,        
         category : "value-for-money",
         nextQuestion : $("#like-more"),
       });
       valueForMoney.render();
 
 
-      var likeMore = new SingleChoiceQuestionView({
-        cid: 3,
+      var likeMore = new SingleChoiceQuestionView({      
         el : $("#like-more"),
-        survey : this.surveyDataModel,
+        survey : this._surveyDataModel,
         nextQuestion : $("#first-time"),
       });
       likeMore.render();
 
       var firstTime = new BooleanQuestionView({
-        cid: 4,
+        
         el : $("#first-time"),
-        survey : this.surveyDataModel,
+        survey : this._surveyDataModel,
         nextQuestion : $("#email-question"),
       });
       firstTime.render();
 
       var email = new EmailQuestionView({
-        cid: 5,
+        
         el : $("#email-question"),
-        survey : this.surveyDataModel,
+        survey : this._surveyDataModel,
         nextQuestion : $("#feedback"),
       });
       email.render();
 
 
       var feedbackQuestion = new FeedbackQuestionView({
-        cid: 6,
+        
         el : $('#feedback'),
-        survey : this.surveyDataModel,
+        survey : this._surveyDataModel,
         nextQuestion : $("#thanks")
       });
 
@@ -85,13 +78,13 @@ if (formViewEl && formViewEl.length > 0) {
     //save data model and refresh view
 
     finishSurvey : function(){
-      console.log("=== surveyDataModel = " + JSON.stringify(this.surveyDataModel.attributes));
+      console.log("=== _surveyDataModel = " + JSON.stringify(this._surveyDataModel.attributes));
       App.utils.nextQuestion($("#thanks"));
 
-      App.storage.saveModelData(this.surveyDataModel.attributes);
+      App.storage.saveModelData(this._surveyDataModel.attributes);
 
       setTimeout(_.bind( function() {
-        this.surveyDataModel.save({}, {
+        this._surveyDataModel.save({}, {
           success : _.bind(function(model, response, options) {
             console.log("[BACKBONE] save success!!!");
             App.storage.updateStatus(model, App.network.status.SUCCESS);

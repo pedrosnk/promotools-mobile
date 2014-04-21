@@ -8,8 +8,7 @@
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
-      this.answerModel = { _type: 'Answer::RatingItem', 
-                            _cid: this.options.cid,                              
+      this.answerModel = { _type: 'Answer::RatingItem',                        
                         category: this.options.category,
                            value: null };
 
@@ -42,8 +41,7 @@
 
     saveItemValue : function(rate){
       this.answerModel.value = rate;
-      App.utils.model.setValue(this.options.survey, this.answerModel);  
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());                
+      App.utils.model.setValue(this.options.survey, this.answerModel);        
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
