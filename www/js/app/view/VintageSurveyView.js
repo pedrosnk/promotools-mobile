@@ -10,7 +10,7 @@ if (vintageFormView && vintageFormView.length > 0) {
       console.log(" === Rendering VintageFormView === ");
 
       this.surveyDataModel = new Survey( {
-        url: '/v1.0/surveys/vintage/liberty',
+        url: '/v1.1/surveys/reality/reality',
         questions: [],
         metrics : [],
         client : App.config.CLIENT_KEY,
@@ -54,13 +54,15 @@ if (vintageFormView && vintageFormView.length > 0) {
       var buyFurnitureYesNoQuestion = new YesNoWithTextQuestionView({
         el: $('#buy-furniture-yes-no-question'),
         survey: this.surveyDataModel,
-        nextQuestion : $('#buy-furniture-internet-question')
+        nextQuestion : $('#buy-furniture-internet-question'),
+        labelName: 'planned_furniture'
       });
 
       var buyFurnitureinternetQuestion = new YesNoWithTextQuestionView({
         el: $('#buy-furniture-internet-question'),
         survey: this.surveyDataModel,
         nextQuestion : $('#nps-question'),
+        labelName: 'internet_furniture',
         npsView: npsQuestion
       });
 
@@ -90,8 +92,8 @@ if (vintageFormView && vintageFormView.length > 0) {
             window.location.reload();
           }, this),
         });
-      }, this), 3000);
-    },
+      }, this), 5000);
+   },
 
 
   });
