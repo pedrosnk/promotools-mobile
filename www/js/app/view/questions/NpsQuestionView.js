@@ -12,7 +12,7 @@ if (npsQuestion && npsQuestion.length > 0) {
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
-      this.npsModel = { _type: 'Answer::Nps', value: null, _cid: this.options.cid };
+      this.npsModel = { _type: 'Answer::Nps', value: null };
     },
 
     render : function() {
@@ -22,9 +22,9 @@ if (npsQuestion && npsQuestion.length > 0) {
 
     handleNPSQuestion : function(e){
       App.utils.setMarkedButton(e);
-      this.npsModel.value = parseInt($(e.currentTarget).data("nps"));      
-      App.utils.model.setValue(this.options.survey, this.npsModel); 
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());        
+      this.npsModel.value = parseInt($(e.currentTarget).data("nps"));
+      App.utils.model.setValue(this.options.survey, this.npsModel);
+      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());
       App.utils.nextQuestion(this.options.nextQuestion);
     }
   });

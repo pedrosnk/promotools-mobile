@@ -8,14 +8,13 @@
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
-      this.answerModel = { _type: 'Answer::RatingItem', 
-                            _cid: this.options.cid,                              
+      this.answerModel = { _type: 'Answer::RatingItem',
                         category: this.options.category,
                            value: null };
 
       if(this.answerModel.category == null){
         var category = $(this.el).find('ul.rating-values').data("category");
-        this.answerModel.category = category;  
+        this.answerModel.category = category;
       }
     },
 
@@ -29,7 +28,7 @@
       App.utils.remoteSelection(e);
 
       //mark selection in range
-      var list = $(e.currentTarget).closest('ul').children();      
+      var list = $(e.currentTarget).closest('ul').children();
       for(var i = 0; i < 5; i++){
         if(i + 1 <= rate) {
           var liElement = $(list.get(i)).children();
@@ -37,16 +36,16 @@
         }
       }
 
-      this.saveItemValue(rate)      
+      this.saveItemValue(rate)
     },
 
     saveItemValue : function(rate){
       this.answerModel.value = rate;
-      App.utils.model.setValue(this.options.survey, this.answerModel);  
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());                
+      App.utils.model.setValue(this.options.survey, this.answerModel);
+      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
-   
+
   });
 })();

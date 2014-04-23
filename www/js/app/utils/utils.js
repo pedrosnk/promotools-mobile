@@ -5,10 +5,10 @@ window.App.utils = {
     setValue : function(model, value){
       if(_.contains(model.questions, value)){
         var index = _.indexOf(model.questions, value);
-        model.questions[index] = value;     
+        model.questions[index] = value;
       } else{
-        model.questions.push(value);  
-      }            
+        model.questions.push(value);
+      }
     }
   },
 
@@ -33,7 +33,7 @@ window.App.utils = {
 
   remoteSelection : function(e){
     //remote older selections
-    var parentList = $(e.currentTarget).closest("ul");   
+    var parentList = $(e.currentTarget).closest("ul");
     var selectedItens = $(parentList).find("li button.selected");
     _.each(selectedItens, function(item){
       $(item).removeClass("selected");
@@ -43,9 +43,9 @@ window.App.utils = {
   setMarkedButton : function(e){
     this.remoteSelection(e);
     //set new selection
-    var el = $(e.currentTarget);   
+    var el = $(e.currentTarget);
     el.addClass("selected");
-  },  
+  },
 
   nextQuestion : function(next){
     setTimeout(function(){
@@ -67,7 +67,7 @@ window.App.utils = {
       x: move,
       duration: 500,
       complete: function(){
-        $(current).removeClass("current");        
+        $(current).removeClass("current");
         $(questionToShow).addClass("current");
         $(current).removeAttr("style");
       },
