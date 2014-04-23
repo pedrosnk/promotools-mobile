@@ -42,7 +42,6 @@
     saveItemValue : function(rate){
       this.answerModel.value = rate;
       App.utils.model.setValue(this.options.survey, this.answerModel);
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 

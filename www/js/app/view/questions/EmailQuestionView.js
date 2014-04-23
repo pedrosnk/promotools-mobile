@@ -25,19 +25,8 @@ if (emailQuestion && emailQuestion.length > 0) {
 
       var contact = $(this.el).find("input[name='user_contact']").val() || null;      
       this.answerModel.email_value = contact;
-      App.utils.model.setValue(this.options.survey, this.answerModel); 
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size()); 
+      App.utils.model.setValue(this.options.survey, this.answerModel);       
       App.utils.nextQuestion(this.options.nextQuestion);
-    },
-
-    hideHeader : function(){
-      $("#header-survey").hide();
-      //$(".hide-keyboard").show();      
-    },
-
-    showHeader : function(){
-      $("#header-survey").show();
-      //$(".hide-keyboard").hide();
     }
   });
 }

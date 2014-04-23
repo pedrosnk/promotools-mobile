@@ -24,7 +24,6 @@ if (npsQuestion && npsQuestion.length > 0) {
       App.utils.setMarkedButton(e);
       this.npsModel.value = parseInt($(e.currentTarget).data("nps"));
       App.utils.model.setValue(this.options.survey, this.npsModel);
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());
       App.utils.nextQuestion(this.options.nextQuestion);
     }
   });

@@ -27,17 +27,9 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
       App.utils.model.setValue(this.options.survey, this.answerModel);      
       console.log('[DEBUG] ' +  JSON.stringify(this.options.survey));
       this.trigger("finish", this);
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size()); 
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
-    hideHeader : function(){
-      $("#header-survey").hide();      
-    },
-
-    showHeader : function(){
-      $("#header-survey").show();
-    }
   });
 }
 })();

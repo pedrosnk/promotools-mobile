@@ -12,7 +12,6 @@
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
       this.answerModel = { _type: 'Answer::SingleChoice', 
                    choice_option: this.options.category,
-                            _cid: this.options.cid,
                            value: null };
 
       if (this.answerModel.choice_option == null){
@@ -33,8 +32,7 @@
       var rate = $(e.currentTarget).data("option");
       this.answerModel.value = rate;
             
-      App.utils.model.setValue(this.options.survey, this.answerModel);                          
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());                        
+      App.utils.model.setValue(this.options.survey, this.answerModel);                                
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
@@ -53,8 +51,7 @@
       var option = $(this.el).find("input[name='other_option']").val() || null;   
       this.answerModel.value = option;
             
-      App.utils.model.setValue(this.options.survey, this.answerModel);   
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());                        
+      App.utils.model.setValue(this.options.survey, this.answerModel);        
       App.utils.nextQuestion(this.options.nextQuestion);
     }
    

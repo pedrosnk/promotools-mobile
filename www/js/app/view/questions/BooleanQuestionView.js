@@ -8,8 +8,7 @@
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
-      this.answerModel = { _type: 'Answer::BooleanChoice', 
-                            _cid: this.options.cid,   
+      this.answerModel = { _type: 'Answer::BooleanChoice',                             
                         category: this.options.category,
                            value: null };
 
@@ -30,8 +29,7 @@
       var option = $(e.currentTarget).data("option");
       this.answerModel.value = (option === "yes") ? true : false;
  
-      App.utils.model.setValue(this.options.survey, this.answerModel);   
-      App.utils.updateProgressBar($("#survey-form-view .question").size(), $(this.options.survey.questions).size());         
+      App.utils.model.setValue(this.options.survey, this.answerModel);         
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
