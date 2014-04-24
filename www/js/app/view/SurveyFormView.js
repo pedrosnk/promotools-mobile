@@ -11,47 +11,50 @@ if (formViewEl && formViewEl.length > 0) {
       this._surveyDataModel = options.surveyDataModel;
     },
 
-
     render : function() {
       console.log(" >>>>> Rendering SurveyFormView === ");
 
-      var npsQuestion = new NpsQuestionView({
-        el : $('#nps-question'),
-        survey : this._surveyDataModel,
-        nextQuestion : $("#rating-service"),
+      var ratingSection = new ItemRatingQuestionView({
+        el : $('#rating-section'),
+        survey : this._surveyDataModel,        
+        nextQuestion : $("#rating-infra-organization"),
       });
-      npsQuestion.render();
+      ratingSection.render();
 
-      var ratingService = new ItemRatingQuestionView({
-        el : $('#rating-service'),
-        survey : this._surveyDataModel,
-        category : "service",
-        nextQuestion : $("#rating-value-for-money"),
+      var ratingInfra = new ItemRatingQuestionView({
+        el : $("#rating-infra-organization"),
+        survey : this._surveyDataModel,        
+        nextQuestion : $("#how-you-meet-us"),
       });
-      ratingService.render();
+      ratingInfra.render();
 
-      var valueForMoney = new ItemRatingQuestionView({
-        el : $("#rating-value-for-money"),
-        survey : this._surveyDataModel,
-        category : "value-for-money",
-        nextQuestion : $("#like-more"),
-      });
-      valueForMoney.render();
-
-
-      var likeMore = new MultipleChoiceView({
-        el : $("#like-more"),
+      var likeMore = new MultipleChoiceView({      
+        el : $("#how-you-meet-us"),
         survey : this._surveyDataModel,
         nextQuestion : $("#first-time"),
       });
       likeMore.render();
 
-      var firstTime = new YesNoQuestionView({
+      var firstTime = new YesNoQuestionView({        
         el : $("#first-time"),
         survey : this._surveyDataModel,
-        nextQuestion : $("#email-question"),
+        nextQuestion : $("#come-again"),
       });
       firstTime.render();
+
+      var comeAgain = new YesNoQuestionView({        
+        el : $("#come-again"),
+        survey : this._surveyDataModel,
+        nextQuestion : $("#nps-question"),
+      });
+      comeAgain.render();
+
+      var npsQuestion = new NpsQuestionView({
+        el : $('#nps-question'),
+        survey : this._surveyDataModel,        
+        nextQuestion : $("#email-question"),
+      });
+      npsQuestion.render();
 
       var email = new EmailQuestionView({
         el : $("#email-question"),
@@ -60,31 +63,43 @@ if (formViewEl && formViewEl.length > 0) {
       });
       email.render();
 
-      var feedbackQuestion = new FeedbackQuestionView({
+      var feedbackQuestion = new FeedbackQuestionView({        
         el : $('#feedback'),
         survey : this._surveyDataModel,
         nextQuestion : $("#thanks")
       });
 
-      feedbackQuestion.on("finish", this.finishSurvey, this);
+      //feedbackQuestion.on("finish", this.finishSurvey, this);
       feedbackQuestion.render();
-
     },
 
     //save data model and refresh view
 
     finishSurvey : function(){
-      console.log("=== surveyDataModel = " + JSON.stringify(this._surveyDataModel.toJSON()));
+      console.log("=== _surveyDataModel = " + JSON.stringify(this._surveyDataModel.attributes));
       App.utils.nextQuestion($("#thanks"));
 
-      App.storage.saveModelData(this._surveyDataModel.toJSON());
+      App.storage.saveModelData(this._surveyDataModel.attributes);
 
-      setTimeout(function() {
-        window.location.reload();
-      }, 3000);
-
+      setTimeout(_.bind( function() {
+        this._surveyDataModel.save({}, {
+          success : _.bind(function(model, response, options) {
+            console.log("[BACKBONE] save success!!!");
+            App.storage.updateStatus(model, App.network.status.SUCCESS);
+            //this.render();
+            window.location.reload();
+          }, this),
+          error : _.bind(function(model, xhr, options){
+            console.log("[BACKBONE] save error!!!");
+            App.storage.updateStatus(model, App.network.status.ERROR);
+            //this.render();
+            window.location.reload();
+          }, this),
+        });
+      }, this), 3000);
+      
     },
-
+ 
   });
 }
 })();
