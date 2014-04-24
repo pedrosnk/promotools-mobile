@@ -15,36 +15,27 @@ if (formViewEl && formViewEl.length > 0) {
     render : function() {
       console.log(" >>>>> Rendering SurveyFormView === ");
 
-      var npsQuestion = new NpsQuestionView({
-        el : $('#nps-question'),
+      var ratingSection = new ItemRatingQuestionView({
+        el : $('#rating-section'),
         survey : this._surveyDataModel,        
-        nextQuestion : $("#rating-service"),
+        nextQuestion : $("#rating-infra-organization"),
       });
-      npsQuestion.render();
+      ratingSection.render();
 
-      var ratingService = new ItemRatingQuestionView({
-        el : $('#rating-service'),
+      var ratingInfra = new ItemRatingQuestionView({
+        el : $("#rating-infra-organization"),
         survey : this._surveyDataModel,        
-        category : "service",
-        nextQuestion : $("#rating-value-for-money"),
+        nextQuestion : $("#how-you-meet-us"),
       });
-      ratingService.render();
-
-      var valueForMoney = new ItemRatingQuestionView({
-        el : $("#rating-value-for-money"),
-        survey : this._surveyDataModel,        
-        category : "value-for-money",
-        nextQuestion : $("#like-more"),
-      });
-      valueForMoney.render();
-
+      ratingInfra.render();
 
       var likeMore = new SingleChoiceQuestionView({      
-        el : $("#like-more"),
+        el : $("#how-you-meet-us"),
         survey : this._surveyDataModel,
         nextQuestion : $("#first-time"),
       });
       likeMore.render();
+
 
       var firstTime = new BooleanQuestionView({
         
@@ -53,6 +44,15 @@ if (formViewEl && formViewEl.length > 0) {
         nextQuestion : $("#email-question"),
       });
       firstTime.render();
+
+
+      var npsQuestion = new NpsQuestionView({
+        el : $('#nps-question'),
+        survey : this._surveyDataModel,        
+        nextQuestion : $("#rating-service"),
+      });
+      npsQuestion.render();
+
 
       var email = new EmailQuestionView({
         
