@@ -11,7 +11,6 @@ if (formViewEl && formViewEl.length > 0) {
       this._surveyDataModel = options.surveyDataModel;
     },
 
-
     render : function() {
       console.log(" >>>>> Rendering SurveyFormView === ");
 
@@ -29,51 +28,49 @@ if (formViewEl && formViewEl.length > 0) {
       });
       ratingInfra.render();
 
-      var likeMore = new SingleChoiceQuestionView({      
+      var likeMore = new MultipleChoiceView({      
         el : $("#how-you-meet-us"),
         survey : this._surveyDataModel,
         nextQuestion : $("#first-time"),
       });
       likeMore.render();
 
-
-      var firstTime = new BooleanQuestionView({
-        
+      var firstTime = new YesNoQuestionView({        
         el : $("#first-time"),
         survey : this._surveyDataModel,
-        nextQuestion : $("#email-question"),
+        nextQuestion : $("#come-again"),
       });
       firstTime.render();
 
+      var comeAgain = new YesNoQuestionView({        
+        el : $("#come-again"),
+        survey : this._surveyDataModel,
+        nextQuestion : $("#nps-question"),
+      });
+      comeAgain.render();
 
       var npsQuestion = new NpsQuestionView({
         el : $('#nps-question'),
         survey : this._surveyDataModel,        
-        nextQuestion : $("#rating-service"),
+        nextQuestion : $("#email-question"),
       });
       npsQuestion.render();
 
-
-
       var email = new EmailQuestionView({
-        
         el : $("#email-question"),
         survey : this._surveyDataModel,
         nextQuestion : $("#feedback"),
       });
       email.render();
 
-
-      var feedbackQuestion = new FeedbackQuestionView({
-        
+      var feedbackQuestion = new FeedbackQuestionView({        
         el : $('#feedback'),
         survey : this._surveyDataModel,
         nextQuestion : $("#thanks")
       });
 
-      feedbackQuestion.on("finish", this.finishSurvey, this);
+      //feedbackQuestion.on("finish", this.finishSurvey, this);
       feedbackQuestion.render();
-
     },
 
     //save data model and refresh view

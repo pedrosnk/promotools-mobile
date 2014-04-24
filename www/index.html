@@ -27,7 +27,7 @@
         <div class="container">
           <div class="row">
             <div class="client">
-              Zimbrus 
+              BRAPPS 
             </div>
             <div class="slider">
               <a href="#"><span class="left go-back no-more"></span></a><a href="#"><span class="right go-next"></span></a>
@@ -44,7 +44,7 @@
         <div class="row">
           <ul class="question-list" id="survey-form-view">
 
-            <li class="question current" id="rating-section">
+            <li class="question current " id="rating-section">
               <p>
                 Como você avalia:<br> <b>Palestras</b>
               </p>
@@ -69,9 +69,9 @@
 
             <li class="question" id="rating-infra-organization">
               <p>
-                Como você avalia<br> <b>Organização e Infraestrutura:</b>
+                Como você avalia:<br> <b>Organização e Infraestrutura</b>
               </p>
-              <ul class="rating-values" data-category="sections">
+              <ul class="rating-values" data-category="infra-organization">
                 <li>
                   <button class="heart" data-rate="1">1</button>
                 </li>
@@ -90,9 +90,9 @@
               </ul>
             </li>
 
-            <li class="question" id="how-you-meet-us">
+            <li class="question " id="how-you-meet-us">
               <p>
-                Como você ficou sabendo do evento 
+                Como você ficou sabendo do evento? 
               </p>
               <ul class="options-values" data-choice-option="like-more">
                 <li>
@@ -111,7 +111,7 @@
                   <button class="option" data-option="Amigos">Amigos</button>
                 </li>  
                 <li>
-                  <button class="option.other" data-option="Cardápio">outros</button>
+                  <button class="other" data-option="other">outros</button>
                 </li>  
               </ul>
               <div class="form-group other-option">
@@ -148,7 +148,7 @@
             </li>
 
             <li class="question " id="nps-question">
-              <p>
+              <p style="padding-left: 45px;padding-right: 45px;">
                 Qual a possibilidade de você recomendar este evento para um amigo?
               </p>
               <ul class="nps-values">
@@ -208,7 +208,7 @@
 
             <li class="thanks-message" id="thanks">
               <p>
-                Obrigado por participar, sua opinião é muito importante. 
+                Obrigado por participar e fazer um Brapps ainda melhor!
               </p>
               <span class="client-logo"></span>
             </li>
@@ -261,7 +261,7 @@
     <script src="js/app/model/Survey.js" type="text/javascript">
     </script>
     
-    <script src="js/app/view/questions/BooleanQuestionView.js" type="text/javascript">
+    <script src="js/app/view/questions/YesNoQuestionView.js" type="text/javascript">
     </script>
     <script src="js/app/view/questions/EmailQuestionView.js" type="text/javascript">
     </script>
@@ -272,7 +272,7 @@
     <script src="js/app/view/questions/NpsQuestionView.js" type="text/javascript">
     </script>
     
-    <script src="js/app/view/questions/SingleChoiceQuestionView.js" type="text/javascript">
+    <script src="js/app/view/questions/MultipleChoiceView.js" type="text/javascript">
     </script>
     <script src="js/app/view/SurveyFormView.js" type="text/javascript">
     </script>
