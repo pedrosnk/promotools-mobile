@@ -3,26 +3,30 @@
 
 window.CalendarView = Backbone.View.extend({
 
-  el: '#calendar-view-main',
+  el: '#calendar-view',
 
   initialize: function(){
-    $.getJSON('http://localhost:3000/calendars/calendar_events')
-    .done(this._calendarsSuccess);
+    $.getJSON(BrappsSupport.calendarUrl())
+    .done(_.bind(this._calendarsSuccess, this));
 
     return this;
   },
 
+
   render: function(){
-    App.storage.fetchCalendars();
     return this;
   },
 
   _calendarsSuccess: function(calendars){
-    App.storage.saveCalendars(calendars);
+    App.storage.saveCalendars(calendars, _.bind(this._loadCalendars, this));
+  },
+
+  _loadCalendars: function() {
+    App.storage.fetchCalendars(_.bind(this._createCalendarCollection, this));
   },
 
   _createCalendarCollection: function(calendars){
-
+    this.calendarsCollection = new CalendarCollection(calendars);
   }
 
 });

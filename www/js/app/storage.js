@@ -115,7 +115,7 @@ window.App.storage = {
    * BRAPPs specifc methos
    */
 
-  saveCalendars: function(calendars) {
+  saveCalendars: function(calendars, callback) {
     var queryInsert = "INSERT OR REPLACE INTO CALENDARS " +
       " (id, begin_at, end_at, title, event_type, description, created_at) VALUES ";
     var insertRows = [];
@@ -127,7 +127,7 @@ window.App.storage = {
     queryInsert += insertRows.join(',');
     this.openDB().transaction(function(tx){
       tx.executeSql(queryInsert);
-    }, function(){}, function(){} );
+    },  callback , callback );
   },
 
   fetchCalendars: function(callback){
@@ -140,17 +140,14 @@ window.App.storage = {
         function(tx, result){
           var len = result.rows.length;
           calendars = [];
-          console.log(len);
           for (var i=0; i<len; i++){
             var item = result.rows.item(i);
-            console.log(JSON.stringify(item));
             calendars.push(item);
           }
           callback(calendars);
         },
         console.log );
     });
-
 
   }
 };

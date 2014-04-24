@@ -6,7 +6,7 @@ window.BrappsSupport = {
   URL: 'http://localhost:3000',
 
   calendarUrl: function(){
-    return this.URL + '/calendars';
+    return this.URL + '/calendars/calendar_events';
   }
 
 };
