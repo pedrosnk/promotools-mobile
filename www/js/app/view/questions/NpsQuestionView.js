@@ -22,8 +22,8 @@ if (npsQuestion && npsQuestion.length > 0) {
 
     handleNPSQuestion : function(e){
       App.utils.setMarkedButton(e);
-      this.npsModel.value = parseInt($(e.currentTarget).data("nps"));      
-      App.utils.model.setValue(this.options.survey, this.npsModel);       
+      this.npsModel.value = parseInt($(e.currentTarget).data("nps"));
+      App.utils.model.setValue(this.options.survey, this.npsModel);
       App.utils.nextQuestion(this.options.nextQuestion);
     }
   });

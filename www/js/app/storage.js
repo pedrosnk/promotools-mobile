@@ -24,6 +24,7 @@ window.App.storage = {
 
   success: function() {
     console.log("[DB - SUCCESS] Db operation was successfull.");
+    this.handleAnsweredSurveys();
   },
 
   save: function(data){
@@ -45,6 +46,7 @@ window.App.storage = {
     " (survey_response, confirmed_sended, created_at) " +
     "VALUES ('"+ JSON.stringify(data) +"', "+  App.network.status.ERROR +", "+ new Date().getTime() +") ";
 
+    console.log("QUERY = " + queryInsert);
     this.openDB().transaction(function(tx){
       console.log("[DB] SAVING survey");
       tx.executeSql(queryInsert);
