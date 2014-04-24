@@ -13,6 +13,11 @@ window.App.storage = {
     db.transaction(_.bind(function(tx){
       //tx.executeSql('DROP TABLE '+ this.TABLE_NAME);
       tx.executeSql('CREATE TABLE IF NOT EXISTS ' + this.TABLE_NAME + ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, survey_response, confirmed_sended, created_at)');
+
+      // BRAPPS specif tables
+      tx.executeSql("CREATE TABLE IF NOT EXISTS CALENDARS (id INTEGER NOT NULL PRIMARY KEY, begin_at, end_at, title," +
+        " event_type, description, created_at )");
+
     },this), this.error, function(){
       console.log("\n[DB - SUCCESS] DB created successfully.");
     });
@@ -103,6 +108,50 @@ window.App.storage = {
     if (len !== 0) {
       App.network.submitSurveys(surveys);
     }
-  }
+  },
 
+
+  /**
+   * BRAPPs specifc methos
+   */
+
+  saveCalendars: function(calendars) {
+    var queryInsert = "INSERT OR REPLACE INTO CALENDARS " +
+      " (id, begin_at, end_at, title, event_type, description, created_at) VALUES ";
+    var insertRows = [];
+    calendars.forEach(function(calendar){
+      insertRows.push(
+        " ("+ calendar.id +", '"+  calendar.begin_at +"', '"+ calendar.end_at +"', '" + calendar.title +"', "+
+        " '" + calendar.event_type +"', '" + calendar.description + "', '" + calendar.created_at+ "') ");
+    });
+    queryInsert += insertRows.join(',');
+    this.openDB().transaction(function(tx){
+      tx.executeSql(queryInsert);
+    }, function(){}, function(){} );
+  },
+
+  fetchCalendars: function(callback){
+    var querySelect = " SELECT * FROM CALENDARS ";
+
+    this.openDB().transaction(function(tx){
+      tx.executeSql(
+        querySelect,
+        [],
+        function(tx, result){
+          var len = result.rows.length;
+          calendars = [];
+          console.log(len);
+          for (var i=0; i<len; i++){
+            var item = result.rows.item(i);
+            console.log(JSON.stringify(item));
+            calendars.push(item);
+          }
+          callback(calendars);
+        },
+        console.log );
+    });
+
+
+  }
 };
+
