@@ -1,8 +1,10 @@
 
 *.DS_Store
-
+*.swp
 platforms/ios/build
 platforms/ios/www
 
 platforms/android/bin
 platforms/android/assets/www
+platforms/android/ant-build
+

@@ -261,80 +261,96 @@
         </ul>
       </div>
     </footer>
-    
-    <script type="text/javascript" charset="utf-8" src="cordova.js">
-    </script>
-    
-    <script src="js/vendors/jquery-1.9.1.min.js" type="text/javascript">
-    </script>
-    
-    <script src="js/vendors/jquery.transit.js" type="text/javascript">
-    </script>
-    <script src="js/vendors/jquery.bxslider.js" type="text/javascript">
-    </script>
-    <script src="js/vendors/later.min.js" type="text/javascript">
-    </script>
-    <script src="js/vendors/mailcheck.js" type="text/javascript">
-    </script>
-    
-    <script src="js/vendors/underscore-min.js" type="text/javascript">
-    </script>
-    <script src="js/vendors/backbone.js" type="text/javascript">
-    </script>
-    
-    
-    <script src="js/app/app.js" type="text/javascript">
-    </script>
-    <script src="js/app/network.js" type="text/javascript">
-    </script>
-    <script src="js/app/storage.js" type="text/javascript">
-    </script>
-    <script src="js/app/utils/Utils.js" type="text/javascript">
-    </script>
-    
-    <script src="js/app/model/Survey.js" type="text/javascript">
-    </script>
-    
-    <script src="js/app/view/questions/YesNoQuestionView.js" type="text/javascript">
-    </script>
-    <script src="js/app/view/questions/EmailQuestionView.js" type="text/javascript">
-    </script>
-    <script src="js/app/view/questions/FeedbackQuestionView.js" type="text/javascript">
-    </script>
-    <script src="js/app/view/questions/ItemRatingQuestionView.js" type="text/javascript">
-    </script>
-    <script src="js/app/view/questions/NpsQuestionView.js" type="text/javascript">
-    </script>
-    
-    <script src="js/app/view/questions/MultipleChoiceView.js" type="text/javascript">
-    </script>
-    <script src="js/app/view/FooterSurveyView.js" type="text/javascript">
-    </script>    
-    <script src="js/app/view/SurveyFormView.js" type="text/javascript">
-    </script>
-    <script src="js/app/view/HeaderSurveyView.js" type="text/javascript">
-    </script>
-    <script src="js/app/view/MainSurveyView.js" type="text/javascript">
-    </script>
-    
-    <script type="text/javascript" charset="utf-8">
-      document.addEventListener("deviceready", onDeviceReady, false);
-      
-      function onDeviceReady() {
-        
-        window.App.init();
-        
-        var main = new MainSurveyView({
-          el : $('#survey-view')
-        });
-        main.render();
-        
-        jQuery.ajaxSetup({
-          'beforeSend': function(xhr) {
-            xhr.setRequestHeader("Accept", "text/javascript")}
-        });
-      }
-    </script>
-  </body>
+
+<script type="text/javascript" charset="utf-8" src="cordova.js">
+</script>
+
+<script src="js/vendors/jquery-1.9.1.min.js" type="text/javascript">
+</script>
+
+<script src="js/vendors/jquery.transit.js" type="text/javascript">
+</script>
+
+<script src="js/vendors/jquery.bxslider.js" type="text/javascript">
+</script>
+
+<script src="js/vendors/later.min.js" type="text/javascript">
+</script>
+<script src="js/vendors/mailcheck.js" type="text/javascript">
+</script>
+
+<script src="js/vendors/underscore-min.js" type="text/javascript">
+</script>
+<script src="js/vendors/backbone.js" type="text/javascript">
+</script>
+
+
+<script src="js/app/app.js" type="text/javascript">
+</script>
+<script src="js/app/network.js" type="text/javascript">
+</script>
+<script src="js/app/storage.js" type="text/javascript">
+</script>
+<script src="js/app/utils/Utils.js" type="text/javascript">
+</script>
+<script src="js/app/utils/BrappsSupport.js" type="text/javascript">
+</script>
+
+<script src="js/app/model/Survey.js" type="text/javascript">
+</script>
+<script src="js/app/model/CalendarModel.js" type="text/javascript">
+</script>
+
+<script src="js/app/collection/CalendarCollection.js" type="text/javascript">
+</script>
+
+<script src="js/app/view/questions/YesNoQuestionView.js" type="text/javascript">
+</script>
+<script src="js/app/view/questions/EmailQuestionView.js" type="text/javascript">
+</script>
+<script src="js/app/view/questions/FeedbackQuestionView.js" type="text/javascript">
+</script>
+<script src="js/app/view/questions/ItemRatingQuestionView.js" type="text/javascript">
+</script>
+<script src="js/app/view/questions/NpsQuestionView.js" type="text/javascript">
+</script>
+
+<script src="js/app/view/InstagramView.js" type="text/javascript">
+</script>
+<script src="js/app/view/CalendarView.js" type="text/javascript">
+</script>
+
+<script src="js/app/view/questions/MultipleChoiceView.js" type="text/javascript">
+</script>
+<script src="js/app/view/FooterSurveyView.js" type="text/javascript">
+</script>
+
+<script src="js/app/view/SurveyFormView.js" type="text/javascript">
+</script>
+<script src="js/app/view/HeaderSurveyView.js" type="text/javascript">
+</script>
+<script src="js/app/view/MainSurveyView.js" type="text/javascript">
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  document.addEventListener("deviceready", onDeviceReady, false);
   
+  function onDeviceReady() {
+    
+    window.App.init();
+    
+    var main = new MainSurveyView({
+      el : $('#survey-view')
+    });
+    main.render();
+    
+    jQuery.ajaxSetup({
+      'beforeSend': function(xhr) {
+        xhr.setRequestHeader("Accept", "text/javascript")}
+    }
+                    );
+  }
+</script>
+</body>
+
 </html>

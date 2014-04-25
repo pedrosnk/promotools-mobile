@@ -2,28 +2,30 @@
 
   window.MainSurveyView = Backbone.View.extend({
 
+
     events : {
       'click .slide' : 'showHomePage'
     },
 
     render : function() {      
-      
+      console.log(" >>>>> Render MainSurveyView");
+
       this.surveyDataModel = new Survey({
         url: App.config.ENDPOINT,
         questions: [],
         client : App.config.CLIENT_KEY,
         store : App.config.CLIENT_STORE
-      });     
-
-      this.formView = new SurveyFormView({ 
-        el : $('#survey-form-view'),
-        surveyDataModel : this.surveyDataModel  
       });
 
-      this.headerView = new HeaderSurveyView({ 
-        el : $('#header-view'), 
+      this.formView = new SurveyFormView({
+        el : $('#survey-form-view'),
+        surveyDataModel : this.surveyDataModel
+      });
+
+      this.headerView = new HeaderSurveyView({
+        el : $('#header-view'),
         formEl : this.formView.el,
-        surveyDataModel : this.surveyDataModel  
+        surveyDataModel : this.surveyDataModel
       });
 
       this.footerView = new FooterSurveyView({ 
@@ -33,6 +35,9 @@
       this.footerView.on("showAgenda", this.showAgendaSection, this);
       this.footerView.on("showFeedback", this.showFeedbackSection, this);
 
+      // this.instagramView = new InstagramView();
+
+      //this.calendarView = new CalendarView();
       this.headerView.render();
       this.formView.render();
 
