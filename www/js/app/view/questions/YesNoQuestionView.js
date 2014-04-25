@@ -8,13 +8,13 @@
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
-      this.answerModel = { _type: 'Answer::BooleanChoice',                             
+      this.answerModel = { _type: 'Answer::YesNo',
                         category: this.options.category,
                            value: null };
 
       if(this.answerModel.category == null){
         var category = $(this.el).find('ul.boolean-values').data("category");
-        this.answerModel.category = category;  
+        this.answerModel.category = category;
       }
     },
 
@@ -28,8 +28,8 @@
 
       var option = $(e.currentTarget).data("option");
       this.answerModel.value = (option === "yes") ? true : false;
- 
-      App.utils.model.setValue(this.options.survey, this.answerModel);         
+
+      App.utils.model.setValue(this.options.survey, this.answerModel);
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 

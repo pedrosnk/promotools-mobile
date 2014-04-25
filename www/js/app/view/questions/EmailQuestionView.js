@@ -25,9 +25,9 @@ if (emailQuestion && emailQuestion.length > 0) {
       $(this.el).off('click', '.send');
       App.utils.setMarkedButton(e);
 
-      var contact = $(this.el).find("input[name='user_contact']").val() || null;      
+      var contact = $(this.el).find("input[name='user_contact']").val() || null;
       this.answerModel.email_value = contact;
-      App.utils.model.setValue(this.options.survey, this.answerModel);       
+      App.utils.model.setValue(this.options.survey, this.answerModel);
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
@@ -36,9 +36,9 @@ if (emailQuestion && emailQuestion.length > 0) {
     },
 
     showFooter : function(){
-      //$("#footer").transition({y: 150, duration: 1}).transition({opacity: 1, y: 0, duration: 300}).show();  
-      $("#footer").show();  
-    }, 
+      //$("#footer").transition({y: 150, duration: 1}).transition({opacity: 1, y: 0, duration: 300}).show();
+      $("#footer").show();
+    },
   });
 }
 })();

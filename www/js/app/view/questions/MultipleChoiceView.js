@@ -2,7 +2,7 @@
 
   window.MultipleChoiceView = Backbone.View.extend({
 
-   
+
     events : {
       'click .option': 'handleItemChoice',
       'click .other' : 'handleOtherSelection',
@@ -14,19 +14,19 @@
 
     initialize: function(options) {
       this.options = jQuery.extend(true, {}, this.defaultOptions, options);
-      this.answerModel = { _type: 'Answer::SingleChoice', 
-                   choice_option: this.options.category,
+      this.answerModel = { _type: 'Answer::MultipleChoice',
+                           category: this.options.category,
                            value: null };
 
-      if (this.answerModel.choice_option == null){
+      if (this.answerModel.category == null){
         var category = $(this.el).find('.options-values').data("category");
-        this.answerModel.choice_option = category;
+        this.answerModel.category = category;
       }
 
     },
 
     render : function() {
-      console.log(" == Render SingleChoiceQuestionView");
+      console.log(" == Render MultipleChoiceQuestionView");
     },
 
     handleItemChoice : function(e){
@@ -35,8 +35,8 @@
 
       var rate = $(e.currentTarget).data("option");
       this.answerModel.value = rate;
-            
-      App.utils.model.setValue(this.options.survey, this.answerModel);                                
+
+      App.utils.model.setValue(this.options.survey, this.answerModel);
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
@@ -45,17 +45,17 @@
       $(optionsList).transition({ opacity: 0 }, _.bind(function(){
         $(optionsList).hide();
         $(this.el).find('a.other').hide();
-        $(this.el).find('.other-option').transition({opacity: 0, duration: 1}).show()        
+        $(this.el).find('.other-option').transition({opacity: 0, duration: 1}).show()
         .transition({y: 150, duration: 1})
         .transition({opacity: 1, y: 0, duration: 300});
-      }, this));     
+      }, this));
     },
 
     sendOptionInputInfo : function(e){
       $(e.currentTarget).addClass("selected");
-      var option = $(this.el).find("input[name='other_option']").val() || null;   
-      this.answerModel.value = option;          
-      App.utils.model.setValue(this.options.survey, this.answerModel);        
+      var option = $(this.el).find("input[name='other_option']").val() || null;
+      this.answerModel.value = option;
+      App.utils.model.setValue(this.options.survey, this.answerModel);
       App.utils.nextQuestion(this.options.nextQuestion);
     },
 
@@ -67,10 +67,10 @@
       $(otherOptionInput).transition({ opacity: 0 }, _.bind(function(){
         $(otherOptionInput).hide();
 
-        $(optionsList).transition({opacity: 0, duration: 1}).show()        
+        $(optionsList).transition({opacity: 0, duration: 1}).show()
         .transition({y: 150, duration: 1})
         .transition({opacity: 1, y: 0, duration: 300});
-      }, this));  
+      }, this));
     },
 
     hideFooter : function(){
@@ -78,9 +78,9 @@
     },
 
     showFooter : function(){
-      //$("#footer").transition({y: 150, duration: 1}).transition({opacity: 1, y: 0, duration: 300}).show();  
-      $("#footer").show();  
-    },    
+      //$("#footer").transition({y: 150, duration: 1}).transition({opacity: 1, y: 0, duration: 300}).show();
+      $("#footer").show();
+    },
 
   });
 })();

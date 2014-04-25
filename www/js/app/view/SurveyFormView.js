@@ -16,33 +16,33 @@ if (formViewEl && formViewEl.length > 0) {
 
       var ratingInfra = new ItemRatingQuestionView({
         el : $("#rating-infra-organization"),
-        survey : this._surveyDataModel,        
+        survey : this._surveyDataModel,
         nextQuestion : $('#rating-section'),
       });
       ratingInfra.render();
 
       var ratingSection = new ItemRatingQuestionView({
         el : $('#rating-section'),
-        survey : this._surveyDataModel,        
+        survey : this._surveyDataModel,
         nextQuestion :  $("#how-you-meet-us"),
       });
       ratingSection.render();
 
-      var likeMore = new MultipleChoiceView({      
+      var likeMore = new MultipleChoiceView({
         el : $("#how-you-meet-us"),
         survey : this._surveyDataModel,
         nextQuestion : $("#first-time"),
       });
       likeMore.render();
 
-      var firstTime = new YesNoQuestionView({        
+      var firstTime = new YesNoQuestionView({
         el : $("#first-time"),
         survey : this._surveyDataModel,
         nextQuestion : $("#come-again"),
       });
       firstTime.render();
 
-      var comeAgain = new YesNoQuestionView({        
+      var comeAgain = new YesNoQuestionView({
         el : $("#come-again"),
         survey : this._surveyDataModel,
         nextQuestion : $("#nps-question"),
@@ -51,7 +51,7 @@ if (formViewEl && formViewEl.length > 0) {
 
       var npsQuestion = new NpsQuestionView({
         el : $('#nps-question'),
-        survey : this._surveyDataModel,        
+        survey : this._surveyDataModel,
         nextQuestion : $("#email-question"),
       });
       npsQuestion.render();
@@ -63,7 +63,7 @@ if (formViewEl && formViewEl.length > 0) {
       });
       email.render();
 
-      var feedbackQuestion = new FeedbackQuestionView({        
+      var feedbackQuestion = new FeedbackQuestionView({
         el : $('#feedback'),
         survey : this._surveyDataModel,
         nextQuestion : $("#thanks")
@@ -71,6 +71,7 @@ if (formViewEl && formViewEl.length > 0) {
 
       feedbackQuestion.on("finish", this.finishSurvey, this);
       feedbackQuestion.render();
+      console.log('teste console.l;og');
     },
 
     //save data model and refresh view
@@ -85,7 +86,7 @@ if (formViewEl && formViewEl.length > 0) {
       }, 3000);
 
     },
- 
+
   });
 }
 })();
