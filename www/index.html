@@ -30,202 +30,235 @@
               BRAPPS 
             </div>
             <div class="slider">
-              <a href="#"><span class="left go-back no-more"></span></a><a href="#"><span class="right go-next"></span></a>
+              <a href="index.html#"><span class="left go-back"></span></a><a href="index.html#"><span class="right go-next"></span></a>
             </div>
             <div class="progress">
               <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="progress-bar" role="progressbar">
-                <span class="sr-only">0% Complete (success) </span>
+                <span class="sr-only">40% Complete (success) </span>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <ul class="question-list" id="survey-form-view">
-
-            <li class="question current " id="rating-section">
-              <p>
-                Como você avalia:<br> <b>Palestras</b>
-              </p>
-              <ul class="rating-values" data-category="sections">
-                <li>
-                  <button class="heart" data-rate="1">1</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="2">2</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="3">3</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="4">4</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="5">5</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="question" id="rating-infra-organization">
-              <p>
-                Como você avalia:<br> <b>Organização e Infraestrutura</b>
-              </p>
-              <ul class="rating-values" data-category="infra-organization">
-                <li>
-                  <button class="heart" data-rate="1">1</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="2">2</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="3">3</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="4">4</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="5">5</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="question " id="how-you-meet-us">
-              <p>
-                Como você ficou sabendo do evento? 
-              </p>
-              <ul class="options-values" data-choice-option="like-more">
-                <li>
-                  <button class="option" data-option="Email">Email</button>
-                </li>
-                <li>
-                  <button class="option" data-option="Facebook">Facebook </button>
-                </li>
-                <li>
-                  <button class="option" data-option="Internet">Internet</button>
-                </li>
-                <li>
-                  <button class="option" data-option="Jornal">Jornal</button>
-                </li>                
-                <li>
-                  <button class="option" data-option="Amigos">Amigos</button>
-                </li>  
-                <li>
-                  <button class="other" data-option="other">outros</button>
-                </li>  
-              </ul>
-              <div class="form-group other-option">
-                <input class="email" name="other_option" placeholder="Escreva aqui..." type="text"><button class="send">Enviar</button>
-              </div>
-            </li>
-
-            <li class="question" id="first-time">
-              <p>
-                É a sua primeira vez no Brapps?
-              </p>
-              <ul class="boolean-values" data-category="first-time">
-                <li>
-                  <button class="option" data-option="yes">Sim</button>
-                </li>
-                <li>
-                  <button class="option" data-option="no">Não</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="question" id="come-again">
-              <p>
-                Você viria em uma próxima edição do Brapps?
-              </p>
-              <ul class="boolean-values" data-category="come-again">
-                <li>
-                  <button class="option" data-option="yes">Sim</button>
-                </li>
-                <li>
-                  <button class="option" data-option="no">Não</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="question " id="nps-question">
-              <p style="padding-left: 45px;padding-right: 45px;">
-                Qual a possibilidade de você recomendar este evento para um amigo?
-              </p>
-              <ul class="nps-values">
-                <li>
-                  <button class="nps" data-nps="0">0</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="1">1</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="2">2</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="3">3</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="4">4</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="5">5</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="6">6</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="7">7</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="8">8</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="9">9</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="10">10 </button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="question" id="email-question">
-              <p>
-                Deixe seu email, vamos manter você informado de outros eventos legais como este.
-              </p>
-              <div class="form-group">
-                <input class="email" name="user_contact" placeholder="Digite aqui seu email" type="text"><button class="send">Enviar</button><a class="other no-thanks pull-left" href="#">Não, obrigado.</a>
-              </div>
-            </li>
-
-            <li class="question feedback-question" id="feedback">
-              <p>
-                Se quiser deixar mais alguma observação ficaremos felizes em saber.
-              </p>
-              <div class="form-group">
-                <textarea class="mail" name="feedback" placeholder="Digite aqui" type="text"></textarea><button class="send">Enviar</button><a class="other no-thanks pull-left" href="#">Não, obrigado.      </a>
-              </div>
-            </li>
-
-            <li class="thanks-message" id="thanks">
-              <p>
-                Obrigado por participar e fazer um Brapps ainda melhor!
-              </p>
-              <span class="client-logo"></span>
-            </li>
-
-          </ul>
+      </div><div class="l-splash" id="splash">
+  <div id="presentation">
+    <div class="slide green">
+      <span class="top"></span>
+      <h1>
+        O maior evento<br/>de conteúdo mobile<br/>da América Latina<br/>está de volta<br/>a Brasília. 
+      </h1>
+      <span class="bottom"></span>
+    </div>
+    <div class="slide red">
+      <span class="top"></span>
+      <h1>
+        Palestras com profissionais renomados  
+      </h1>
+      <span class="bottom"></span>
+    </div>
+    <div class="slide blue">
+      <span class="top"></span>
+      <h1>
+        exposição e batalha de startups 
+      </h1>
+      <span class="bottom"></span>
+    </div>
+    <div class="slide purple">
+      <span class="top"></span>
+      <h1>
+        hackathon e muinto Networking 
+      </h1>
+      <span class="bottom"></span>
+    </div>
+    <div class="slide dark-blue">
+      <span class="top"></span>
+      <h1>
+        Agora no brapps: Acompanhe a palestra X                         
+      </h1>
+      <span class="bottom"></span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <ul class="question-list" id="survey-form-view">
+      <li class="question current" id="rating-infra-organization">
+        <p>
+          Como você avalia: <br/> <b> Organização e Infraestrutura </b>
+        </p>
+        <ul class="rating-values" data-category="infra-organization">
+          <li>
+            <button class="heart" data-rate="1"> 1</button>
+          </li>
+          <li>
+            <button class="heart" data-rate="2"> 2</button>
+          </li>
+          <li>
+            <button class="heart" data-rate="3"> 3</button>
+          </li>
+          <li>
+            <button class="heart" data-rate="4"> 4</button>
+          </li>
+          <li>
+            <button class="heart" data-rate="5"> 5</button>
+          </li>
+        </ul>
+      </li>
+      <li class="question" id="rating-section">
+        <p>
+          Como você avalia:<br><b>Palestras e Conteúdo</b></br>
+        </p>
+        <ul class="rating-values" data-category="sections">
+          <li>
+            <button class="heart" data-rate="1"> 1</button>
+          </li>
+          <li>
+            <button class="heart" data-rate="2"> 2</button>
+          </li>
+          <li>
+            <button class="heart" data-rate="3"> 3</button>
+          </li>
+          <li>
+            <button class="heart" data-rate="4"> 4</button>
+          </li>
+          <li>
+            <button class="heart" data-rate="5"> 5</button>
+          </li>
+        </ul>
+      </li>
+      <li class="question" id="how-you-meet-us">
+        <p style="position: absolute; top: 230px;left: 230px;">
+          Como você ficou sabendo do evento?
+        </p>
+        <ul class="options-values" data-category="channel">
+          <li>
+            <button class="option" data-option="Email"> Email</button>
+          </li>
+          <li>
+            <button class="option" data-option="Facebook"> Facebook</button>
+          </li>
+          <li>
+            <button class="option" data-option="Internet"> Internet</button>
+          </li>
+          <li>
+            <button class="option" data-option="Jornal"> Jornal</button>
+          </li>
+          <li>
+            <button class="option" data-option="Amigos"> Amigos</button>
+          </li>
+          <li>
+            <button class="other" data-option="other"> outros</button>
+          </li>
+        </ul>
+        <div class="form-group other-option">
+          <input class="email" name="other_option" placeholder="Escreva aqui..." type="text"><button class="send">Enviar</button><a class="other show-options-values pull-left" href="index.html#"> Ver opções.</a>
         </div>
-      </div>
+      </li>
+      <li class="question" id="first-time">
+        <p>
+          É a sua primeira vez no Brapps?
+        </p>
+        <ul class="boolean-values" data-category="first-time">
+          <li>
+            <button class="option" data-option="yes"> Sim</button>
+          </li>
+          <li>
+            <button class="option" data-option="no"> Não</button>
+          </li>
+        </ul>
+      </li>
+      <li class="question" id="come-again">
+        <p>
+          Você participaria de uma próxima edição do Brapps?
+        </p>
+        <ul class="boolean-values" data-category="come-again">
+          <li>
+            <button class="option" data-option="yes"> Sim</button>
+          </li>
+          <li>
+            <button class="option" data-option="no"> Não</button>
+          </li>
+        </ul>
+      </li>
+      <li class="question" id="nps-question">
+        <p style="padding-left: 45px;padding-right: 45px;">
+          Qual a possibilidade de você recomendar este evento para um amigo?
+        </p>
+        <ul class="nps-values">
+          <li>
+            <button class="nps" data-nps="0"> 0</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="1"> 1</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="2"> 2</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="3"> 3</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="4"> 4</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="5"> 5</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="6"> 6</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="7"> 7</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="8"> 8</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="9"> 9</button>
+          </li>
+          <li>
+            <button class="nps" data-nps="10"> 10</button>
+          </li>
+        </ul>
+      </li>
+      <li class="question" id="email-question">
+        <p style="padding-left: 45px;padding-right: 45px;">
+          Deixe seu email, vamos manter você informado de outros eventos legais como este.
+        </p>
+        <div class="form-group">
+          <input class="email" name="user_contact" placeholder="Digite aqui seu email" type="text"><button class="send">Enviar</button><a class="other no-thanks pull-left" href="index.html#"> Não, obrigado.</a>
+        </div>
+      </li>
+      <li class="question feedback-question" id="feedback">
+        <p style="padding-left: 45px;padding-right: 45px;">
+          Se quiser deixar mais alguma observação ficaremos felizes em saber.
+        </p>
+        <div class="form-group">
+          <textarea class="mail" name="feedback" placeholder="Digite aqui" type="text"></textarea><button class="send">Enviar</button><a class="other no-thanks pull-left" href="index.html#"> Não, obrigado.</a>
+        </div>
+      </li>
+      <li class="thanks-message" id="thanks">
+        <p>
+          Obrigado por participar e fazer um Brapps ainda melhor!
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="l-agenda" id="agenda">
+  <p>
+    Aqui vai a agenda 
+  </p>
+</div>
     </div>
     <footer id="footer">
       <div class="container">
-        <div class="developed-by pull-right">
-          Desenvolvido por 
-          <b>
-            Promotools
-          </b>
-          
-        </div>
+        <ul class="menu">
+          <li class="selected">
+            <a class="feedback" href="index.html#">Deixe seu feedback</a>
+          </li>
+          <li>
+            <a class="agenda" href="index.html#">Confira a agenda</a>
+          </li>
+        </ul>
       </div>
     </footer>
     
@@ -237,7 +270,8 @@
     
     <script src="js/vendors/jquery.transit.js" type="text/javascript">
     </script>
-    
+    <script src="js/vendors/jquery.bxslider.js" type="text/javascript">
+    </script>
     <script src="js/vendors/later.min.js" type="text/javascript">
     </script>
     <script src="js/vendors/mailcheck.js" type="text/javascript">
@@ -274,6 +308,8 @@
     
     <script src="js/app/view/questions/MultipleChoiceView.js" type="text/javascript">
     </script>
+    <script src="js/app/view/FooterSurveyView.js" type="text/javascript">
+    </script>    
     <script src="js/app/view/SurveyFormView.js" type="text/javascript">
     </script>
     <script src="js/app/view/HeaderSurveyView.js" type="text/javascript">

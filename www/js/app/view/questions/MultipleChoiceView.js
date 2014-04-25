@@ -6,7 +6,8 @@
     events : {
       'click .option': 'handleItemChoice',
       'click .other' : 'handleOtherSelection',
-      'click .send' : 'sendOptionInputInfo'
+      'click .send' : 'sendOptionInputInfo',
+      'click .show-options-values' : 'showOptionsValues'
     },
 
     initialize: function(options) {
@@ -16,7 +17,7 @@
                            value: null };
 
       if (this.answerModel.choice_option == null){
-        var category = $(this.el).find('.optins-values').data("option");
+        var category = $(this.el).find('.options-values').data("category");
         this.answerModel.choice_option = category;
       }
 
@@ -49,11 +50,25 @@
     },
 
     sendOptionInputInfo : function(e){
+      $(e.currentTarget).addClass("selected");
       var option = $(this.el).find("input[name='other_option']").val() || null;   
-      this.answerModel.value = option;
-            
+      this.answerModel.value = option;          
       App.utils.model.setValue(this.options.survey, this.answerModel);        
       App.utils.nextQuestion(this.options.nextQuestion);
+    },
+
+    showOptionsValues : function(e){
+      var optionsList = $('ul.options-values');
+
+      var otherOptionInput = $(this.el).find('.other-option');
+
+      $(otherOptionInput).transition({ opacity: 0 }, _.bind(function(){
+        $(otherOptionInput).hide();
+
+        $(optionsList).transition({opacity: 0, duration: 1}).show()        
+        .transition({y: 150, duration: 1})
+        .transition({opacity: 1, y: 0, duration: 300});
+      }, this));  
     }
 
   });

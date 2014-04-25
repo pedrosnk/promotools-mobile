@@ -14,19 +14,19 @@ if (formViewEl && formViewEl.length > 0) {
     render : function() {
       console.log(" >>>>> Rendering SurveyFormView === ");
 
-      var ratingSection = new ItemRatingQuestionView({
-        el : $('#rating-section'),
-        survey : this._surveyDataModel,        
-        nextQuestion : $("#rating-infra-organization"),
-      });
-      ratingSection.render();
-
       var ratingInfra = new ItemRatingQuestionView({
         el : $("#rating-infra-organization"),
         survey : this._surveyDataModel,        
-        nextQuestion : $("#how-you-meet-us"),
+        nextQuestion : $('#rating-section'),
       });
       ratingInfra.render();
+
+      var ratingSection = new ItemRatingQuestionView({
+        el : $('#rating-section'),
+        survey : this._surveyDataModel,        
+        nextQuestion :  $("#how-you-meet-us"),
+      });
+      ratingSection.render();
 
       var likeMore = new MultipleChoiceView({      
         el : $("#how-you-meet-us"),

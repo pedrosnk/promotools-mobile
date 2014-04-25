@@ -1,4 +1,222 @@
 @import url(bootstrap/bootstrap.css);
+/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2014
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+/** RESET AND LAYOUT
+===================================*/
+/* line 18, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1;
+}
+
+/* line 25, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+
+/** THEME
+===================================*/
+/* line 33, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-viewport {
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+  border: 5px solid #fff;
+  left: -5px;
+  background: #fff;
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0);
+}
+
+/* line 50, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+/* LOADER */
+/* line 58, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: url(images/bx_loader.gif) center center no-repeat white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+/* PAGER */
+/* line 71, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px;
+}
+
+/* line 81, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+/* line 87, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 101, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background: #000;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+/* line 107, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-prev {
+  left: 10px;
+  background: url(images/controls.png) no-repeat 0 -32px;
+}
+
+/* line 112, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-next {
+  right: 10px;
+  background: url(images/controls.png) no-repeat -43px -32px;
+}
+
+/* line 117, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-prev:hover {
+  background-position: 0 0;
+}
+
+/* line 121, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-next:hover {
+  background-position: -43px 0;
+}
+
+/* line 125, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+
+/* line 136, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none;
+}
+
+/* AUTO CONTROLS (START / STOP) */
+/* line 142, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-controls-auto {
+  text-align: center;
+}
+
+/* line 146, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-controls-auto .bx-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -11px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 157, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+  background-position: -86px 0;
+}
+
+/* line 161, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-controls-auto .bx-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -44px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 172, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+  background-position: -86px -33px;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+/* line 178, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+  text-align: left;
+  width: 80%;
+}
+
+/* line 183, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  right: 0;
+  width: 35px;
+}
+
+/* IMAGE CAPTIONS */
+/* line 190, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666666 \9;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%;
+}
+
+/* line 199, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+}
+
 /* line 36, /Users/flavioalves/.rvm/gems/ruby-2.0.0-p195/gems/toolkit-1.3.8/stylesheets/toolkit/_box-sizing.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
@@ -83,17 +301,18 @@ button, html input[type="button"], input[type="submit"] {
 }
 /* line 12, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
 button.selected, html input[type="button"].selected, input[type="submit"].selected {
-  background: #48b66f;
+  background: #ff4a5b;
   border: 1px solid #4b815e;
-  color: white;
+  color: #ebe142;
+  border: 1px solid transparent;
 }
-/* line 17, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
+/* line 18, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
 button.nps, html input[type="button"].nps, input[type="submit"].nps {
   width: 69px;
   height: 62px;
   padding: 0px;
 }
-/* line 22, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
+/* line 23, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
 button.heart, html input[type="button"].heart, input[type="submit"].heart {
   background-image: url("heart@2x.png");
   background-size: 55px 49px;
@@ -105,13 +324,13 @@ button.heart, html input[type="button"].heart, input[type="submit"].heart {
   font-weight: 400;
   color: #454545;
 }
-/* line 31, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
+/* line 32, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
 button.heart.selected, html input[type="button"].heart.selected, input[type="submit"].heart.selected {
   background-image: url("red-heart@2x.png");
   background-size: 55px 49px;
   background-repeat: no-repeat;
 }
-/* line 34, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
+/* line 35, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
 button.star, html input[type="button"].star, input[type="submit"].star {
   background-image: url("star@2x.png");
   background-size: 58px 55px;
@@ -123,14 +342,14 @@ button.star, html input[type="button"].star, input[type="submit"].star {
   font-weight: 400;
   color: #454545;
 }
-/* line 43, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
+/* line 44, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
 button.star.selected, html input[type="button"].star.selected, input[type="submit"].star.selected {
   background-image: url("green-star@2x.png");
   background-size: 58px 55px;
   background-repeat: no-repeat;
 }
 
-/* line 26, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 27, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 html {
   overflow-y: scroll;
 }
@@ -146,40 +365,39 @@ html {
   line-height: 1.5em;
 }
 
-/* line 36, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 37, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #f7f7f7;
+  background-color: #faf650;
   color: #454545;
 }
-/* line 42, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 43, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body .fixed-top {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
 }
-/* line 48, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 49, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body .profiler-results {
   display: none;
 }
-/* line 51, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 52, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body button, body a, body input, body textarea {
   outline: none;
 }
 
-/* line 55, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 56, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body[data-development-grid="show"] .profiler-results {
   display: block;
 }
 
 /* line 2, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
 .l-header .container {
-  border-bottom: 1px solid #b0b0b0;
   height: 90px;
   line-height: 90px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 /* line 9, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
 .l-header .progress {
@@ -195,7 +413,7 @@ body[data-development-grid="show"] .profiler-results {
 }
 /* line 20, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
 .l-header .progress .progress-bar {
-  background-color: black;
+  background-color: #444483;
   float: none;
 }
 /* line 26, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
@@ -203,36 +421,37 @@ body[data-development-grid="show"] .profiler-results {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
+  color: #444483;
 }
-/* line 31, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
+/* line 32, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
 .l-header .slider {
   margin-top: -60px;
 }
-/* line 34, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
+/* line 35, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
 .l-header .slider span {
   height: 29px;
   width: 17px;
   background: white;
   display: block;
 }
-/* line 40, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
+/* line 41, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
 .l-header .slider span.left {
   background: url("slide-marker-sprite.png") no-repeat;
   background-size: cover;
   float: left;
 }
-/* line 44, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
+/* line 45, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
 .l-header .slider span.left.no-more {
   background-position: 0px -58px;
 }
-/* line 47, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
+/* line 48, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
 .l-header .slider span.right {
   background: url("slide-marker-sprite.png") no-repeat;
   background-position: 0px -30px;
   background-size: cover;
   float: right;
 }
-/* line 53, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
+/* line 54, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_header.sass */
 .l-header .slider span.right.no-more {
   background-position: 0px -86px;
 }
@@ -242,11 +461,81 @@ body[data-development-grid="show"] .profiler-results {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  background-color: #f7f7f7;
+  background-color: #444483;
+}
+/* line 8, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
+#footer ul.menu {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /* for IE 6/7 */
+  *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
+  /* non-JS fallback */
+  *zoom: 1;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+/* line 48, /Users/flavioalves/.rvm/gems/ruby-2.0.0-p195/gems/toolkit-1.3.8/stylesheets/toolkit/_clearfix.scss */
+#footer ul.menu:before, #footer ul.menu:after {
+  content: ".";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+/* line 55, /Users/flavioalves/.rvm/gems/ruby-2.0.0-p195/gems/toolkit-1.3.8/stylesheets/toolkit/_clearfix.scss */
+#footer ul.menu:after {
+  clear: both;
+}
+/* line 60, /Users/flavioalves/.rvm/gems/ruby-2.0.0-p195/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#footer ul.menu li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, /Users/flavioalves/.rvm/gems/ruby-2.0.0-p195/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#footer ul.menu li:first-child, #footer ul.menu li.first {
+  padding-left: 0;
+}
+/* line 49, /Users/flavioalves/.rvm/gems/ruby-2.0.0-p195/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#footer ul.menu li:last-child {
+  padding-right: 0;
+}
+/* line 50, /Users/flavioalves/.rvm/gems/ruby-2.0.0-p195/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#footer ul.menu li.last {
+  padding-right: 0;
+}
+/* line 14, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
+#footer ul.menu li {
+  height: 80px;
+  width: 250px;
+  text-align: center;
+}
+/* line 18, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
+#footer ul.menu li a {
+  line-height: 80px;
+  color: #faf650;
+  font-size: 21px;
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 26, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
+#footer ul.menu li.selected {
+  background-color: #faf650;
+  border-top: 1px solid #9f9d6a;
+}
+/* line 29, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
+#footer ul.menu li.selected a {
+  color: #ff505d;
 }
 
-/* line 10, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
+/* line 33, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
 .container .developed-by {
   border: 1px solid #7c7c7c;
   padding: 10px;
@@ -371,14 +660,17 @@ body[data-development-grid="show"] .profiler-results {
   font-size: 22px;
   float: left;
   margin-right: 10px;
+  background-color: #fcf985;
+  border: 1px solid #bcba56;
+  box-shadow: inset 0 0 1px #9e9d6f;
 }
-/* line 65, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 68, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question button.send, .l-survey ul.question-list #thanks button.send {
   width: 170px;
   float: left;
   margin: 0px;
 }
-/* line 71, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 74, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question.feedback-question textarea, .l-survey ul.question-list #thanks.feedback-question textarea {
   border-radius: 3px;
   width: 850px;
@@ -388,16 +680,16 @@ body[data-development-grid="show"] .profiler-results {
   margin-top: 10px;
   margin-bottom: 15px;
 }
-/* line 80, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 83, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question.feedback-question button.send, .l-survey ul.question-list #thanks.feedback-question button.send {
   width: 850px;
 }
-/* line 84, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 87, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question.thanks-message p, .l-survey ul.question-list #thanks.thanks-message p {
   margin-left: 140px;
   margin-right: 140px;
 }
-/* line 88, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 91, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question.thanks-message span.client-logo, .l-survey ul.question-list #thanks.thanks-message span.client-logo {
   background: url("client-logo.png") no-repeat center center;
   display: block;
@@ -407,20 +699,20 @@ body[data-development-grid="show"] .profiler-results {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 97, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 100, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question .form-group, .l-survey ul.question-list #thanks .form-group {
   margin-top: 26px;
   margin-left: 50px;
 }
-/* line 101, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 104, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question .pull-left, .l-survey ul.question-list #thanks .pull-left {
   text-align: left !important;
 }
-/* line 104, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 107, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question .other-option, .l-survey ul.question-list #thanks .other-option {
   display: none;
 }
-/* line 107, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 110, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question a.other, .l-survey ul.question-list #thanks a.other {
   color: #454545;
   text-decoration: underline;
@@ -429,7 +721,99 @@ body[data-development-grid="show"] .profiler-results {
   margin-left: auto;
   margin-right: auto;
   width: 200px;
-  display: block;
+  display: block !important;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+/* line 5, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash .bx-wrapper .bx-viewport {
+  border: none;
+  left: 0;
+}
+/* line 9, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation {
+  display: table;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+/* line 17, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide {
+  display: table-cell;
+  vertical-align: middle;
+  height: 800px;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  padding-top: 100px;
+}
+/* line 26, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide h1 {
+  padding: 50px 50px 50px 70px;
+  font-size: 78px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* line 32, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide span {
+  display: block;
+  height: 13px;
+  width: 70px;
+  display: block;
+  height: 13px;
+  width: 70px;
+  margin-left: 70px;
+}
+/* line 41, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide span.bottom {
+  bottom: 60px;
+  position: absolute;
+}
+/* line 45, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.green {
+  background-color: #4bdec3;
+  color: #faf650;
+}
+/* line 49, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.green span {
+  background-color: #faf650;
+}
+/* line 52, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.red {
+  background-color: #ff505d;
+  color: #faf650;
+}
+/* line 56, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.red span {
+  background-color: #faf650;
+}
+/* line 59, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.blue {
+  background-color: #1fa4d3;
+  color: #faf650;
+}
+/* line 63, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.blue span {
+  background-color: #faf650;
+}
+/* line 66, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.purple {
+  background-color: #474f86;
+  color: #f56468;
+}
+/* line 69, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.purple span {
+  background-color: #f56468;
+}
+/* line 72, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.dark-blue {
+  background-color: #3a4364;
+  color: #e76dc0;
+}
+/* line 75, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.dark-blue span {
+  background-color: #e76dc0;
 }
