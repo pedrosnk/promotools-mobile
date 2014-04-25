@@ -9,7 +9,7 @@ window.App.utils = {
       } else{
         model.questions.push(value);
       }
-      model.trigger('change');
+      model.trigger('updateProgressBar');
     }
   },
 

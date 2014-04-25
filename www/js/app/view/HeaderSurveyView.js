@@ -14,7 +14,7 @@ if (headerViewEl && headerViewEl.length > 0) {
       this._formEl = options.formEl;
       this._questionList = $(this._formEl).find(".question");
       this._surveyDataModel = options.surveyDataModel;
-      this._surveyDataModel.on("change", this.updateProgressBar, this);
+      this._surveyDataModel.on("updateProgressBar", this.updateProgressBar, this);
     },
 
     render : function() {

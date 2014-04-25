@@ -8,6 +8,8 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
 
     events : {
       'click .send, .no-thanks': 'handleSendFeedback',
+      'focus :input.email' : 'hideFooter',
+      'focusout :input.email' : 'showFooter',
     },
 
     initialize: function(options) {
@@ -29,6 +31,14 @@ if (feedbackQuestion && feedbackQuestion.length > 0) {
       this.trigger("finish", this);
       App.utils.nextQuestion(this.options.nextQuestion);
     },
+
+    hideFooter : function(){
+      $("#footer").hide();
+    },
+
+    showFooter : function(){
+      $("#footer").transition({y: 150, duration: 1}).transition({opacity: 1, y: 0, duration: 300}).show();  
+    }, 
 
   });
 }

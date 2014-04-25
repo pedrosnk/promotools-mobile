@@ -8,6 +8,8 @@ if (emailQuestion && emailQuestion.length > 0) {
 
     events : {
       'click .send, .no-thanks': 'handleEmailQuestion',
+      'focus :input.email' : 'hideFooter',
+      'focusout :input.email' : 'showFooter',
     },
 
     initialize: function(options) {
@@ -27,7 +29,16 @@ if (emailQuestion && emailQuestion.length > 0) {
       this.answerModel.email_value = contact;
       App.utils.model.setValue(this.options.survey, this.answerModel);       
       App.utils.nextQuestion(this.options.nextQuestion);
-    }
+    },
+
+    hideFooter : function(){
+      $("#footer").hide();
+    },
+
+    showFooter : function(){
+      //$("#footer").transition({y: 150, duration: 1}).transition({opacity: 1, y: 0, duration: 300}).show();  
+      $("#footer").show();  
+    }, 
   });
 }
 })();

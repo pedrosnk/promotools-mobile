@@ -7,7 +7,9 @@
       'click .option': 'handleItemChoice',
       'click .other' : 'handleOtherSelection',
       'click .send' : 'sendOptionInputInfo',
-      'click .show-options-values' : 'showOptionsValues'
+      'click .show-options-values' : 'showOptionsValues',
+      'focus :input.email' : 'hideFooter',
+      'focusout :input.email' : 'showFooter',
     },
 
     initialize: function(options) {
@@ -69,7 +71,16 @@
         .transition({y: 150, duration: 1})
         .transition({opacity: 1, y: 0, duration: 300});
       }, this));  
-    }
+    },
+
+    hideFooter : function(){
+      $("#footer").hide();
+    },
+
+    showFooter : function(){
+      //$("#footer").transition({y: 150, duration: 1}).transition({opacity: 1, y: 0, duration: 300}).show();  
+      $("#footer").show();  
+    },    
 
   });
 })();

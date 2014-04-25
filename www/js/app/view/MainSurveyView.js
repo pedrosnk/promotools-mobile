@@ -2,13 +2,11 @@
 
   window.MainSurveyView = Backbone.View.extend({
 
-
     events : {
       'click .slide' : 'showHomePage'
     },
 
-    render : function() {      
-      console.log(" >>>>> Render MainSurveyView");
+    render : function() {
 
       this.surveyDataModel = new Survey({
         url: App.config.ENDPOINT,
@@ -28,16 +26,17 @@
         surveyDataModel : this.surveyDataModel
       });
 
-      this.footerView = new FooterSurveyView({ 
-        el : $('#footer'), 
+      this.footerView = new FooterSurveyView({
+        el : $('#footer'),
+      });
+
+      this.agendaView = new AgendaView({
+        el : $('#agenda'),
       });
 
       this.footerView.on("showAgenda", this.showAgendaSection, this);
       this.footerView.on("showFeedback", this.showFeedbackSection, this);
 
-      // this.instagramView = new InstagramView();
-
-      //this.calendarView = new CalendarView();
       this.headerView.render();
       this.formView.render();
 
@@ -45,20 +44,23 @@
     },
 
     showHomePage : function(){
-      $('#splash').transition({opacity: 0}).hide();
-      $(this.formView.el).show();
-      $(this.headerView.el).show();   
-      $(this.footerView.el).show();  
-      $(".l-agenda").hide(); 
-      
+      $('#splash').transition({opacity: 0},  _.bind(function(){
+        $("#splash").hide();
+        $(this.formView.el).show();
+        $(this.headerView.el).show();
+        $(this.headerView.el).find('.right, .left').show();
+        $(this.footerView.el).transition({y: 150, duration: 1}).transition({opacity: 1, y: 0, duration: 300}).show();
+
+      }, this));
+
     },
 
     sliderPresentationView : function(){
       $(this.formView.el).hide();
-      $(this.headerView.el).hide();   
-      $(this.footerView.el).hide();  
-      $(".l-agenda").hide(); 
-      
+      $(this.headerView.el).hide();
+      $(this.footerView.el).hide();
+      $(".l-agenda").hide();
+
 
       $('#presentation').bxSlider({
         adaptiveHeight: true,
@@ -66,24 +68,28 @@
         pager: false,
         touchEnabled: true,
         controls: false,
-        auto: true
+        auto: true,
+        pause: 7000
       });
     },
 
-    showAgendaSection : function(e){      
-      //TODO: EFFECTS
+    showAgendaSection : function(e){
       $(this.formView.el).hide();
-      $(this.headerView.el).hide();   
+      $(".progress-bar").hide();
+      $(this.headerView.el).show();
+      $(this.headerView.el).find('.right, .left').hide();
+
       $(".l-agenda").show();
+
+      $(".column-days").transition({ x: 15, opacity: 1 });
+      $("#day1 .list-agenda").transition({y: 150, duration: 1}).transition({opacity: 1, y: 0, duration: 300});
     },
 
     showFeedbackSection : function(e){
-      //TODO: EFFECTS      
+      $(".progress-bar").show();
       $(this.headerView.el).show();
+      $(this.headerView.el).find('.right, .left').show();
       $(this.formView.el).show();
-
-      this.headerView.render();
-      this.formView.render();
       $(".l-agenda").hide();
     },
 

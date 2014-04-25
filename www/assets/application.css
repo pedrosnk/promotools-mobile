@@ -12,6 +12,8 @@
  */
 /** RESET AND LAYOUT
 ===================================*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Amaranth:400,700);
 /* line 18, /Users/flavioalves/dev/projects/promotools-webmobile-app/vendor/assets/stylesheets/jquery.bxslider.css */
 .bx-wrapper {
   position: relative;
@@ -232,6 +234,25 @@ img, video {
 }
 
 @font-face {
+  font-family: "Archive";
+  src: url("Archive.eot?") format("eot"), url("Archive.woff") format("woff"), url("Archive.ttf") format("truetype"), url("Archive.svg") format("svg");
+}
+
+@font-face {
+  font-family: "Amaranth";
+  font-style: normal;
+  font-weight: 400;
+  src: url(Amaranth.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Amaranth";
+  font-style: normal;
+  font-weight: 700;
+  src: url(Amaranth-Bold.woff) format("woff");
+}
+
+@font-face {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 300;
@@ -257,34 +278,6 @@ img, video {
   font-style: normal;
   font-weight: 700;
   src: local("Open Sans Bold"), local("OpenSans-Bold"), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzKRDOzjiPcYnFooOUGCOsRk.woff) format("woff");
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: italic;
-  font-weight: 300;
-  src: local("Open Sans Light Italic"), local("OpenSansLight-Italic"), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/PRmiXeptR36kaC0GEAetxvR_54zmj3SbGZQh3vCOwvY.woff) format("woff");
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: italic;
-  font-weight: 400;
-  src: local("Open Sans Italic"), local("OpenSans-Italic"), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/xjAJXh38I15wypJXxuGMBrrIa-7acMAeDBVuclsi6Gc.woff) format("woff");
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: italic;
-  font-weight: 600;
-  src: local("Open Sans Semibold Italic"), local("OpenSans-SemiboldItalic"), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/PRmiXeptR36kaC0GEAetxuw_rQOTGi-AJs5XCWaKIhU.woff) format("woff");
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: italic;
-  font-weight: 700;
-  src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/PRmiXeptR36kaC0GEAetxhbnBKKEOwRKgsHDreGcocg.woff) format("woff");
 }
 
 /* line 1, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_buttons.sass */
@@ -367,27 +360,27 @@ html {
 
 /* line 37, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Amaranth", "Open Sans", "sans-serif";
   background-color: #faf650;
   color: #454545;
 }
-/* line 43, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 44, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body .fixed-top {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
 }
-/* line 49, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 50, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body .profiler-results {
   display: none;
 }
-/* line 52, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 53, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body button, body a, body input, body textarea {
   outline: none;
 }
 
-/* line 56, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
+/* line 57, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body[data-development-grid="show"] .profiler-results {
   display: block;
 }
@@ -474,7 +467,7 @@ body[data-development-grid="show"] .profiler-results {
   *zoom: 1;
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
+  width: 1024px;
 }
 /* line 48, /Users/flavioalves/.rvm/gems/ruby-2.0.0-p195/gems/toolkit-1.3.8/stylesheets/toolkit/_clearfix.scss */
 #footer ul.menu:before, #footer ul.menu:after {
@@ -513,7 +506,7 @@ body[data-development-grid="show"] .profiler-results {
 /* line 14, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
 #footer ul.menu li {
   height: 80px;
-  width: 250px;
+  width: 512px;
   text-align: center;
 }
 /* line 18, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
@@ -524,25 +517,15 @@ body[data-development-grid="show"] .profiler-results {
   display: block;
   font-weight: bold;
   text-decoration: none;
+  text-transform: uppercase;
 }
-/* line 26, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
+/* line 27, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
 #footer ul.menu li.selected {
   background-color: #faf650;
-  border-top: 1px solid #9f9d6a;
 }
-/* line 29, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
+/* line 30, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
 #footer ul.menu li.selected a {
   color: #ff505d;
-}
-
-/* line 33, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_footer.sass */
-.container .developed-by {
-  border: 1px solid #7c7c7c;
-  padding: 10px;
-  width: 195px;
-  font-size: 12px;
-  border-radius: 3px;
-  text-align: center;
 }
 
 /* line 5, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
@@ -693,26 +676,40 @@ body[data-development-grid="show"] .profiler-results {
 .l-survey ul.question-list .question.thanks-message span.client-logo, .l-survey ul.question-list #thanks.thanks-message span.client-logo {
   background: url("client-logo.png") no-repeat center center;
   display: block;
-  height: 89px;
-  width: 123px;
+  height: 160px;
+  width: 160px;
+  margin-bottom: 40px;
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 100, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 101, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+.l-survey ul.question-list .question.thanks-message .developed-by, .l-survey ul.question-list #thanks.thanks-message .developed-by {
+  border: 1px solid #454545;
+  padding: 10px;
+  width: 195px;
+  font-size: 12px;
+  border-radius: 3px;
+  text-align: center;
+  width: 195px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+/* line 113, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question .form-group, .l-survey ul.question-list #thanks .form-group {
   margin-top: 26px;
   margin-left: 50px;
 }
-/* line 104, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 117, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question .pull-left, .l-survey ul.question-list #thanks .pull-left {
   text-align: left !important;
 }
-/* line 107, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 120, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question .other-option, .l-survey ul.question-list #thanks .other-option {
   display: none;
 }
-/* line 110, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
+/* line 123, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_survey.sass */
 .l-survey ul.question-list .question a.other, .l-survey ul.question-list #thanks a.other {
   color: #454545;
   text-decoration: underline;
@@ -732,32 +729,45 @@ body[data-development-grid="show"] .profiler-results {
   left: 0;
 }
 /* line 9, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash .developed-by {
+  border: 1px solid #faf650;
+  padding: 10px;
+  width: 195px;
+  font-size: 12px;
+  border-radius: 3px;
+  text-align: center;
+  bottom: 60px;
+  position: absolute;
+  right: 70px;
+}
+/* line 20, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation {
-  display: table;
   position: relative;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
 }
-/* line 17, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 27, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide {
-  display: table-cell;
-  vertical-align: middle;
-  height: 800px;
+  display: table;
+  height: 750px;
   width: 100%;
   display: block;
   cursor: pointer;
-  padding-top: 100px;
+  padding-top: 60px;
 }
-/* line 26, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 35, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide h1 {
   padding: 50px 50px 50px 70px;
-  font-size: 78px;
+  font-size: 70px;
   text-transform: uppercase;
-  font-weight: bold;
+  font-family: "Archive";
+  vertical-align: middle;
+  display: table-cell;
+  height: 500px;
 }
-/* line 32, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 44, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide span {
   display: block;
   height: 13px;
@@ -767,53 +777,136 @@ body[data-development-grid="show"] .profiler-results {
   width: 70px;
   margin-left: 70px;
 }
-/* line 41, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 53, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide span.bottom {
   bottom: 60px;
   position: absolute;
 }
-/* line 45, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 57, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.green {
   background-color: #4bdec3;
   color: #faf650;
 }
-/* line 49, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 61, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.green span {
   background-color: #faf650;
 }
-/* line 52, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 64, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.red {
   background-color: #ff505d;
   color: #faf650;
 }
-/* line 56, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 68, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.red span {
   background-color: #faf650;
 }
-/* line 59, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 71, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.blue {
   background-color: #1fa4d3;
   color: #faf650;
 }
-/* line 63, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 75, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.blue span {
   background-color: #faf650;
 }
-/* line 66, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 78, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.purple {
   background-color: #474f86;
   color: #f56468;
 }
-/* line 69, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 81, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.purple span {
   background-color: #f56468;
 }
-/* line 72, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 84, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.purple .developed-by {
+  border: 1px solid #f56468;
+}
+/* line 87, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.dark-blue {
   background-color: #3a4364;
   color: #e76dc0;
 }
-/* line 75, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+/* line 90, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
 .l-splash #presentation .slide.dark-blue span {
   background-color: #e76dc0;
+}
+/* line 93, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/layouts/_splash_screen.sass */
+.l-splash #presentation .slide.dark-blue .developed-by {
+  border: 1px solid #e76dc0;
+}
+
+/* line 3, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-days {
+  width: 20%;
+  height: 100%;
+  float: left;
+  padding: 20px 0 0 50px;
+  text-align: center;
+}
+/* line 10, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-days .day-block {
+  color: #f9525b;
+  width: 130px;
+  height: 130px;
+  margin: 20px 0;
+  border: solid 3px #f9525b;
+  cursor: pointer;
+}
+/* line 18, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-days .day-block .day-text {
+  padding: 20px 10px 0 10px;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: bold;
+}
+/* line 24, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-days .day-block .day-week {
+  font-size: 20px;
+  font-weight: normal;
+  padding-top: 5px;
+  font-family: Times;
+}
+/* line 30, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-days .day-block.active {
+  background-color: #f9525b;
+  color: #faf650;
+}
+/* line 34, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-agenda {
+  width: 75%;
+  height: 100%;
+  float: left;
+}
+/* line 39, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-agenda ul.list-agenda {
+  padding: 40px 30px;
+  list-style: none;
+  color: #444483;
+  font-size: 20px;
+  padding-bottom: 100px;
+}
+/* line 46, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-agenda ul.list-agenda li.agenda-item {
+  border-bottom: 1px solid #d0cc42;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+/* line 51, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-agenda ul.list-agenda .title {
+  font-weight: bold;
+  line-height: 1;
+}
+/* line 55, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-agenda ul.list-agenda .agenda-description {
+  margin: 0;
+}
+/* line 58, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda .column-agenda ul.list-agenda .speakers {
+  color: #ff505d;
+  margin: 5px 0 0 0;
+}
+/* line 61, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/modules/_agenda.sass */
+.l-agenda #day2 {
+  display: none;
 }
