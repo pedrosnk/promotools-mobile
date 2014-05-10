@@ -17,14 +17,14 @@ if (formViewEl && formViewEl.length > 0) {
 
       var npsQuestion = new NpsQuestionView({
         el : $('#nps-question'),
-        survey : this._surveyDataModel,        
+        survey : this._surveyDataModel,
         nextQuestion : $("#rating-service"),
       });
       npsQuestion.render();
 
       var ratingService = new ItemRatingQuestionView({
         el : $('#rating-service'),
-        survey : this._surveyDataModel,        
+        survey : this._surveyDataModel,
         category : "service",
         nextQuestion : $("#rating-value-for-money"),
       });
@@ -32,22 +32,21 @@ if (formViewEl && formViewEl.length > 0) {
 
       var valueForMoney = new ItemRatingQuestionView({
         el : $("#rating-value-for-money"),
-        survey : this._surveyDataModel,        
+        survey : this._surveyDataModel,
         category : "value-for-money",
         nextQuestion : $("#like-more"),
       });
       valueForMoney.render();
 
 
-      var likeMore = new SingleChoiceQuestionView({      
+      var likeMore = new MultipleChoiceView({
         el : $("#like-more"),
         survey : this._surveyDataModel,
         nextQuestion : $("#first-time"),
       });
       likeMore.render();
 
-      var firstTime = new BooleanQuestionView({
-        
+      var firstTime = new YesNoQuestionView({
         el : $("#first-time"),
         survey : this._surveyDataModel,
         nextQuestion : $("#email-question"),
@@ -55,16 +54,13 @@ if (formViewEl && formViewEl.length > 0) {
       firstTime.render();
 
       var email = new EmailQuestionView({
-        
         el : $("#email-question"),
         survey : this._surveyDataModel,
         nextQuestion : $("#feedback"),
       });
       email.render();
 
-
       var feedbackQuestion = new FeedbackQuestionView({
-        
         el : $('#feedback'),
         survey : this._surveyDataModel,
         nextQuestion : $("#thanks")
@@ -78,30 +74,17 @@ if (formViewEl && formViewEl.length > 0) {
     //save data model and refresh view
 
     finishSurvey : function(){
-      console.log("=== _surveyDataModel = " + JSON.stringify(this._surveyDataModel.attributes));
+      console.log("=== surveyDataModel = " + JSON.stringify(this._surveyDataModel.toJSON()));
       App.utils.nextQuestion($("#thanks"));
 
-      App.storage.saveModelData(this._surveyDataModel.attributes);
+      App.storage.saveModelData(this._surveyDataModel.toJSON());
 
-      setTimeout(_.bind( function() {
-        this._surveyDataModel.save({}, {
-          success : _.bind(function(model, response, options) {
-            console.log("[BACKBONE] save success!!!");
-            App.storage.updateStatus(model, App.network.status.SUCCESS);
-            //this.render();
-            window.location.reload();
-          }, this),
-          error : _.bind(function(model, xhr, options){
-            console.log("[BACKBONE] save error!!!");
-            App.storage.updateStatus(model, App.network.status.ERROR);
-            //this.render();
-            window.location.reload();
-          }, this),
-        });
-      }, this), 3000);
-      
+      setTimeout(function() {
+        window.location.reload();
+      }, 3000);
+
     },
- 
+
   });
 }
 })();

@@ -56,7 +56,6 @@ window.App.network = {
     var full_url = this.ENDPOINT + '/' +
       this.API_VERSION + '/surveys/' +
       this.CLIENT_NAME;
-    console.log(">> [NETWORK] full_url == " + full_url);
     //sending surveys to our server
     $.ajax({
       contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
