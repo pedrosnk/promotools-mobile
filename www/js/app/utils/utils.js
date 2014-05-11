@@ -8,8 +8,8 @@ window.App.utils = {
         model.questions[index] = value;
       } else{
         model.questions.push(value);
-      }
-      model.trigger('change');
+      }      
+      model.trigger('updateProgressBar');
     }
   },
 
