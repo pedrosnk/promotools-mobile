@@ -5,53 +5,64 @@ var formViewEl = $('#survey-form-view');
 if (formViewEl && formViewEl.length > 0) {
 
   window.SurveyFormView = Backbone.View.extend({
-
     initialize: function(options) {
       //this.options = jQuery.extend(true, {}, this.defaultOptions, options);
       this._surveyDataModel = options.surveyDataModel;
     },
-
 
     render : function() {
       console.log(" >>>>> Rendering SurveyFormView === ");
 
       var npsQuestion = new NpsQuestionView({
         el : $('#nps-question'),
-        survey : this._surveyDataModel,
-        nextQuestion : $("#rating-service"),
+        survey : this._surveyDataModel,        
+        nextQuestion : $("#rating-customer-service"),
       });
       npsQuestion.render();
 
-      var ratingService = new ItemRatingQuestionView({
-        el : $('#rating-service'),
-        survey : this._surveyDataModel,
-        category : "service",
-        nextQuestion : $("#rating-value-for-money"),
+      var customerService = new ItemRatingQuestionView({
+        el : $("#rating-customer-service"),
+        survey : this._surveyDataModel,        
+        nextQuestion : $('#rating-money-for-value'),
       });
-      ratingService.render();
+      customerService.render();
 
-      var valueForMoney = new ItemRatingQuestionView({
-        el : $("#rating-value-for-money"),
-        survey : this._surveyDataModel,
-        category : "value-for-money",
-        nextQuestion : $("#like-more"),
+      var ratingMoneyForValue = new ItemRatingQuestionView({
+        el : $('#rating-money-for-value'),
+        survey : this._surveyDataModel,        
+        nextQuestion :  $("#why-you-chose-us"),
       });
-      valueForMoney.render();
+      ratingMoneyForValue.render();
 
+      var whyChoseUs = new MultipleChoiceView({      
+        el : $("#why-you-chose-us"),
+        survey : this._surveyDataModel,
+        nextQuestion : $("#how-you-meet-us"),
+      });
+      whyChoseUs.render();
 
-      var likeMore = new MultipleChoiceView({
-        el : $("#like-more"),
+      var howMeetUs = new MultipleChoiceView({      
+        el : $("#how-you-meet-us"),
         survey : this._surveyDataModel,
         nextQuestion : $("#first-time"),
       });
-      likeMore.render();
+      howMeetUs.render();
 
-      var firstTime = new YesNoQuestionView({
+
+      var firstTime = new YesNoQuestionView({        
         el : $("#first-time"),
+        survey : this._surveyDataModel,
+        nextQuestion : $("#come-again"),
+      });
+      firstTime.render();
+
+      var comeAgain = new YesNoQuestionView({        
+        el : $("#come-again"),
         survey : this._surveyDataModel,
         nextQuestion : $("#email-question"),
       });
-      firstTime.render();
+      comeAgain.render();
+
 
       var email = new EmailQuestionView({
         el : $("#email-question"),
@@ -60,15 +71,14 @@ if (formViewEl && formViewEl.length > 0) {
       });
       email.render();
 
-      var feedbackQuestion = new FeedbackQuestionView({
+      var feedbackQuestion = new FeedbackQuestionView({        
         el : $('#feedback'),
         survey : this._surveyDataModel,
         nextQuestion : $("#thanks")
       });
 
-      feedbackQuestion.on("finish", this.finishSurvey, this);
+      //feedbackQuestion.on("finish", this.finishSurvey, this);
       feedbackQuestion.render();
-
     },
 
     //save data model and refresh view

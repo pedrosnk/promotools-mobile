@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>
-      Promotools
+        Promotools
     </title>
 
     <meta content="authenticity_token" name="csrf-param" />
@@ -19,185 +19,275 @@
     <link rel="icon" href="favicon-48.png" sizes="48x48">
     <link rel="icon" href="favicon-64.png" sizes="64x64">
     <link rel="icon" href="favicon-128.png" sizes="128x128">
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="l-survey" id="survey-view">
-      <div class="l-header" id="header-view">
+        <div class="l-header" id="header-view">
+            <div class="container">
+                <div class="row">
+                    <div class="client">
+                        Zimbrus
+                    </div>
+                    <div class="slider">
+                        <a href="index.html#"><span class="left go-back"></span></a><a href="index.html#"><span class="right go-next"></span></a>
+                    </div>
+                    <div class="progress">
+                        <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="progress-bar" role="progressbar">
+                            <span class="sr-only">40% Complete (success) </span>
+                        </div>
+                    </div>
+                    <div class="progress-numbers">
+                        <span class="number">1</span><span class="text">&nbsp de 9 questões  </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-splash" id="splash">
+            <div id="presentation">
+                <div class="slide">
+                    <img alt="Zimbrus 01" src="img/zimbrus-01.jpg" />
+                    <div class="touch-here pull-right">
+                        Toque na tela para começar
+                    </div>
+                </div>
+                <div class="slide">
+                    <img alt="Zimbrus 02" src="img/zimbrus-02.jpg" />
+                    <div class="touch-here pull-right">
+                        Toque na tela para começar
+                    </div>
+                </div>
+                <div class="slide">
+                    <img alt="Zimbrus 03" src="img/zimbrus-03.jpg" />
+                    <div class="touch-here pull-right">
+                        Toque na tela para começar
+                    </div>
+                </div>
+                <div class="slide">
+                    <img alt="Zimbrus 04" src="img/zimbrus-04.jpg" />
+                    <div class="touch-here pull-left">
+                        Toque na tela para começar
+                    </div>
+                </div>
+                <div class="slide">
+                    <img alt="Zimbrus 05" src="img/zimbrus-05.jpg" />
+                    <div class="touch-here pull-right">
+                        Toque na tela para começar
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
-          <div class="row">
-            <div class="client">
-              Zimbrus
+            <div class="row">
+                <ul class="question-list" id="survey-form-view">
+                    <li class="question current" id="nps-question">
+                        <p style="padding-left: 45px;padding-right: 45px;">
+                            Com base na sua experiência de hoje, qual a possibilidade de você recomendar a Zimbrus para um amigo?
+                        </p>
+                        <ul class="nps-values">
+                            <li>
+                                <button class="nps" data-nps="0">0</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="1">1</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="2">2</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="3">3</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="4">4</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="5">5</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="6">6</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="7">7</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="8">8</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="9">9</button>
+                            </li>
+                            <li>
+                                <button class="nps" data-nps="10">10</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="question" id="rating-customer-service">
+                        <p>
+                            Como você avalia nosso
+                            <br><b>atendimento ao cliente</b>
+                            </br>
+                        </p>
+                        <ul class="rating-values" data-category="customer-service">
+                            <li>
+                                <button class="heart" data-rate="1">1</button>
+                            </li>
+                            <li>
+                                <button class="heart" data-rate="2">2</button>
+                            </li>
+                            <li>
+                                <button class="heart" data-rate="3">3</button>
+                            </li>
+                            <li>
+                                <button class="heart" data-rate="4">4</button>
+                            </li>
+                            <li>
+                                <button class="heart" data-rate="5">5</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="question" id="rating-money-for-value">
+                        <p>
+                            Como você avalia nosso
+                            <br><b>custo benefício</b>
+                            </br>
+                        </p>
+                        <ul class="rating-values" data-category="money-for-value">
+                            <li>
+                                <button class="heart" data-rate="1">1</button>
+                            </li>
+                            <li>
+                                <button class="heart" data-rate="2">2</button>
+                            </li>
+                            <li>
+                                <button class="heart" data-rate="3">3</button>
+                            </li>
+                            <li>
+                                <button class="heart" data-rate="4">4</button>
+                            </li>
+                            <li>
+                                <button class="heart" data-rate="5">5</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="question" id="why-you-chose-us">
+                        <p style="position: absolute; top: 230px;left: 230px;">
+                            O que mais você gostou na Zimbrus
+                        </p>
+                        <ul class="options-values" data-category="like-more">
+                            <li>
+                                <button class="option" data-option="Ambiente">Ambiente</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="Atendimento">Atendimento</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="Qualidade">Qualidade</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="Rapidez">Rapidez</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="Preço">Preço</button>
+                            </li>
+                            <li>
+                                <button class="other" data-option="other">outros</button>
+                            </li>
+                        </ul>
+                        <div class="form-group other-option">
+                            <input class="email" name="other_option" placeholder="Escreva aqui..." type="text">
+                            <button class="send">Enviar</button><a class="other show-options-values pull-left" href="index.html#"> Ver opções.</a>
+                        </div>
+                    </li>
+                    <li class="question" id="how-you-meet-us">
+                        <p style="position: absolute; top: 230px;left: 230px;">
+                            Como você conheceu a Zimbrus?
+                        </p>
+                        <ul class="options-values" data-category="channel">
+                            <li>
+                                <button class="option" data-option="Radio">Radio</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="Facebook">Facebook</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="Internet">Internet</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="Jornal">Jornal</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="Amigos">Amigos</button>
+                            </li>
+                            <li>
+                                <button class="other" data-option="other">outros</button>
+                            </li>
+                        </ul>
+                        <div class="form-group other-option">
+                            <input class="email" name="other_option" placeholder="Escreva aqui..." type="text">
+                            <button class="send">Enviar</button><a class="other show-options-values pull-left" href="index.html#"> Ver opções.</a>
+                        </div>
+                    </li>
+                    <li class="question" id="first-time">
+                        <p>
+                            É a sua primeira vez na Zimbrus?
+                        </p>
+                        <ul class="boolean-values" data-category="first-time">
+                            <li>
+                                <button class="option" data-option="yes">Sim</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="no">Não</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="question" id="come-again">
+                        <p>
+                            Você voltaria a uma de nossas lojas?
+                        </p>
+                        <ul class="boolean-values" data-category="come-again">
+                            <li>
+                                <button class="option" data-option="yes">Sim</button>
+                            </li>
+                            <li>
+                                <button class="option" data-option="no">Não</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="question" id="email-question">
+                        <p class="mail-text" style="padding-left: 45px;padding-right: 45px;">
+                            Deixe seu email, nós te enviaremos promoções especiais.
+                        </p>
+                        <div class="form-group">
+                            <input class="email" name="user_contact" placeholder="Digite aqui seu email" type="text">
+                            <button class="send">Enviar</button><a class="other no-thanks pull-left" href="index.html#"> Não, obrigado.</a>
+                        </div>
+                    </li>
+                    <li class="question feedback-question" id="feedback">
+                        <p style="padding-left: 45px;padding-right: 45px;">
+                            Se quiser deixar mais alguma observação ficaremos felizes em saber.
+                        </p>
+                        <div class="form-group">
+                            <textarea class="mail" name="feedback" placeholder="Digite aqui" type="text"></textarea>
+                            <button class="send">Enviar</button><a class="other no-thanks pull-left" href="index.html#"> Não, obrigado.</a>
+                        </div>
+                    </li>
+                    <li class="thanks-message" id="thanks">
+                        <span class="client-logo"></span>
+                        <p>
+                            Obrigado por participar e nos ajudar a fazer uma Zimbrus ainda melhor!
+                        </p>
+                    </li>
+                </ul>
             </div>
-            <div class="slider">
-              <a href="#"><span class="left go-back no-more"></span></a><a href="#"><span class="right go-next"></span></a>
-            </div>
-            <div class="progress">
-              <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="progress-bar" role="progressbar">
-                <span class="sr-only">40% Complete (success) </span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <ul class="question-list" id="survey-form-view">
-            <li class="question current" id="nps-question">
-              <p>
-                Baseado na sua experiência de <b>hoje</b>, quais as chances de recomendar o Zimbrus para um amigo?
-              </p>
-              <ul class="nps-values">
-                <li>
-                  <button class="nps" data-nps="0">0</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="1">1</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="2">2</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="3">3</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="4">4</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="5">5</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="6">6</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="7">7</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="8">8</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="9">9</button>
-                </li>
-                <li>
-                  <button class="nps" data-nps="10">10 </button>
-                </li>
-              </ul>
-            </li>
-            <li class="question" id="rating-service">
-              <p>
-                Como você avalia:<br> <b>o atendimento:</b>
-              </p>
-              <ul class="rating-values" data-category="service">
-                <li>
-                  <button class="heart" data-rate="1">1</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="2">2</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="3">3</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="4">4</button>
-                </li>
-                <li>
-                  <button class="heart" data-rate="5">5</button>
-                </li>
-              </ul>
-            </li>
-            <li class="question" id="rating-value-for-money">
-              <p>
-                Como você avalia:<br> <b>o custo benefício:</b>
-              </p>
-              <ul class="rating-values" data-category="value-for-money">
-                <li>
-                  <button class="star" data-rate="1">1</button>
-                </li>
-                <li>
-                  <button class="star" data-rate="2">2</button>
-                </li>
-                <li>
-                  <button class="star" data-rate="3">3</button>
-                </li>
-                <li>
-                  <button class="star" data-rate="4">4</button>
-                </li>
-                <li>
-                  <button class="star" data-rate="5">5</button>
-                </li>
-              </ul>
-            </li>
-            <li class="question" id="like-more">
-              <p>
-                O que você mais gostou?
-              </p>
-              <ul class="options-values" data-choice-option="like-more">
-                <li>
-                  <button class="option" data-option="Ambiente">Ambiente</button>
-                </li>
-                <li>
-                  <button class="option" data-option="Atendimento">Atendimento </button>
-                </li>
-                <li>
-                  <button class="option" data-option="Cardápio">cardápio</button>
-                </li>
-              </ul>
-              <a class="other" href="#">Outros</a>
-              <div class="form-group other-option">
-                <input class="email" name="other_option" placeholder="Escreva aqui..." type="text"><button class="send">Enviar</button>
-              </div>
-            </li>
-            <li class="question" id="first-time">
-              <p>
-                É a primeira vez que você visita o restaurante?
-              </p>
-              <ul class="boolean-values" data-category="first-time">
-                <li>
-                  <button class="option" data-option="yes">Sim</button>
-                </li>
-                <li>
-                  <button class="option" data-option="no">Não</button>
-                </li>
-              </ul>
-            </li>
-            <li class="question" id="email-question">
-              <p>
-                Deixe seu email, queremos te manter informado sobre a melhoria no nosso serviço.
-              </p>
-              <div class="form-group">
-                <input class="email" name="user_contact" placeholder="Digite aqui seu email" type="text"><button class="send">Enviar</button><a class="other no-thanks pull-left" href="#">Não, obrigado.</a>
-              </div>
-            </li>
-            <li class="question feedback-question" id="feedback">
-              <p>
-                Deixe aqui seu feedback, ele é muito importante para nós!
-              </p>
-              <div class="form-group">
-                <textarea class="mail" name="feedback" placeholder="Digite aqui" type="text"></textarea><button class="send">Enviar</button><a class="other no-thanks pull-left" href="#">Não, obrigado.      </a>
-              </div>
-            </li>
-            <li class="thanks-message" id="thanks">
-              <p>
-                Obrigado por participar, sua opinião é muito importante. Volte sempre.
-              </p>
-              <span class="client-logo"></span>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
     <footer id="footer">
       <div class="container">
         <div class="developed-by pull-right">
-          Desenvolvido por
-          <b>
-            Promotools
-          </b>
-
+          Desenvolvido por <b>Promotools</b> 
         </div>
       </div>
     </footer>
-
+        
     <script type="text/javascript" charset="utf-8" src="cordova.js">
     </script>
 
@@ -206,7 +296,8 @@
 
     <script src="js/vendors/jquery.transit.js" type="text/javascript">
     </script>
-
+    <script src="js/vendors/jquery.bxslider.js" type="text/javascript">
+    </script>
     <script src="js/vendors/later.min.js" type="text/javascript">
     </script>
     <script src="js/vendors/mailcheck.js" type="text/javascript">
@@ -251,23 +342,24 @@
     </script>
 
     <script type="text/javascript" charset="utf-8">
-      document.addEventListener("deviceready", onDeviceReady, false);
+        document.addEventListener("deviceready", onDeviceReady, false);
 
-      function onDeviceReady() {
+        function onDeviceReady() {
 
-        window.App.init();
+            window.App.init();
 
-        var main = new MainSurveyView({
-          el : $('#survey-view')
-        });
-        main.render();
+            var main = new MainSurveyView({
+                el: $('#survey-view')
+            });
+            main.render();
 
-        jQuery.ajaxSetup({
-          'beforeSend': function(xhr) {
-            xhr.setRequestHeader("Accept", "text/javascript")}
-        });
-      }
+            jQuery.ajaxSetup({
+                'beforeSend': function (xhr) {
+                    xhr.setRequestHeader("Accept", "text/javascript")
+                }
+            });
+        }
     </script>
-  </body>
+</body>
 
 </html>

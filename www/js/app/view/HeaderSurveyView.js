@@ -14,7 +14,7 @@ if (headerViewEl && headerViewEl.length > 0) {
       this._formEl = options.formEl;
       this._questionList = $(this._formEl).find(".question");
       this._surveyDataModel = options.surveyDataModel;
-      this._surveyDataModel.on("change", this.updateProgressBar, this);
+      this._surveyDataModel.on("updateProgressBar", this.updateProgressBar, this);
     },
 
     render : function() {
@@ -73,6 +73,15 @@ if (headerViewEl && headerViewEl.length > 0) {
 
     updateProgressBar : function(){
       App.utils.updateProgressBar($(this._questionList).size(), $(this._surveyDataModel.questions).size()); 
+      var currentQuestion = $(this._formEl).find(".question.current").get(0);  
+      var currentQuestionId = _.indexOf(this._questionList, currentQuestion) + 2;
+
+      if (currentQuestionId < 10){
+        $('.progress-numbers .number').text(currentQuestionId); 
+      } else {
+        $('.progress-numbers').hide();
+      }
+      
       $('.go-back').removeClass("no-more");
     } 
 
