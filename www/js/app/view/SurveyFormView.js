@@ -37,6 +37,7 @@ if (formViewEl && formViewEl.length > 0) {
       var whyChoseUs = new MultipleChoiceView({      
         el : $("#why-you-chose-us"),
         survey : this._surveyDataModel,
+        category : "like-more",
         nextQuestion : $("#how-you-meet-us"),
       });
       whyChoseUs.render();
@@ -44,6 +45,7 @@ if (formViewEl && formViewEl.length > 0) {
       var howMeetUs = new MultipleChoiceView({      
         el : $("#how-you-meet-us"),
         survey : this._surveyDataModel,
+        category : "channel"
         nextQuestion : $("#first-time"),
       });
       howMeetUs.render();

@@ -3,8 +3,8 @@
   window.App = {
 
     config: {
-      //ENDPOINT: 'http://www.promotools.com.br',
-      ENDPOINT: 'http://192.168.1.14:3000',
+      ENDPOINT: 'http://www.promotools.com.br',
+      //ENDPOINT: 'http://192.168.1.14:3000',
       API_VERSION: 'v1.1',
       CLIENT_NAME: 'zimbrus',
       CLIENT_KEY: 'zimbrus',

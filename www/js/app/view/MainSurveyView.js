@@ -57,10 +57,6 @@
       $(this.headerView.el).hide();
       $("#footer").hide();
 
-      //$(this.footerView.el).hide();
-      //$(".l-agenda").hide();
-
-
       $('#presentation').bxSlider({
         adaptiveHeight: true,
         mode: 'fade',
