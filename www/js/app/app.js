@@ -3,12 +3,11 @@
   window.App = {
 
     config: {
-      //ENDPOINT: 'http://www.promotools.com.br',
-      ENDPOINT: 'http://192.168.1.15:3000',
+      ENDPOINT: 'http://www.promotools.com.br',
       API_VERSION: 'v1.1',
       CLIENT_NAME: 'zimbrus',
       CLIENT_KEY: 'zimbrus',
-      CLIENT_STORE: 'pier21'
+      CLIENT_STORE: 'aguas-claras'
     },
 
     init: function(){

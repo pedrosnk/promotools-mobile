@@ -21,7 +21,7 @@ window.App.network = {
   },
 
   initKeepAlive : function() {
-    var cronFrequency = 'every 5 min';
+    var cronFrequency = 'every 20 min';
     var textSched = later.parse.text(cronFrequency);
     var timer = later.setInterval(this.sendKeepAlive, textSched);
   },

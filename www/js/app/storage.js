@@ -5,7 +5,7 @@ window.App.storage = {
   TABLE_NAME: "SURVEY",
 
   openDB: function(){    
-    return window.sqlitePlugin.openDatabase("promotools-survey", "1.0", "Promotools DB", 1000000);
+    return window.openDatabase("promotools-survey", "1.0", "Promotools DB", 1000000);
   },
 
   createDB: function() {

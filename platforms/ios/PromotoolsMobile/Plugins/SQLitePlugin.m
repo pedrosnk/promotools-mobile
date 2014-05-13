@@ -13,28 +13,28 @@
 //LIBB64
 typedef enum
 {
-  step_A, step_B, step_C
+    step_A, step_B, step_C
 } base64_encodestep;
 
 typedef struct
 {
-  base64_encodestep step;
-  char result;
-  int stepcount;
+    base64_encodestep step;
+    char result;
+    int stepcount;
 } base64_encodestate;
 
 static void base64_init_encodestate(base64_encodestate* state_in)
 {
-  state_in->step = step_A;
-  state_in->result = 0;
-  state_in->stepcount = 0;
+    state_in->step = step_A;
+    state_in->result = 0;
+    state_in->stepcount = 0;
 }
 
 static char base64_encode_value(char value_in)
 {
-  static const char* encoding = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-  if (value_in > 63) return '=';
-  return encoding[(int)value_in];
+    static const char* encoding = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    if (value_in > 63) return '=';
+    return encoding[(int)value_in];
 }
 
 static int base64_encode_block(const char* plaintext_in,
@@ -43,53 +43,53 @@ static int base64_encode_block(const char* plaintext_in,
                                base64_encodestate* state_in,
                                int line_length)
 {
-  const char* plainchar = plaintext_in;
-  const char* const plaintextend = plaintext_in + length_in;
-  char* codechar = code_out;
-  char result;
-  char fragment;
-  
-  result = state_in->result;
-  
-  switch (state_in->step)
-  {
-    while (1)
+    const char* plainchar = plaintext_in;
+    const char* const plaintextend = plaintext_in + length_in;
+    char* codechar = code_out;
+    char result;
+    char fragment;
+    
+    result = state_in->result;
+    
+    switch (state_in->step)
     {
-  case step_A:
-      if (plainchar == plaintextend)
-      {
-        state_in->result = result;
-        state_in->step = step_A;
-        return codechar - code_out;
-      }
-      fragment = *plainchar++;
-      result = (fragment & 0x0fc) >> 2;
-      *codechar++ = base64_encode_value(result);
-      result = (fragment & 0x003) << 4;
-  case step_B:
-      if (plainchar == plaintextend)
-      {
-        state_in->result = result;
-        state_in->step = step_B;
-        return codechar - code_out;
-      }
-      fragment = *plainchar++;
-      result |= (fragment & 0x0f0) >> 4;
-      *codechar++ = base64_encode_value(result);
-      result = (fragment & 0x00f) << 2;
-  case step_C:
-      if (plainchar == plaintextend)
-      {
-        state_in->result = result;
-        state_in->step = step_C;
-        return codechar - code_out;
-      }
-      fragment = *plainchar++;
-      result |= (fragment & 0x0c0) >> 6;
-      *codechar++ = base64_encode_value(result);
-      result  = (fragment & 0x03f) >> 0;
-      *codechar++ = base64_encode_value(result);
-      
+        while (1)
+        {
+    case step_A:
+            if (plainchar == plaintextend)
+            {
+                state_in->result = result;
+                state_in->step = step_A;
+                return codechar - code_out;
+            }
+            fragment = *plainchar++;
+            result = (fragment & 0x0fc) >> 2;
+            *codechar++ = base64_encode_value(result);
+            result = (fragment & 0x003) << 4;
+    case step_B:
+            if (plainchar == plaintextend)
+            {
+                state_in->result = result;
+                state_in->step = step_B;
+                return codechar - code_out;
+            }
+            fragment = *plainchar++;
+            result |= (fragment & 0x0f0) >> 4;
+            *codechar++ = base64_encode_value(result);
+            result = (fragment & 0x00f) << 2;
+    case step_C:
+            if (plainchar == plaintextend)
+            {
+                state_in->result = result;
+                state_in->step = step_C;
+                return codechar - code_out;
+            }
+            fragment = *plainchar++;
+            result |= (fragment & 0x0c0) >> 6;
+            *codechar++ = base64_encode_value(result);
+            result  = (fragment & 0x03f) >> 0;
+            *codechar++ = base64_encode_value(result);
+            
       if(line_length > 0)
       {
         ++(state_in->stepcount);
@@ -99,34 +99,34 @@ static int base64_encode_block(const char* plaintext_in,
           state_in->stepcount = 0;
         }
       }
+        }
     }
-  }
-  /* control should not reach here */
-  return codechar - code_out;
+    /* control should not reach here */
+    return codechar - code_out;
 }
 
 static int base64_encode_blockend(char* code_out,
                                   base64_encodestate* state_in)
 {
-  char* codechar = code_out;
-  
-  switch (state_in->step)
-  {
-  case step_B:
+    char* codechar = code_out;
+    
+    switch (state_in->step)
+    {
+    case step_B:
     *codechar++ = base64_encode_value(state_in->result);
-    *codechar++ = '=';
-    *codechar++ = '=';
-    break;
-  case step_C:
+        *codechar++ = '=';
+        *codechar++ = '=';
+        break;
+    case step_C:
     *codechar++ = base64_encode_value(state_in->result);
-    *codechar++ = '=';
-    break;
-  case step_A:
-    break;
-  }
-  *codechar++ = '\n';
-  
-  return codechar - code_out;
+        *codechar++ = '=';
+        break;
+    case step_A:
+        break;
+    }
+    *codechar++ = '\n';
+    
+    return codechar - code_out;
 }
 
 //LIBB64---END
@@ -215,8 +215,8 @@ static void sqlite_regexp(sqlite3_context* context, int argc, sqlite3_value** va
                 // const char *key = [@"your_key_here" UTF8String];
                 // if(key != NULL) sqlite3_key(db, key, strlen(key));
 
-    sqlite3_create_function(db, "regexp", 2, SQLITE_ANY, NULL, &sqlite_regexp, NULL, NULL);
-  
+        sqlite3_create_function(db, "regexp", 2, SQLITE_ANY, NULL, &sqlite_regexp, NULL, NULL);
+    
                 // Attempt to read the SQLite master table (test for SQLCipher version):
                 if(sqlite3_exec(db, (const char*)"SELECT count(*) FROM sqlite_master;", NULL, NULL, NULL) == SQLITE_OK) {
                     dbPointer = [NSValue valueWithPointer:db];
@@ -406,7 +406,7 @@ static void sqlite_regexp(sqlite3_context* context, int argc, sqlite3_value** va
                 i = 0;
                 entry = [NSMutableDictionary dictionaryWithCapacity:0];
                 count = sqlite3_column_count(statement);
-        
+                
                 while (i < count) {
                     columnValue = nil;
                     columnName = [NSString stringWithFormat:@"%s", sqlite3_column_name(statement, i)];
@@ -562,25 +562,25 @@ static void sqlite_regexp(sqlite3_context* context, int argc, sqlite3_value** va
                                     withlength: (int) blob_length
 {
       base64_encodestate b64state;
-  
+    
       base64_init_encodestate(&b64state);
 
       //2* ensures 3 bytes -> 4 Base64 characters + null for NSString init
-      char* code = malloc (2*blob_length*sizeof(char));
+            char* code = malloc (2*blob_length*sizeof(char));
   
-      int codelength;
+            int codelength;
       int endlength;
 
       codelength = base64_encode_block(blob_chars,blob_length,code,&b64state,0);
   
-      endlength = base64_encode_blockend(&code[codelength], &b64state);
+            endlength = base64_encode_blockend(&code[codelength], &b64state);
 
       //Adding in a null in order to use initWithUTF8String, expecting null terminated char* string
       code[codelength+endlength] = '\0';
 
       NSString* result = [NSString stringWithUTF8String: code];
 
-      free(code);
+            free(code);
   
       return result;
 }
