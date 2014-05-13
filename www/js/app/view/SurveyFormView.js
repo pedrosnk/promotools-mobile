@@ -10,6 +10,8 @@ if (formViewEl && formViewEl.length > 0) {
       this._surveyDataModel = options.surveyDataModel;
     },
 
+
+
     render : function() {
       console.log(" >>>>> Rendering SurveyFormView === ");
 
@@ -45,7 +47,7 @@ if (formViewEl && formViewEl.length > 0) {
       var howMeetUs = new MultipleChoiceView({      
         el : $("#how-you-meet-us"),
         survey : this._surveyDataModel,
-        category : "channel"
+        category : "channel",
         nextQuestion : $("#first-time"),
       });
       howMeetUs.render();
@@ -79,8 +81,8 @@ if (formViewEl && formViewEl.length > 0) {
         nextQuestion : $("#thanks")
       });
 
-      //feedbackQuestion.on("finish", this.finishSurvey, this);
-      feedbackQuestion.render();
+      feedbackQuestion.on("finish", this.finishSurvey, this);
+      //feedbackQuestion.render();
     },
 
     //save data model and refresh view

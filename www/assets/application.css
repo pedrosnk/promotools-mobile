@@ -342,6 +342,10 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: white;
   color: #454545;
+   -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }
 /* line 44, /Users/flavioalves/dev/projects/promotools-webmobile-app/app/assets/stylesheets/base/_all.sass */
 body .fixed-top {

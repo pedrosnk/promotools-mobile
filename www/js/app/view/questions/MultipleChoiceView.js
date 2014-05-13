@@ -5,7 +5,8 @@
     events : {
       'click .option': 'handleItemChoice',
       'click .other' : 'handleOtherSelection',
-      'click .send' : 'sendOptionInputInfo'
+      'click .send' : 'sendOptionInputInfo',
+      'click .show-options-values' : 'showOptionsValues'
     },
 
     initialize: function(options) {
@@ -14,8 +15,8 @@
                            category: this.options.category,
                            value: null };
 
-      if (this.answerModel.choice_option == null){
-        var category = $(this.el).find('.optins-values').data("option");
+      if (this.answerModel.category == null){
+        var category = $(this.el).find('.options-values').data("category");
         this.answerModel.category = category;
       }
 
@@ -38,12 +39,27 @@
     },
 
     handleOtherSelection : function(e){
-      var optionsList = $('ul.options-values');
+      var optionsList = $(e.currentTarget).closest('ul.options-values');
+
       $(optionsList).transition({ opacity: 0 }, _.bind(function(){
         $(optionsList).hide();
-        $(this.el).find('a.other').hide();
-        $(this.el).find('.other-option').transition({opacity: 0, duration: 1}).show()
+        $(this.el).closest('a.other').hide();
+        var optionInput = $(this.el).find('.other-option');
+
+        optionInput.transition({opacity: 0, duration: 1}).show()
         .transition({y: 150, duration: 1})
+        .transition({opacity: 1, y: 0, duration: 300});
+      }, this));
+    },
+
+    showOptionsValues : function(e){      
+      var optionsLink = $(e.currentTarget).parent('.other-option');
+      var optionsList = $(e.currentTarget).parent().parent().find('.options-values');
+
+      $(optionsList).transition({ opacity: 0 }, _.bind(function(){
+        $(optionsLink).hide();
+        $(optionsList).transition({opacity: 0, duration: 1}).show()
+        .transition({y: 120, duration: 1})
         .transition({opacity: 1, y: 0, duration: 300});
       }, this));
     },

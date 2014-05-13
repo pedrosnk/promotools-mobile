@@ -35,7 +35,7 @@
 
       this.headerView.render();
       this.formView.render();
-
+      $(this.headerView.el).hide();
       this.sliderPresentationView();
     },
 

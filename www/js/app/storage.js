@@ -4,8 +4,8 @@ window.App.storage = {
 
   TABLE_NAME: "SURVEY",
 
-  openDB: function(){
-    return window.openDatabase("promotools-survey", "1.0", "Promotools DB", 1000000);
+  openDB: function(){    
+    return window.sqlitePlugin.openDatabase("promotools-survey", "1.0", "Promotools DB", 1000000);
   },
 
   createDB: function() {
@@ -45,12 +45,12 @@ window.App.storage = {
     var queryInsert = "INSERT INTO " + this.TABLE_NAME +
     " (survey_response, confirmed_sended, created_at) " +
     "VALUES ('"+ JSON.stringify(data) +"', "+  App.network.status.ERROR +", "+ new Date().getTime() +") ";
-
+    //var ctx = this;
     console.log("QUERY = " + queryInsert);
     this.openDB().transaction(function(tx){
       console.log("[DB] SAVING survey");
       tx.executeSql(queryInsert);
-    }, this.error, this.success);
+    }, _.bind(this.error), _.bind(this.success, this));
   },
 
   updateStatus: function(data, status) {
