@@ -21,7 +21,7 @@
     <link rel="icon" href="favicon-128.png" sizes="128x128">
 </head>
 
-<body onload="onLoad()">
+<body>
     <div class="l-survey" id="survey-view">
         <div class="l-header" id="header-view">
             <div class="container">
@@ -291,7 +291,11 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js">
     </script>
 
-    <script src="js/vendors/jquery-1.9.1.min.js" type="text/javascript">
+    <script type="text/javascript" src="js/vendors/lawnchair.js"></script>
+    <script type="text/javascript" src="js/vendors/Lawnchair-sqlitePlugin.js"></script>    
+    <script type="text/javascript" src="js/vendors/SQLitePlugin.js"></script>
+
+    <script src="js/vendors/jquery-1.11.1.min.js" charset="utf-8" type="text/javascript">
     </script>
 
     <script src="js/vendors/jquery.transit.js" type="text/javascript">
@@ -343,12 +347,9 @@
 
     <script type="text/javascript" charset="utf-8">        
 
-        function onLoad() {
-            console.log("loading...");
-            document.addEventListener("deviceready", onDeviceReady, false);
-        }
+      
 
-
+       document.addEventListener("deviceready", onDeviceReady, false);     
         function onDeviceReady() {            
             window.App.init();
 
@@ -363,6 +364,7 @@
                 }
             });
         }
+   
     </script>
 </body>
 
